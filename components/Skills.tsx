@@ -1,12 +1,13 @@
 "use client";
 
-import { Code2, Database, Wrench, Globe } from "lucide-react";
+import { Code2, Database, Wrench, Globe, Sparkles, Languages, Lightbulb, Users, Clock, Target, TrendingUp, Briefcase } from "lucide-react";
 
 export default function Skills() {
   const skillCategories = [
     {
       title: "Frontend",
-      icon: <Code2 className="w-8 h-8" />,
+      icon: Code2,
+      color: "from-pink-500 to-rose-500",
       skills: [
         "HTML/CSS",
         "Bootstrap",
@@ -22,7 +23,8 @@ export default function Skills() {
     },
     {
       title: "Backend",
-      icon: <Globe className="w-8 h-8" />,
+      icon: Globe,
+      color: "from-orange-500 to-amber-500",
       skills: [
         "ASP.NET MVC",
         "ASP.NET Core",
@@ -36,12 +38,14 @@ export default function Skills() {
     },
     {
       title: "Database",
-      icon: <Database className="w-8 h-8" />,
+      icon: Database,
+      color: "from-pink-500 to-orange-500",
       skills: ["SQL Server", "MySQL", "PostgreSQL", "Oracle", "DBeaver"],
     },
     {
       title: "Tools & Others",
-      icon: <Wrench className="w-8 h-8" />,
+      icon: Wrench,
+      color: "from-rose-500 to-pink-500",
       skills: [
         "Git",
         "GitLab",
@@ -54,52 +58,108 @@ export default function Skills() {
     },
   ];
 
+  const softSkills = [
+    { name: "Problem Solving", icon: Lightbulb },
+    { name: "Adaptability", icon: TrendingUp },
+    { name: "Time Management", icon: Clock },
+    { name: "Teamwork", icon: Users },
+    { name: "Research", icon: Target },
+  ];
+
   return (
-    <section id="skills" className="py-20 px-4 bg-white dark:bg-slate-800">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+    <section id="skills" className="py-20 px-4 bg-gradient-to-br from-pink-50 to-orange-50 dark:from-slate-900 dark:to-slate-800 relative overflow-hidden">
+      {/* Decorative Elements */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-pink-300/20 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-300/20 rounded-full blur-3xl"></div>
+
+      <div className="max-w-6xl mx-auto relative z-10">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 bg-gradient-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent">
           Skills & Technologies
         </h2>
+        <div className="flex justify-center mb-12">
+          <Sparkles className="w-8 h-8 text-pink-500" />
+        </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {skillCategories.map((category) => (
-            <div
-              key={category.title}
-              className="bg-slate-50 dark:bg-slate-700 p-6 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="text-blue-600 dark:text-blue-400">{category.icon}</div>
-                <h3 className="text-xl font-semibold text-slate-800 dark:text-slate-200">
-                  {category.title}
+        <div className="grid lg:grid-cols-2 gap-8">
+          {/* Left Column - Technical Skills */}
+          <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-lg p-8 rounded-2xl shadow-xl border border-pink-200 dark:border-pink-900/30">
+            <h3 className="text-2xl font-bold text-slate-800 dark:text-pink-200 mb-6">Technical Skills</h3>
+
+            <div className="space-y-6">
+              {skillCategories.map((category) => {
+                const Icon = category.icon;
+                return (
+                  <div key={category.title}>
+                    <div className="flex items-center gap-2 mb-3">
+                      <div className={`p-2 bg-gradient-to-br ${category.color} rounded-lg`}>
+                        <Icon className="w-4 h-4 text-white" />
+                      </div>
+                      <h4 className="text-base font-bold text-slate-700 dark:text-pink-300">
+                        {category.title}
+                      </h4>
+                    </div>
+
+                    <div className="flex flex-wrap gap-2 ml-10">
+                      {category.skills.map((skill) => (
+                        <span
+                          key={skill}
+                          className="px-3 py-1 bg-pink-100 dark:bg-pink-900/30 text-slate-700 dark:text-pink-200 rounded-md text-sm font-medium"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Right Column - Soft Skills & Languages */}
+          <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-lg p-8 rounded-2xl shadow-xl border border-pink-200 dark:border-pink-900/30">
+            {/* Soft Skills */}
+            <div className="mb-8">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="p-2 bg-gradient-to-br from-pink-500 to-orange-500 rounded-lg">
+                  <Briefcase className="w-4 h-4 text-white" />
+                </div>
+                <h3 className="text-base font-bold text-slate-700 dark:text-pink-300">
+                  Soft Skills
                 </h3>
               </div>
 
-              <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill) => (
+              <div className="flex flex-wrap gap-2 ml-10">
+                {softSkills.map(({ name, icon: Icon }) => (
                   <span
-                    key={skill}
-                    className="px-3 py-1 bg-white dark:bg-slate-600 text-slate-700 dark:text-slate-300 rounded-md text-sm font-medium border border-slate-200 dark:border-slate-500"
+                    key={name}
+                    className="inline-flex items-center gap-1.5 px-3 py-1 bg-pink-100 dark:bg-pink-900/30 text-slate-700 dark:text-pink-200 rounded-md text-sm font-medium"
                   >
-                    {skill}
+                    <Icon className="w-3.5 h-3.5" />
+                    {name}
                   </span>
                 ))}
               </div>
             </div>
-          ))}
-        </div>
 
-        <div className="mt-12 text-center">
-          <h3 className="text-2xl font-semibold mb-6 text-slate-800 dark:text-slate-200">
-            Languages
-          </h3>
-          <div className="flex justify-center gap-6">
-            <div className="bg-blue-100 dark:bg-blue-900 px-6 py-3 rounded-lg">
-              <p className="font-semibold text-blue-800 dark:text-blue-200">Thai</p>
-              <p className="text-sm text-blue-600 dark:text-blue-400">Native</p>
-            </div>
-            <div className="bg-purple-100 dark:bg-purple-900 px-6 py-3 rounded-lg">
-              <p className="font-semibold text-purple-800 dark:text-purple-200">English</p>
-              <p className="text-sm text-purple-600 dark:text-purple-400">Basic</p>
+            {/* Languages */}
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <div className="p-2 bg-gradient-to-br from-orange-500 to-pink-500 rounded-lg">
+                  <Languages className="w-4 h-4 text-white" />
+                </div>
+                <h3 className="text-base font-bold text-slate-700 dark:text-pink-300">
+                  Languages
+                </h3>
+              </div>
+
+              <div className="flex flex-wrap gap-2 ml-10">
+                <span className="px-3 py-1 bg-pink-100 dark:bg-pink-900/30 text-slate-700 dark:text-pink-200 rounded-md text-sm font-medium">
+                  Thai (Native)
+                </span>
+                <span className="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-slate-700 dark:text-orange-200 rounded-md text-sm font-medium">
+                  English (Basic)
+                </span>
+              </div>
             </div>
           </div>
         </div>
