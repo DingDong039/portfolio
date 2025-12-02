@@ -57,9 +57,6 @@ export default function Contact() {
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 bg-gradient-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent">
           Get In Touch
         </h2>
-        <div className="flex justify-center mb-12">
-          <Sparkles className="w-8 h-8 text-pink-500" />
-        </div>
 
         <div className="grid md:grid-cols-2 gap-8">
           <div className="space-y-8">

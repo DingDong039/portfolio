@@ -53,9 +53,6 @@ export default function Projects() {
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 bg-gradient-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent">
           Experience & Projects
         </h2>
-        <div className="flex justify-center mb-12">
-          <Sparkles className="w-8 h-8 text-pink-500" />
-        </div>
 
         <div className="mb-16">
           <div className="flex items-center justify-center gap-3 mb-8">

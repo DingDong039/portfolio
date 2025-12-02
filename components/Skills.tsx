@@ -15,10 +15,9 @@ export default function Skills() {
         "JavaScript",
         "TypeScript",
         "jQuery",
-        "Ajax",
         "React",
         "Angular",
-        "Vue.js",
+        "Vue 2",
       ],
     },
     {
@@ -28,11 +27,9 @@ export default function Skills() {
       skills: [
         "ASP.NET MVC",
         "ASP.NET Core",
-        "C#",
-        "Java 8+",
-        "Spring Boot",
+        "Java Spring Boot",
         "Node.js",
-        "PHP",
+        "PHP Yii2",
         "VBScript",
       ],
     },
@@ -40,7 +37,7 @@ export default function Skills() {
       title: "Database",
       icon: Database,
       color: "from-pink-500 to-orange-500",
-      skills: ["SQL Server", "MySQL", "PostgreSQL", "Oracle", "DBeaver"],
+      skills: ["SQL Server", "MySQL", "PostgreSQL", "Oracle"],
     },
     {
       title: "Tools & Others",
@@ -50,10 +47,9 @@ export default function Skills() {
         "Git",
         "GitLab",
         "Docker",
-        "XML/XSLT",
-        "Swagger",
         "Postman",
         "ClickUp",
+        "DBeaver"
       ],
     },
   ];
@@ -76,9 +72,6 @@ export default function Skills() {
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 bg-gradient-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent">
           Skills & Technologies
         </h2>
-        <div className="flex justify-center mb-12">
-          <Sparkles className="w-8 h-8 text-pink-500" />
-        </div>
 
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Left Column - Technical Skills */}
