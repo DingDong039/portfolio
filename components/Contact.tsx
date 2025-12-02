@@ -1,7 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, Phone, MapPin, Github, Linkedin, Send, Loader2, Sparkles, MessageCircle } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Github,
+  Linkedin,
+  Send,
+  Loader2,
+  MessageCircle,
+  X,
+} from "lucide-react";
 import Image from "next/image";
 
 export default function Contact() {
@@ -11,7 +21,10 @@ export default function Contact() {
     subject: "",
     message: "",
   });
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
+  const [isQRModalOpen, setIsQRModalOpen] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -35,12 +48,15 @@ export default function Contact() {
         setTimeout(() => setStatus("idle"), 5000);
       }
     } catch (error) {
+      console.error("Error sending email:", error);
       setStatus("error");
       setTimeout(() => setStatus("idle"), 5000);
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -48,7 +64,10 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 px-4 bg-white dark:bg-slate-900 relative overflow-hidden">
+    <section
+      id="contact"
+      className="py-20 px-4 bg-white dark:bg-slate-900 relative overflow-hidden"
+    >
       {/* Decorative Elements */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-pink-300/10 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-orange-300/10 rounded-full blur-3xl"></div>
@@ -76,7 +95,9 @@ export default function Contact() {
                     <Mail className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <p className="text-xs text-pink-600 dark:text-pink-400 font-medium">Email</p>
+                    <p className="text-xs text-pink-600 dark:text-pink-400 font-medium">
+                      Email
+                    </p>
                     <a
                       href="mailto:watchara.ddev@gmail.com"
                       className="text-slate-800 dark:text-pink-100 hover:text-pink-600 dark:hover:text-pink-300 font-semibold"
@@ -91,7 +112,9 @@ export default function Contact() {
                     <Phone className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <p className="text-xs text-orange-600 dark:text-orange-400 font-medium">Phone</p>
+                    <p className="text-xs text-orange-600 dark:text-orange-400 font-medium">
+                      Phone
+                    </p>
                     <a
                       href="tel:+66657019971"
                       className="text-slate-800 dark:text-orange-100 hover:text-orange-600 dark:hover:text-orange-300 font-semibold"
@@ -106,8 +129,12 @@ export default function Contact() {
                     <MapPin className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <p className="text-xs text-pink-600 dark:text-pink-400 font-medium">Location</p>
-                    <p className="text-slate-800 dark:text-pink-100 font-semibold">Chatuchak, Bangkok, Thailand</p>
+                    <p className="text-xs text-pink-600 dark:text-pink-400 font-medium">
+                      Location
+                    </p>
+                    <p className="text-slate-800 dark:text-pink-100 font-semibold">
+                      Chatuchak, Bangkok, Thailand
+                    </p>
                   </div>
                 </div>
               </div>
@@ -141,7 +168,10 @@ export default function Contact() {
               <h4 className="text-lg font-bold mb-4 text-slate-800 dark:text-pink-200">
                 Line QR Code
               </h4>
-              <div className="bg-gradient-to-br from-pink-100 to-orange-100 dark:from-pink-950/30 dark:to-orange-950/30 p-4 rounded-xl inline-block border-2 border-pink-300 dark:border-pink-700">
+              <div
+                onClick={() => setIsQRModalOpen(true)}
+                className="bg-gradient-to-br from-pink-100 to-orange-100 dark:from-pink-950/30 dark:to-orange-950/30 p-4 rounded-xl inline-block border-2 border-pink-300 dark:border-pink-700 cursor-pointer hover:shadow-lg hover:scale-105 transition-all"
+              >
                 <Image
                   src="/LineQR.jpg"
                   alt="Line QR Code"
@@ -150,6 +180,9 @@ export default function Contact() {
                   className="rounded-lg"
                 />
               </div>
+              <p className="text-xs text-slate-600 dark:text-pink-300 mt-2">
+                Click to enlarge
+              </p>
             </div>
           </div>
 
@@ -165,7 +198,10 @@ export default function Contact() {
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label htmlFor="name" className="block text-sm font-semibold text-slate-700 dark:text-pink-300 mb-2">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-semibold text-slate-700 dark:text-pink-300 mb-2"
+                >
                   Name
                 </label>
                 <input
@@ -180,7 +216,10 @@ export default function Contact() {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-slate-700 dark:text-pink-300 mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-semibold text-slate-700 dark:text-pink-300 mb-2"
+                >
                   Email
                 </label>
                 <input
@@ -195,7 +234,10 @@ export default function Contact() {
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-sm font-semibold text-slate-700 dark:text-pink-300 mb-2">
+                <label
+                  htmlFor="subject"
+                  className="block text-sm font-semibold text-slate-700 dark:text-pink-300 mb-2"
+                >
                   Subject
                 </label>
                 <input
@@ -210,7 +252,10 @@ export default function Contact() {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-semibold text-slate-700 dark:text-pink-300 mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-semibold text-slate-700 dark:text-pink-300 mb-2"
+                >
                   Message
                 </label>
                 <textarea
@@ -261,6 +306,39 @@ export default function Contact() {
           </div>
         </div>
       </div>
+
+      {/* QR Code Modal */}
+      {isQRModalOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
+          onClick={() => setIsQRModalOpen(false)}
+        >
+          <div
+            className="relative max-w-2xl w-full"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="relative bg-gradient-to-br from-pink-100 to-orange-100 dark:from-pink-950/50 dark:to-orange-950/50 p-8 rounded-2xl border-4 border-pink-300 dark:border-pink-700">
+              <button
+                onClick={() => setIsQRModalOpen(false)}
+                className="absolute -top-4 -right-4 p-2 bg-gradient-to-br from-pink-500 to-orange-500 cursor-pointer hover:from-pink-600 hover:to-orange-600 rounded-full shadow-xl transition-all hover:scale-110 z-10"
+                aria-label="Close modal"
+              >
+                <X className="w-6 h-6 text-white" />
+              </button>
+              <Image
+                src="/LineQR.jpg"
+                alt="Line QR Code - Full Size"
+                width={600}
+                height={600}
+                className="rounded-xl w-full h-auto"
+              />
+            </div>
+            <p className="text-white text-center mt-4 text-sm">
+              Scan to add me on Line
+            </p>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
