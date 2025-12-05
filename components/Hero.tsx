@@ -18,11 +18,11 @@ export default function Hero() {
       {/* Three.js 3D Background */}
       <ThreeBackground />
 
-      <div className="max-w-5xl mx-auto text-center relative z-10 space-y-8">
+      <div className="max-w-5xl mx-auto text-center relative z-10 pointer-events-auto space-y-8">
         {/* Profile Image */}
         <div className="relative w-40 h-40 mx-auto group">
-          <div className="absolute inset-0 bg-gradient-to-r from-pink-400 to-orange-400 rounded-full blur-xl opacity-60 group-hover:opacity-80 transition-opacity animate-pulse"></div>
-          <div className="relative w-40 h-40 rounded-full overflow-hidden border-4 border-white/80 dark:border-pink-200/80 shadow-2xl transform group-hover:scale-105 transition-transform duration-300">
+          <div className="absolute inset-0 from-orange-500 via-red-500 to-pink-600 rounded-full blur-xl opacity-70 group-hover:opacity-90 transition-opacity animate-pulse"></div>
+          <div className="relative w-40 h-40 rounded-full overflow-hidden border-4 border-orange-400/90 shadow-2xl shadow-orange-500/50 transform group-hover:scale-105 transition-transform duration-300">
             <Image
               src="/profile.jpg"
               alt="Watchara Tongyodpun"
@@ -35,7 +35,7 @@ export default function Hero() {
 
         {/* Name */}
         <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold">
-          <span className="bg-gradient-to-r from-pink-500 via-rose-500 to-orange-500 bg-clip-text text-transparent animate-gradient">
+          <span className="from-orange-400 via-red-500 to-pink-500 bg-clip-text text-transparent animate-gradient drop-shadow-[0_0_30px_rgba(255,170,68,0.5)]">
             Watchara Tongyodpun
           </span>
         </h1>
@@ -47,15 +47,15 @@ export default function Hero() {
 
         {/* Tagline */}
         <div className="max-w-2xl mx-auto space-y-2 px-4">
-          <p className="text-lg md:text-xl text-white/80 leading-relaxed">
+          <p className="text-lg md:text-xl text-white/90 leading-relaxed">
             Crafting
-            <span className="text-pink-400 font-bold"> scalable</span> and
-            <span className="text-orange-400 font-bold"> efficient</span> solutions
+            <span className="text-orange-400 font-bold drop-shadow-[0_0_10px_rgba(255,170,68,0.8)]"> scalable</span> and
+            <span className="text-red-400 font-bold drop-shadow-[0_0_10px_rgba(255,102,68,0.8)]"> efficient</span> solutions
           </p>
-          <p className="text-base md:text-lg text-white/70">
+          <p className="text-base md:text-lg text-white/80">
             Passionate about
-            <span className="text-pink-400 font-semibold"> innovation</span> and
-            <span className="text-orange-400 font-semibold"> continuous learning</span>
+            <span className="text-orange-400 font-semibold drop-shadow-[0_0_8px_rgba(255,170,68,0.6)]"> innovation</span> and
+            <span className="text-pink-400 font-semibold drop-shadow-[0_0_8px_rgba(255,51,102,0.6)]"> continuous learning</span>
           </p>
         </div>
 
@@ -65,7 +65,7 @@ export default function Hero() {
             href="https://github.com/DingDong039"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-3 bg-white/10 hover:bg-pink-500 text-white rounded-lg backdrop-blur-sm transition-all duration-300 hover:scale-110"
+            className="p-3 bg-white/10 hover:bg-orange-500 text-white rounded-lg backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-orange-500/50 border border-white/20 hover:border-orange-400/50"
           >
             <Github className="w-5 h-5" />
           </a>
@@ -73,13 +73,13 @@ export default function Hero() {
             href="https://www.linkedin.com/in/watchara-tongyodpun-803866313"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-3 bg-white/10 hover:bg-orange-500 text-white rounded-lg backdrop-blur-sm transition-all duration-300 hover:scale-110"
+            className="p-3 bg-white/10 hover:bg-red-500 text-white rounded-lg backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-red-500/50 border border-white/20 hover:border-red-400/50"
           >
             <Linkedin className="w-5 h-5" />
           </a>
           <button
             onClick={scrollToContact}
-            className="p-3 bg-white/10 hover:bg-pink-500 text-white rounded-lg backdrop-blur-sm transition-all duration-300 hover:scale-110"
+            className="cursor-pointer p-3 bg-white/10 hover:bg-pink-500 text-white rounded-lg backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-pink-500/50 border border-white/20 hover:border-pink-400/50"
           >
             <Mail className="w-5 h-5" />
           </button>
@@ -89,14 +89,14 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row justify-center gap-3">
           <button
             onClick={scrollToContact}
-            className="px-8 py-3 bg-gradient-to-r from-pink-500 to-orange-500 text-white rounded-lg font-semibold hover:shadow-2xl hover:shadow-pink-500/50 transition-all duration-300 hover:scale-105"
+            className="px-8 py-3 from-orange-500 via-red-500 to-pink-500 text-white rounded-lg font-semibold hover:shadow-2xl hover:shadow-orange-500/60 transition-all duration-300 hover:scale-105 border border-orange-400/30"
           >
             Get In Touch
           </button>
           <a
             href="/CV_WATCHARA_TONGYODPUN.pdf"
             download
-            className="px-8 py-3 bg-white/10 hover:bg-white/20 text-white rounded-lg font-semibold border border-white/30 hover:border-white/50 backdrop-blur-sm transition-all duration-300 hover:scale-105"
+            className="px-8 py-3 bg-white/10 hover:bg-white/20 text-white rounded-lg font-semibold border border-orange-400/40 hover:border-orange-400/70 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-orange-500/30"
           >
             Download CV
           </a>

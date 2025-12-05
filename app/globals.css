@@ -1,8 +1,24 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Cosmic Black Hole Theme */
+  --background: #0a0015;
+  --foreground: #ffffff;
+
+  /* Accretion Disk Colors */
+  --accent-hot: #ffaa44;      /* Hot orange */
+  --accent-warm: #ff6633;     /* Warm red-orange */
+  --accent-cool: #ff3366;     /* Cool pink-red */
+  --accent-deep: #cc1155;     /* Deep magenta */
+
+  /* Event Horizon Colors */
+  --void-dark: #050008;
+  --void-darker: #000000;
+
+  /* Glow Effects */
+  --glow-orange: rgba(255, 170, 68, 0.5);
+  --glow-pink: rgba(255, 51, 102, 0.5);
+  --glow-purple: rgba(136, 68, 170, 0.5);
 }
 
 @theme inline {
@@ -12,15 +28,27 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  background: var(--background);
+  background: radial-gradient(ellipse at top, var(--background) 0%, var(--void-dark) 50%, var(--void-darker) 100%);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Cosmic scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--void-darker);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--accent-hot) 0%, var(--accent-cool) 100%);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--accent-warm) 0%, var(--accent-deep) 100%);
 }
