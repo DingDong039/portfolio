@@ -1,162 +1,138 @@
-# Portfolio Website - Watchara Tongyodpun
+# Portfolio — Watchara Tongyodpun
 
-Modern portfolio website built with Next.js 15, TypeScript, and Tailwind CSS.
+Personal portfolio of Watchara Tongyodpun, a full-stack developer. Built with Next.js 16, React 19, and TypeScript. The site itself is the portfolio piece: an **Engineering Dossier** design that reads like a technical document — ruled structure, marginalia, mono chrome, warm paper ground, one deep-teal signal.
 
 ## Features
 
-- 🎨 Modern and responsive design
-- 🌓 Dark mode support
-- 📱 Mobile-friendly
-- 📧 Contact form with email functionality
-- 🐳 Docker support
-- ☁️ Vercel deployment ready
+- 📄 Engineering Dossier design (ruled structure, marginalia, mono chrome)
+- 🌓 User-controlled light/dark theme (persisted, no flash on load)
+- 📱 Responsive (mobile-first, tested desktop + mobile)
+- ♿ Accessible (semantic landmarks, keyboard nav, focus-trapped mobile menu, reduced-motion support, WCAG AA contrast targets)
+- 📧 Contact form with email via Resend
+- ⚡ Static generation (no WebGL, faint ruled-grid atmosphere)
+- 🐳 Docker support, ☁️ Vercel-ready
 
 ## Tech Stack
 
-- **Framework:** Next.js 15
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS
+- **Framework:** Next.js 16 (App Router, Turbopack)
+- **Runtime:** React 19, TypeScript (strict)
+- **Styling:** Tailwind CSS v4 (CSS-first `@theme` config)
+- **Fonts:** Archivo (display), Hanken Grotesk (body), JetBrains Mono (chrome), Kanit (Thai)
 - **Email:** Resend
 - **Icons:** Lucide React
-- **Deployment:** Vercel / Docker
+- **Analytics:** Vercel Analytics
 
 ## Getting Started
 
 ### Prerequisites
 
 - Node.js 20+
-- npm or yarn
+- npm
 
 ### Installation
 
 1. Clone the repository:
-```bash
-git clone <your-repo-url>
-cd portfolio
-```
+   ```bash
+   git clone <your-repo-url>
+   cd portfolio
+   ```
 
 2. Install dependencies:
-```bash
-npm install
-```
+   ```bash
+   npm install
+   ```
 
-3. Create `.env` file:
-```bash
-cp .env.example .env
-```
+3. Create `.env` file and add your Resend API key:
+   ```bash
+   cp .env.example .env
+   ```
+   ```
+   RESEND_API_KEY=your_api_key_here
+   CONTACT_EMAIL=recipient_email
+   ```
 
-4. Add your Resend API key to `.env`:
-```
-RESEND_API_KEY=your_api_key_here
-```
-
-5. Add your profile image:
-- Place your profile image in `/public/profile.jpg`
-- Add your Line QR code image in `/public`
+4. Add assets to `/public` (already present): `profile.jpg`, `LineQR.jpg`, `CV_WATCHARA_TONGYODPUN.pdf`.
 
 ### Development
-
-Run the development server:
 
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:3000](http://localhost:3000).
 
 ### Build
-
-Build for production:
 
 ```bash
 npm run build
 npm start
 ```
 
-## Docker Deployment
+Type-check without building: `npx tsc --noEmit`.
 
-### Build Docker image:
+> **Note:** `npm run lint` currently throws a toolchain error (`Converting circular structure to JSON`) from the eslint/eslintrc config, not from project code. Use `npm run build` or `npx tsc --noEmit` to verify changes.
+
+## Docker Deployment
 
 ```bash
 docker build -t portfolio .
-```
-
-### Run with Docker:
-
-```bash
 docker run -p 3000:3000 -e RESEND_API_KEY=your_api_key portfolio
 ```
 
-### Or use Docker Compose:
+Or with Docker Compose (add `RESEND_API_KEY` to `.env`):
 
 ```bash
-# Create .env file with RESEND_API_KEY
 docker-compose up -d
 ```
 
 ## Vercel Deployment
 
-1. Push your code to GitHub
-2. Import project to Vercel
-3. Add environment variable:
-   - `RESEND_API_KEY`: Your Resend API key
-4. Deploy
-
-### Or use Vercel CLI:
-
-```bash
-npm i -g vercel
-vercel
-```
-
-## Email Setup (Resend)
-
-1. Sign up at [resend.com](https://resend.com)
-2. Get your API key from [API Keys](https://resend.com/api-keys)
-3. Add the API key to your `.env` file
-4. Update the email in `/app/api/contact/route.ts` to your email
+1. Push to GitHub, import into Vercel
+2. Add `RESEND_API_KEY` environment variable
+3. Deploy (or use `vercel` CLI)
 
 ## Customization
 
-### Update Personal Information
+Content is data-driven. Edit the arrays at the top of each component:
 
-Edit the following files to customize with your information:
+| To change | Edit |
+|---|---|
+| Identity, abstract, key facts | `components/Hero.tsx` |
+| Work experience, capstone | `components/Work.tsx` |
+| About narrative, readouts (education/certs/languages) | `components/About.tsx` |
+| Skill clusters | `components/Skills.tsx` |
+| Contact channels, social links, QR modal | `components/Contact.tsx` |
+| Email recipient | `app/api/contact/route.ts` |
 
-- `/components/Hero.tsx` - Name, title, tagline
-- `/components/About.tsx` - About section, education, certifications
-- `/components/Projects.tsx` - Work experience and projects
-- `/components/Skills.tsx` - Skills and technologies
-- `/components/Contact.tsx` - Contact information
-- `/app/api/contact/route.ts` - Email recipient
-
-### Update Social Links
-
-Update social media links in:
-- `/components/Hero.tsx`
-- `/components/Contact.tsx`
+Design tokens (color, type, spacing, z-index) live in `app/globals.css`. See `DESIGN.md` for the full system.
 
 ## Project Structure
 
 ```
 portfolio/
 ├── app/
-│   ├── api/
-│   │   └── contact/
-│   │       └── route.ts       # Email API endpoint
-│   ├── globals.css            # Global styles
-│   ├── layout.tsx             # Root layout
-│   └── page.tsx               # Home page
+│   ├── api/contact/route.ts   # Contact form (Resend)
+│   ├── globals.css            # Design tokens + primitives (Tailwind v4)
+│   ├── layout.tsx             # Root layout, fonts, theme pre-paint script
+│   └── page.tsx               # Single static page
 ├── components/
-│   ├── Hero.tsx               # Hero section
-│   ├── About.tsx              # About section
-│   ├── Projects.tsx           # Projects/Experience section
-│   ├── Skills.tsx             # Skills section
-│   └── Contact.tsx            # Contact section
-├── public/                    # Static files
-├── Dockerfile                 # Docker configuration
-├── docker-compose.yml         # Docker Compose configuration
-├── vercel.json               # Vercel configuration
-└── next.config.ts            # Next.js configuration
+│   ├── Navigation.tsx         # Sticky meta rail nav + theme toggle + mobile drawer
+│   ├── Hero.tsx               # Title block + abstract + key facts
+│   ├── Work.tsx               # Marginalia timeline accordion + capstone
+│   ├── About.tsx              # Narrative + readout panels
+│   ├── Skills.tsx             # Catalogued inventory
+│   ├── Contact.tsx            # Channels + form + Line QR modal
+│   ├── Footer.tsx             # Signature + back to top
+│   ├── Reveal.tsx             # IntersectionObserver entrance wrapper
+│   ├── ScrollProgress.tsx     # Scroll progress bar
+│   └── ThemeToggle.tsx        # Light/dark switch (localStorage)
+├── public/                    # profile.jpg, LineQR.jpg, CV PDF, svgs
+├── PRODUCT.md                 # Product/brand context
+├── DESIGN.md                  # Design system spec
+├── AGENTS.md                  # Agent guidance
+├── CLAUDE.md                  # -> AGENTS.md
+├── Dockerfile                 # Docker (standalone output, non-root)
+└── docker-compose.yml
 ```
 
 ## License
@@ -165,6 +141,4 @@ MIT
 
 ## Author
 
-Watchara Tongyodpun
-- Email: watchara.ddev@gmail.com
-- Location: Bangkok, Thailand
+Watchara Tongyodpun — watchara.ddev@gmail.com — Bangkok, Thailand
