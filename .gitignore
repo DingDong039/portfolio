@@ -46,4 +46,8 @@ next-env.d.ts
 
 # AI assistant
 .claude/**
+.zcode/**
+
+# local package tarballs
+*.tgz
 
