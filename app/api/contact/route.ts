@@ -1,7 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Lazily instantiated so module evaluation (e.g. during build page-data
+// collection) doesn't throw when the API key env var is absent.
+function getResend() {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    throw new Error("RESEND_API_KEY is not configured");
+  }
+  return new Resend(apiKey);
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -16,19 +24,28 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Send email using Resend
+    // Send email using Resend. Plain-text body: user input (name/email/subject/
+    // message) is interpolated into the message, so a `text` field is used
+    // instead of `html` to remove any HTML/markup injection surface — Resend
+    // treats the value as literal text, never parsed markup.
+    const resend = getResend();
     const data = await resend.emails.send({
       from: "Portfolio Contact <onboarding@resend.dev>",
       to: process.env.CONTACT_EMAIL!,
       subject: `Portfolio Contact: ${subject}`,
-      html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Subject:</strong> ${subject}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message}</p>
-      `,
+      text: [
+        "New Contact Form Submission",
+        "============================",
+        "",
+        `Name:    ${name}`,
+        `Email:   ${email}`,
+        `Subject: ${subject}`,
+        "",
+        "Message:",
+        message,
+        "",
+        `Reply-To: ${email}`,
+      ].join("\n"),
       replyTo: email,
     });
 

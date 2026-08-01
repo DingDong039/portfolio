@@ -1,345 +1,262 @@
 "use client";
 
-import { useState } from "react";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Github,
-  Linkedin,
-  Send,
-  Loader2,
-  MessageCircle,
-  X,
-} from "lucide-react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { Mail, Phone, MapPin, Send, LoaderCircle, CircleCheck, CircleAlert } from "lucide-react";
 import Image from "next/image";
+import Reveal from "./Reveal";
+
+type Status = "idle" | "success" | "error";
+
+// Brand marks removed from lucide-react v1. Inline SVGs using Simple Icons
+// paths so they accept the same `className` as lucide's icon components.
+function Github({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+      <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1-.02-1.96-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 2.9-.39c.98 0 1.97.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.07.78 2.16 0 1.56-.01 2.82-.01 3.2 0 .31.21.68.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z" />
+    </svg>
+  );
+}
+
+function Linkedin({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+      <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.55V9h3.57v11.45ZM22.22 0H1.77C.8 0 0 .78 0 1.74v20.52C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.74V1.74C24 .78 23.2 0 22.22 0Z" />
+    </svg>
+  );
+}
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-  const [status, setStatus] = useState<
-    "idle" | "loading" | "success" | "error"
-  >("idle");
-  const [isQRModalOpen, setIsQRModalOpen] = useState(false);
+  const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
+  const [status, setStatus] = useState<Status>("idle");
+  const qrDialogRef = useRef<HTMLDialogElement>(null);
+  // dedicated busy flag for the async submit — guards re-entry across the await
+  // and drives the button's disabled state. Derived values are stale within a
+  // render tick, so a real state flag is what closes the double-submit window.
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  // handle to the status-clear timer. Re-submits replace it (so the previous
+  // run can't cut a fresh status short) and unmount clears it (no setState
+  // after the component is gone).
+  const statusTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const nameId = useId();
+  const emailId = useId();
+  const subjectId = useId();
+  const messageId = useId();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const openQR = () => qrDialogRef.current?.showModal();
+  const closeQR = () => qrDialogRef.current?.close();
+
+  // A click on the ::backdrop lands on the <dialog> itself (e.target === dialog),
+  // while clicks inside the panel have a different target — close only on backdrop.
+  useEffect(() => {
+    const dialog = qrDialogRef.current;
+    if (!dialog) return;
+    const onBackdropClick = (e: MouseEvent) => {
+      if (e.target === dialog) dialog.close();
+    };
+    dialog.addEventListener("click", onBackdropClick);
+    return () => dialog.removeEventListener("click", onBackdropClick);
+  }, []);
+
+  const handleSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus("loading");
-
+    if (isSubmitting) return; // leading guard — closes the re-entry window before the await
+    setIsSubmitting(true); // set the busy flag before the first await, reset in finally
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-
       if (response.ok) {
         setStatus("success");
         setFormData({ name: "", email: "", subject: "", message: "" });
-        setTimeout(() => setStatus("idle"), 5000);
       } else {
         setStatus("error");
-        setTimeout(() => setStatus("idle"), 5000);
       }
-    } catch (error) {
-      console.error("Error sending email:", error);
+    } catch {
       setStatus("error");
-      setTimeout(() => setStatus("idle"), 5000);
+    } finally {
+      setIsSubmitting(false);
     }
-  };
+    if (statusTimerRef.current) clearTimeout(statusTimerRef.current);
+    statusTimerRef.current = setTimeout(() => setStatus("idle"), 6000);
+  }, [isSubmitting, formData]);
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  // Cancel any pending status-clear when the section unmounts.
+  useEffect(() => {
+    return () => {
+      if (statusTimerRef.current) clearTimeout(statusTimerRef.current);
+    };
+  }, []);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
 
   return (
-    <section
-      id="contact"
-      className="py-20 px-4 from-slate-950 via-orange-950/10 to-slate-950 relative overflow-hidden"
-    >
-      {/* Decorative Elements - Event horizon glow */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl"></div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-red-600/5 rounded-full blur-3xl"></div>
-
-      <div className="max-w-6xl mx-auto relative z-10">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 bg-linear-to-r from-orange-400 via-red-500 to-pink-500 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(255,170,68,0.5)]">
-          Get In Touch
-        </h2>
-
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="space-y-8">
-            <div className="bg-slate-900/60 backdrop-blur-lg p-8 rounded-2xl shadow-xl border border-orange-500/30 hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-300">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 bg-linear-to-br from-orange-500 to-red-500 rounded-xl shadow-lg shadow-orange-500/50">
-                  <MessageCircle className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-white">
-                  Contact Information
-                </h3>
-              </div>
-
-              <div className="space-y-4">
-                <div className="flex items-center gap-4 p-4 bg-pink-950/20 rounded-xl border border-pink-500/30 hover:border-pink-400/50 hover:shadow-md hover:shadow-pink-500/20 transition-all">
-                  <div className="p-3 bg-linear-to-br from-pink-500 to-red-500 rounded-lg shadow-md shadow-pink-500/50">
-                    <Mail className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <p className="text-xs text-pink-400 font-medium">
-                      Email
-                    </p>
-                    <a
-                      href="mailto:watchara.ddev@gmail.com"
-                      className="text-white hover:text-pink-400 font-semibold transition-colors"
-                    >
-                      watchara.ddev@gmail.com
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4 p-4 bg-orange-950/20 rounded-xl border border-orange-500/30 hover:border-orange-400/50 hover:shadow-md hover:shadow-orange-500/20 transition-all">
-                  <div className="p-3 bg-linear-to-br from-orange-500 to-red-500 rounded-lg shadow-md shadow-orange-500/50">
-                    <Phone className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <p className="text-xs text-orange-400 font-medium">
-                      Phone
-                    </p>
-                    <a
-                      href="tel:+66657019971"
-                      className="text-white hover:text-orange-400 font-semibold transition-colors"
-                    >
-                      +66 65-701-9971
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4 p-4 bg-red-950/20 rounded-xl border border-red-500/30 hover:border-red-400/50 hover:shadow-md hover:shadow-red-500/20 transition-all">
-                  <div className="p-3 bg-linear-to-br from-red-500 to-pink-500 rounded-lg shadow-md shadow-red-500/50">
-                    <MapPin className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <p className="text-xs text-red-400 font-medium">
-                      Location
-                    </p>
-                    <p className="text-white font-semibold">
-                      Chatuchak, Bangkok, Thailand
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-slate-900/60 backdrop-blur-lg p-8 rounded-2xl shadow-xl border border-pink-500/30 hover:shadow-2xl hover:shadow-pink-500/20 transition-all duration-300">
-              <h4 className="text-lg font-bold mb-4 text-white">
-                Connect With Me
-              </h4>
-              <div className="flex gap-4">
-                <a
-                  href="https://github.com/DingDong039"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-4 bg-linear-to-br from-orange-600 to-red-600 text-white rounded-xl hover:from-orange-500 hover:to-red-500 transition-all shadow-lg shadow-orange-500/30 hover:shadow-xl hover:shadow-orange-500/50 transform hover:scale-105"
-                >
-                  <Github className="w-6 h-6" />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/watchara-tongyodpun-803866313"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-4 bg-linear-to-br from-pink-600 to-red-600 text-white rounded-xl hover:from-pink-500 hover:to-red-500 transition-all shadow-lg shadow-pink-500/30 hover:shadow-xl hover:shadow-pink-500/50 transform hover:scale-105"
-                >
-                  <Linkedin className="w-6 h-6" />
-                </a>
-              </div>
-            </div>
-
-            <div className="bg-slate-900/60 backdrop-blur-lg p-8 rounded-2xl shadow-xl border border-orange-500/30 hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-300">
-              <h4 className="text-lg font-bold mb-4 text-white">
-                Line QR Code
-              </h4>
-              <div
-                onClick={() => setIsQRModalOpen(true)}
-                className="bg-linear-to-br from-orange-950/40 to-pink-950/40 p-4 rounded-xl inline-block border-2 border-orange-500/40 cursor-pointer hover:border-orange-400/60 hover:shadow-lg hover:shadow-orange-500/30 hover:scale-105 transition-all"
-              >
-                <Image
-                  src="/LineQR.jpg"
-                  alt="Line QR Code"
-                  width={160}
-                  height={160}
-                  className="rounded-lg"
-                />
-              </div>
-              <p className="text-xs text-white/60 mt-2">
-                Click to enlarge
-              </p>
-            </div>
+    <section id="contact" className="relative px-5 sm:px-7 py-16 sm:py-24 scroll-mt-14">
+      <div className="mx-auto max-w-6xl relative z-[var(--z-content)]">
+        {/* section header */}
+        <Reveal className="grid grid-cols-1 md:grid-cols-[160px_1fr] gap-4 md:gap-8 items-baseline mb-12 border-b border-[var(--border)] pb-6">
+          <div className="section-index">
+            §4 · <b>contact</b>
           </div>
+          <h2 className="display-h2 text-[var(--fg)] max-w-2xl">Correspondence.</h2>
+        </Reveal>
 
-          <div className="bg-slate-900/60 backdrop-blur-lg p-8 rounded-2xl shadow-xl border border-pink-500/30 hover:shadow-2xl hover:shadow-pink-500/20 transition-all duration-300">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-3 bg-linear-to-br from-pink-500 to-red-500 rounded-xl shadow-lg shadow-pink-500/50">
-                <Send className="w-6 h-6 text-white" />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+          {/* left: channels */}
+          <Reveal as="div">
+            <p className="prose-body mb-6">
+              Hiring, collaborating, or just want to talk shop? Send a message, or reach me directly
+              on any of these.
+            </p>
+            <ul className="border-t border-[var(--border)]">
+              {[
+                { Icon: Mail, label: "Email", value: "watchara.ddev@gmail.com", href: "mailto:watchara.ddev@gmail.com" },
+                { Icon: Phone, label: "Phone", value: "+66 65-701-9971", href: "tel:+66657019971" },
+                { Icon: MapPin, label: "Location", value: "Chatuchak, Bangkok, Thailand" },
+                { Icon: Github, label: "GitHub", value: "/DingDong039", href: "https://github.com/DingDong039" },
+                { Icon: Linkedin, label: "LinkedIn", value: "/in/watchara-t", href: "https://www.linkedin.com/in/watchara-tongyodpun-803866313" },
+              ].map(({ Icon, label, value, href }) => {
+                const inner = (
+                  <li className="flex items-center justify-between gap-4 py-4 border-b border-[var(--border)]">
+                    <span className="flex items-center gap-3 min-w-0">
+                      <Icon className="h-[18px] w-[18px] text-[var(--fg-3)] shrink-0" />
+                      <span className="text-[var(--fg)] font-medium">{label}</span>
+                    </span>
+                    <span className="font-mono text-[0.82rem] text-[var(--fg-3)] truncate">{value}</span>
+                  </li>
+                );
+                return href ? (
+                  <a key={label} href={href} className="block transition-colors hover:text-[var(--accent)] [&_span]:transition-colors hover:[&_span]:text-[var(--accent)]">
+                    {inner}
+                  </a>
+                ) : (
+                  <div key={label}>{inner}</div>
+                );
+              })}
+            </ul>
+
+            <button
+              type="button"
+              onClick={openQR}
+              className="btn-outline mt-5"
+            >
+              <Image src="/LineQR.jpg" alt="" width={20} height={20} className="rounded-sm" />
+              Line QR
+            </button>
+          </Reveal>
+
+          {/* right: form — underlined fields, dossier style */}
+          <Reveal as="div" delay={100}>
+            <form onSubmit={handleSubmit} className="panel-rule p-6 sm:p-8" noValidate>
+              <div className="grid sm:grid-cols-2 gap-5">
+                <Field id={nameId} label="Name" name="name" value={formData.name} onChange={handleChange} required />
+                <Field id={emailId} label="Email" name="email" type="email" value={formData.email} onChange={handleChange} required />
               </div>
-              <h3 className="text-2xl font-bold text-white">
-                Send Me a Message
-              </h3>
-            </div>
+              <Field id={subjectId} label="Subject" name="subject" value={formData.subject} onChange={handleChange} required />
+              <Field id={messageId} label="Message" name="message" value={formData.message} onChange={handleChange} required as="textarea" rows={5} />
 
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-semibold text-white mb-2"
-                >
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border-2 border-pink-500/30 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-pink-400 bg-slate-800/50 text-white placeholder-white/40 transition-all"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-semibold text-white mb-2"
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border-2 border-pink-500/30 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-pink-400 bg-slate-800/50 text-white placeholder-white/40 transition-all"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="subject"
-                  className="block text-sm font-semibold text-white mb-2"
-                >
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border-2 border-pink-500/30 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-pink-400 bg-slate-800/50 text-white placeholder-white/40 transition-all"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-semibold text-white mb-2"
-                >
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={5}
-                  className="w-full px-4 py-3 border-2 border-pink-500/30 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-pink-400 bg-slate-800/50 text-white placeholder-white/40 transition-all resize-none"
-                />
-              </div>
-
-              <button
-                type="submit"
-                disabled={status === "loading"}
-                className="w-full px-6 py-4 bg-linear-to-r from-orange-500 via-red-500 to-pink-500 text-white rounded-xl font-bold hover:shadow-2xl hover:shadow-orange-500/50 hover:from-orange-400 hover:via-red-400 hover:to-pink-400 transition-all transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg border border-orange-400/30"
-              >
-                {status === "loading" ? (
+              <button type="submit" disabled={isSubmitting} className="btn-solid w-full disabled:opacity-60 disabled:cursor-not-allowed">
+                {isSubmitting ? (
                   <>
-                    <Loader2 className="w-5 h-5 animate-spin" />
-                    Sending...
+                    <LoaderCircle className="h-4 w-4 animate-spin" /> Sending…
                   </>
                 ) : (
                   <>
-                    <Send className="w-5 h-5" />
-                    Send Message
+                    <Send className="h-4 w-4" /> Send message
                   </>
                 )}
               </button>
 
+              {/* status — text + icon, not color alone */}
               {status === "success" && (
-                <div className="p-4 bg-green-950/40 border border-green-500/50 rounded-xl shadow-md shadow-green-500/20">
-                  <p className="text-green-400 text-center font-semibold">
-                    ✓ Message sent successfully!
-                  </p>
+                <div role="status" className="flex items-center gap-2.5 mt-4 p-3 border border-[var(--accent)]" style={{ background: "var(--accent-soft)" }}>
+                  <CircleCheck className="h-5 w-5 text-[var(--accent)] shrink-0" />
+                  <span className="text-[var(--fg)] font-medium text-[0.92rem]">Message sent. I'll get back to you shortly.</span>
                 </div>
               )}
-
               {status === "error" && (
-                <div className="p-4 bg-red-950/40 border border-red-500/50 rounded-xl shadow-md shadow-red-500/20">
-                  <p className="text-red-400 text-center font-semibold">
-                    ✗ Failed to send message. Please try again.
-                  </p>
+                <div role="alert" className="flex items-center gap-2.5 mt-4 p-3 border border-[var(--ember)]" style={{ background: "color-mix(in oklch, var(--ember) 12%, transparent)" }}>
+                  <CircleAlert className="h-5 w-5 shrink-0" style={{ color: "var(--ember)" }} />
+                  <span className="text-[var(--fg)] font-medium text-[0.92rem]">Something went wrong. Please try again or email me directly.</span>
                 </div>
               )}
             </form>
-          </div>
+          </Reveal>
         </div>
       </div>
 
-      {/* QR Code Modal */}
-      {isQRModalOpen && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-4"
-          onClick={() => setIsQRModalOpen(false)}
-        >
-          <div
-            className="relative max-w-2xl w-full"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="relative bg-linear-to-br from-orange-950/60 to-pink-950/60 p-8 rounded-2xl border-4 border-orange-500/50 shadow-2xl shadow-orange-500/30">
-              <button
-                onClick={() => setIsQRModalOpen(false)}
-                className="absolute -top-4 -right-4 p-2 bg-linear-to-br from-orange-500 to-red-500 cursor-pointer hover:from-orange-400 hover:to-red-400 rounded-full shadow-xl shadow-orange-500/50 transition-all hover:scale-110 z-10"
-                aria-label="Close modal"
-              >
-                <X className="w-6 h-6 text-white" />
-              </button>
-              <Image
-                src="/LineQR.jpg"
-                alt="Line QR Code - Full Size"
-                width={600}
-                height={600}
-                className="rounded-xl w-full h-auto"
-              />
-            </div>
-            <p className="text-white text-center mt-4 text-sm">
-              Scan to add me on Line
-            </p>
-          </div>
+      {/* QR modal — native <dialog> for free focus trap, Escape, and backdrop.
+          Backdrop-click-to-close is wired imperatively in the effect below so
+          the dialog element carries no interactive-handler JSX prop. */}
+      <dialog
+        ref={qrDialogRef}
+        className="modal modal-center"
+        aria-label="Line QR code"
+      >
+        <div className="panel-rule p-5 sm:p-6 max-w-sm w-full">
+          <Image src="/LineQR.jpg" alt="Line QR code — scan to add Watchara" width={500} height={500} className="w-full h-auto" />
+          <p className="text-center margin-label mt-3 mb-4">Scan to add me on Line</p>
+          <button type="button" onClick={closeQR} className="btn-solid w-full">
+            Close
+          </button>
         </div>
-      )}
+      </dialog>
     </section>
+  );
+}
+
+function Field({
+  id,
+  label,
+  name,
+  value,
+  onChange,
+  type = "text",
+  required = false,
+  as = "input",
+  rows,
+}: {
+  id: string;
+  label: string;
+  name: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  type?: string;
+  required?: boolean;
+  as?: "input" | "textarea";
+  rows?: number;
+}) {
+  const base =
+    "w-full px-0 py-2 bg-transparent border-0 border-b border-[var(--border-strong)] text-[var(--fg)] placeholder:text-[var(--fg-4)] focus:border-[var(--accent)] focus:outline-none transition-colors";
+  return (
+    <div className="field">
+      <label htmlFor={id} className="margin-label block mb-1.5">
+        {label}
+        {required && <span className="text-[var(--accent)] ml-1" aria-hidden="true">*</span>}
+      </label>
+      {as === "textarea" ? (
+        <textarea
+          id={id}
+          name={name}
+          value={value}
+          onChange={onChange}
+          required={required}
+          rows={rows}
+          className={`${base} resize-y min-h-[7rem]`}
+        />
+      ) : (
+        <input
+          id={id}
+          name={name}
+          type={type}
+          value={value}
+          onChange={onChange}
+          required={required}
+          className={base}
+        />
+      )}
+    </div>
   );
 }
