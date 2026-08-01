@@ -1,115 +1,96 @@
-import {
-  GraduationCap,
-  Award,
-  Code,
-  Bitcoin,
-  Headphones,
-  Sparkles
-} from "lucide-react";
+import Reveal from "./Reveal";
+
+const READOUTS = [
+  {
+    title: "Education",
+    rows: [
+      ["B.Sc. Computer Science", "2018–22"],
+      ["Nakhon Pathom Rajabhat Univ.", "GPA 3.40"],
+    ],
+  },
+  {
+    title: "Certifications",
+    rows: [
+      ["IC3 Digital Literacy GS5", "cert."],
+      ["Automate Tester Bootcamp", "2025"],
+    ],
+  },
+  {
+    title: "Languages",
+    rows: [
+      ["Thai", "native"],
+      ["English", "basic"],
+    ],
+  },
+];
+
+const INTERESTS = ["Crypto", "Trading", "Tech podcasts", "IT trends"];
 
 export default function About() {
   return (
-    <section id="about" className="py-20 px-4 from-slate-950 via-purple-950/20 to-slate-950 relative overflow-hidden">
-      {/* Decorative Elements - Cosmic accretion disk glow */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-red-500/10 rounded-full blur-3xl"></div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-pink-600/5 rounded-full blur-3xl"></div>
-
-      <div className="max-w-6xl mx-auto relative z-10">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 bg-linear-to-r from-orange-400 via-red-500 to-pink-500 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(255,170,68,0.5)]">
-          About Me
-        </h2>
-
-        <div className="grid lg:grid-cols-3 gap-6">
-          {/* Left Column - Introduction */}
-          <div className="lg:col-span-2">
-            <div className="h-full p-8 bg-slate-900/60 backdrop-blur-lg rounded-2xl shadow-xl border border-orange-500/30 hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-300">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 bg-linear-to-br from-orange-500 to-red-500 rounded-xl shadow-lg shadow-orange-500/50">
-                  <Code className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-white">
-                  Hi! I&apos;m Watchara, a Passionate Full-Stack Developer
-                </h3>
-              </div>
-
-              <div className="space-y-4 text-white/80 leading-relaxed text-base">
-                <p>
-                  <span className="font-bold text-orange-400 drop-shadow-[0_0_8px_rgba(255,170,68,0.6)]">Full-stack developer</span> at
-                  <span className="font-bold text-red-400 drop-shadow-[0_0_8px_rgba(255,102,68,0.6)]"> Probit Solutions</span>,
-                  building internal systems for the Thairath Group.
-                </p>
-                <p>
-                  Experienced with <span className="font-semibold">Classic ASP</span> to modern frameworks like
-                  <span className="font-bold text-orange-400 drop-shadow-[0_0_8px_rgba(255,170,68,0.6)]"> Angular, Vue .NET Core, and Java Spring Boot</span>.
-                  Passionate about solving complex problems and creating scalable solutions.
-                </p>
-                <p className="flex items-center gap-2 flex-wrap">
-                  Outside of work:
-                  <span className="inline-flex items-center gap-1 font-bold text-orange-400 drop-shadow-[0_0_8px_rgba(255,170,68,0.6)]">
-                    <Bitcoin className="w-4 h-4" /> Crypto
-                  </span>,
-                  <span className="inline-flex items-center gap-1 font-bold text-red-400 drop-shadow-[0_0_8px_rgba(255,102,68,0.6)]">
-                    <Award className="w-4 h-4" /> Trading
-                  </span>,
-                  <span className="inline-flex items-center gap-1 font-bold text-pink-400 drop-shadow-[0_0_8px_rgba(255,51,102,0.6)]">
-                    <Headphones className="w-4 h-4" /> Tech podcasts
-                  </span>, and exploring IT trends.
-                </p>
-              </div>
-            </div>
+    <section id="about" className="relative px-5 sm:px-7 py-16 sm:py-24 scroll-mt-14">
+      <div className="mx-auto max-w-6xl relative z-[var(--z-content)]">
+        {/* section header */}
+        <Reveal className="grid grid-cols-1 md:grid-cols-[160px_1fr] gap-4 md:gap-8 items-baseline mb-12 border-b border-[var(--border)] pb-6">
+          <div className="section-index">
+            §2 · <b>about</b>
           </div>
+          <h2 className="display-h2 text-[var(--fg)] max-w-2xl">Enterprise systems, end to end.</h2>
+        </Reveal>
 
-          {/* Right Column - Education & Certifications */}
-          <div className="space-y-6">
-            {/* Education Card */}
-            <div className="p-6 bg-slate-900/60 backdrop-blur-lg rounded-2xl shadow-xl border border-pink-500/30 hover:shadow-2xl hover:shadow-pink-500/20 transition-all duration-300">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 bg-linear-to-br from-pink-500 to-red-500 rounded-lg shadow-lg shadow-pink-500/50">
-                  <GraduationCap className="w-5 h-5 text-white" />
-                </div>
-                <h3 className="text-lg font-bold text-white">
-                  Education
-                </h3>
-              </div>
-
-              <div className="p-4 bg-pink-950/20 rounded-xl border-l-4 border-pink-500">
-                <h4 className="font-bold text-white mb-2 text-sm">
-                  Bachelor of Science in Computer Science
-                </h4>
-                <p className="text-white/70 mb-1 text-sm">
-                  Nakhon Pathom Rajabhat University
-                </p>
-                <p className="text-xs text-pink-400 font-medium">
-                  Aug 2018 – Aug 2022 | GPA: 3.40
-                </p>
-              </div>
+        <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-8 lg:gap-12">
+          {/* narrative */}
+          <Reveal as="div">
+            <div className="space-y-4 text-[var(--fg-2)] leading-relaxed max-w-[60ch]">
+              <p>
+                I'm a full-stack developer currently at{" "}
+                <span className="font-semibold text-[var(--fg)]">Probit Solutions</span> building
+                enterprise applications for the Thairath Group — finance and approval workflows,
+                document security, production troubleshooting, and system modernization.
+              </p>
+              <p>
+                My day-to-day spans the whole stack: C#, ASP.NET and Spring Boot on the back, Angular
+                and Vue on the front, Oracle and SQL Server underneath. Before that I maintained a
+                Classic ASP platform, so I'm comfortable deep in legacy code and migrating it forward.
+              </p>
+              <p>
+                I lean on AI-assisted tools to move faster on code analysis, debugging, and
+                documentation, and I care about the boring parts done well: clean data models,
+                predictable APIs, and interfaces that don't make people think.
+              </p>
             </div>
 
-            {/* Certifications Card */}
-            <div className="p-6 bg-slate-900/60 backdrop-blur-lg rounded-2xl shadow-xl border border-orange-500/30 hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-300">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 bg-linear-to-br from-orange-500 to-red-500 rounded-lg shadow-lg shadow-orange-500/50">
-                  <Award className="w-5 h-5 text-white" />
-                </div>
-                <h3 className="text-lg font-bold text-white">
-                  Certifications
-                </h3>
-              </div>
+            <Reveal as="div" delay={120} className="mt-6">
+              <div className="margin-label mb-2">Interests</div>
+              <ul className="flex flex-wrap gap-1.5">
+                {INTERESTS.map((i) => (
+                  <li key={i} className="tag-rule">
+                    {i}
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          </Reveal>
 
-              <div className="space-y-2.5">
-                <div className="p-3 bg-orange-950/20 rounded-lg border-l-4 border-orange-500">
-                  <p className="text-white/80 font-medium text-sm">
-                    IC3 Digital Literacy Global Standard 5 (GS5)
-                  </p>
+          {/* readout panels */}
+          <div className="space-y-4">
+            {READOUTS.map((r, i) => (
+              <Reveal key={r.title} delay={i * 70}>
+                <div className="panel-rule p-5">
+                  <h3 className="font-mono-label text-[var(--fg-3)] mb-3 pb-2.5 border-b border-[var(--border)]">
+                    {r.title}
+                  </h3>
+                  <dl className="flex flex-col gap-2">
+                    {r.rows.map(([k, v]) => (
+                      <div key={k} className="flex justify-between items-baseline gap-3">
+                        <dt className="text-[0.95rem] text-[var(--fg-2)]">{k}</dt>
+                        <dd className="font-mono text-[0.78rem] text-[var(--fg)] text-right">{v}</dd>
+                      </div>
+                    ))}
+                  </dl>
                 </div>
-                <div className="p-3 bg-orange-950/20 rounded-lg border-l-4 border-orange-500">
-                  <p className="text-white/80 font-medium text-sm">
-                    Automate Tester Bootcamp 2025
-                  </p>
-                </div>
-              </div>
-            </div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </div>

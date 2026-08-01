@@ -1,161 +1,77 @@
-"use client";
+import Reveal from "./Reveal";
 
-import { Code2, Database, Wrench, Globe, Sparkles, Languages, Lightbulb, Users, Clock, Target, TrendingUp, Briefcase } from "lucide-react";
+type Cluster = {
+  cat: string;
+  count: string;
+  skills: string[];
+};
+
+const CLUSTERS: Cluster[] = [
+  {
+    cat: "Frontend",
+    count: "9 items",
+    skills: ["HTML/CSS", "Bootstrap", "Tailwind CSS", "JavaScript", "TypeScript", "jQuery", "Ajax", "Angular", "Vue.js"],
+  },
+  {
+    cat: "Backend",
+    count: "9 items",
+    skills: ["C#", "ASP.NET MVC", "ASP.NET Core", "Spring Boot", "REST APIs", "Swagger/OpenAPI", "Java", "PHP", "Classic ASP"],
+  },
+  {
+    cat: "Database",
+    count: "4 items",
+    skills: ["SQL Server", "MySQL", "PostgreSQL", "Oracle"],
+  },
+  {
+    cat: "Tools",
+    count: "8 items",
+    skills: ["Git", "GitLab", "Docker", "Postman", "DBeaver", "Visual Studio", "VS Code", "Linux CLI"],
+  },
+  {
+    cat: "AI-assisted",
+    count: "5 items",
+    skills: ["Claude Code", "ChatGPT", "Codex", "Antigravity", "GLM"],
+  },
+];
 
 export default function Skills() {
-  const skillCategories = [
-    {
-      title: "Frontend",
-      icon: Code2,
-      color: "from-pink-500 to-rose-500",
-      skills: [
-        "HTML/CSS",
-        "Bootstrap",
-        "Tailwind CSS",
-        "JavaScript",
-        "TypeScript",
-        "jQuery",
-        "React",
-        "Angular",
-        "Vue 2",
-      ],
-    },
-    {
-      title: "Backend",
-      icon: Globe,
-      color: "from-orange-500 to-amber-500",
-      skills: [
-        "ASP.NET MVC",
-        "ASP.NET Core",
-        "Java Spring Boot",
-        "Node.js",
-        "PHP Yii2",
-        "VBScript",
-      ],
-    },
-    {
-      title: "Database",
-      icon: Database,
-      color: "from-pink-500 to-orange-500",
-      skills: ["SQL Server", "MySQL", "PostgreSQL", "Oracle"],
-    },
-    {
-      title: "Tools & Others",
-      icon: Wrench,
-      color: "from-rose-500 to-pink-500",
-      skills: [
-        "Git",
-        "GitLab",
-        "Docker",
-        "Postman",
-        "ClickUp",
-        "DBeaver"
-      ],
-    },
-  ];
-
-  const softSkills = [
-    { name: "Problem Solving", icon: Lightbulb },
-    { name: "Adaptability", icon: TrendingUp },
-    { name: "Time Management", icon: Clock },
-    { name: "Teamwork", icon: Users },
-    { name: "Research", icon: Target },
-  ];
-
   return (
-    <section id="skills" className="py-20 px-4 from-slate-950 via-red-950/10 to-slate-950 relative overflow-hidden">
-      {/* Decorative Elements - Cosmic jet streams */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-red-500/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl"></div>
-      <div className="absolute top-1/3 right-1/3 w-[500px] h-[500px] bg-pink-600/5 rounded-full blur-3xl"></div>
-
-      <div className="max-w-6xl mx-auto relative z-10">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 bg-linear-to-r from-orange-400 via-red-500 to-pink-500 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(255,170,68,0.5)]">
-          Skills & Technologies
-        </h2>
-
-        <div className="grid lg:grid-cols-2 gap-8">
-          {/* Left Column - Technical Skills */}
-          <div className="bg-slate-900/60 backdrop-blur-lg p-8 rounded-2xl shadow-xl border border-orange-500/30 hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-300">
-            <h3 className="text-2xl font-bold text-white mb-6">Technical Skills</h3>
-
-            <div className="space-y-6">
-              {skillCategories.map((category) => {
-                const Icon = category.icon;
-                return (
-                  <div key={category.title}>
-                    <div className="flex items-center gap-2 mb-3">
-                      <div className={`p-2 bg-linear-to-br ${category.color} rounded-lg shadow-md`}>
-                        <Icon className="w-4 h-4 text-white" />
-                      </div>
-                      <h4 className="text-base font-bold text-white">
-                        {category.title}
-                      </h4>
-                    </div>
-
-                    <div className="flex flex-wrap gap-2 ml-10">
-                      {category.skills.map((skill) => (
-                        <span
-                          key={skill}
-                          className="px-3 py-1 bg-orange-950/30 border border-orange-500/30 text-orange-100 rounded-md text-sm font-medium hover:bg-orange-900/40 hover:border-orange-400/50 transition-all"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+    <section id="stack" className="relative px-5 sm:px-7 py-16 sm:py-24 scroll-mt-14">
+      <div className="mx-auto max-w-6xl relative z-[var(--z-content)]">
+        {/* section header */}
+        <Reveal className="grid grid-cols-1 md:grid-cols-[160px_1fr] gap-4 md:gap-8 items-baseline mb-12 border-b border-[var(--border)] pb-6">
+          <div className="section-index">
+            §3 · <b>stack</b>
           </div>
+          <h2 className="display-h2 text-[var(--fg)] max-w-2xl">What I reach for, by where it lives.</h2>
+        </Reveal>
 
-          {/* Right Column - Soft Skills & Languages */}
-          <div className="bg-slate-900/60 backdrop-blur-lg p-8 rounded-2xl shadow-xl border border-pink-500/30 hover:shadow-2xl hover:shadow-pink-500/20 transition-all duration-300">
-            {/* Soft Skills */}
-            <div className="mb-8">
-              <div className="flex items-center gap-2 mb-4">
-                <div className="p-2 bg-linear-to-br from-pink-500 to-red-500 rounded-lg shadow-md shadow-pink-500/50">
-                  <Briefcase className="w-4 h-4 text-white" />
-                </div>
-                <h3 className="text-base font-bold text-white">
-                  Soft Skills
-                </h3>
-              </div>
-
-              <div className="flex flex-wrap gap-2 ml-10">
-                {softSkills.map(({ name, icon: Icon }) => (
-                  <span
-                    key={name}
-                    className="inline-flex items-center gap-1.5 px-3 py-1 bg-pink-950/30 border border-pink-500/30 text-pink-100 rounded-md text-sm font-medium hover:bg-pink-900/40 hover:border-pink-400/50 transition-all"
-                  >
-                    <Icon className="w-3.5 h-3.5" />
-                    {name}
+        {/* catalogued inventory — margin category + inline list, not a card grid */}
+        <div className="border-t border-[var(--border)]">
+          {CLUSTERS.map((c, i) => (
+            <Reveal key={c.cat} delay={(i % 2) * 60}>
+              <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-3 md:gap-8 py-6 border-b border-[var(--border)]">
+                <div className="margin-label">
+                  <span className="block text-[0.85rem] text-[var(--fg)] font-medium tracking-[0.04em]">
+                    {c.cat}
                   </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Languages */}
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="p-2 bg-linear-to-br from-orange-500 to-pink-500 rounded-lg shadow-md shadow-orange-500/50">
-                  <Languages className="w-4 h-4 text-white" />
+                  {c.count}
                 </div>
-                <h3 className="text-base font-bold text-white">
-                  Languages
-                </h3>
+                <ul className="flex flex-wrap gap-x-3 gap-y-2 items-center">
+                  {c.skills.map((s, k) => (
+                    <li key={s} className="flex items-center gap-3 text-[var(--fg)]">
+                      <span className="text-[0.98rem]">{s}</span>
+                      {k < c.skills.length - 1 && (
+                        <span className="text-[var(--fg-4)] select-none" aria-hidden="true">
+                          ·
+                        </span>
+                      )}
+                    </li>
+                  ))}
+                </ul>
               </div>
-
-              <div className="flex flex-wrap gap-2 ml-10">
-                <span className="px-3 py-1 bg-pink-950/30 border border-pink-500/30 text-pink-100 rounded-md text-sm font-medium hover:bg-pink-900/40 hover:border-pink-400/50 transition-all">
-                  Thai (Native)
-                </span>
-                <span className="px-3 py-1 bg-orange-950/30 border border-orange-500/30 text-orange-100 rounded-md text-sm font-medium hover:bg-orange-900/40 hover:border-orange-400/50 transition-all">
-                  English (Basic)
-                </span>
-              </div>
-            </div>
-          </div>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>
