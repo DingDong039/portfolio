@@ -22,9 +22,9 @@ export default function Hero() {
         <Reveal>
           <header className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-6 lg:gap-10 items-end border-b-[1.5px] border-[var(--ink)] pb-6">
             <h1 className="display-title text-[var(--fg)]">
-              Watchara
+              WATCHARA
               <br />
-              Tongyodpun
+              <span aria-hidden="true">————</span>TONGYODPUN
               <span className="block font-display font-semibold text-[0.34em] tracking-[0.01em] text-[var(--fg-2)] mt-3">
                 วัชระ ทองยอดพันธ์
               </span>
