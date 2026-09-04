@@ -6,9 +6,10 @@ import ThemeToggle from "./ThemeToggle";
 
 const SECTIONS = [
   { id: "work", label: "Work", index: "§1" },
-  { id: "about", label: "About", index: "§2" },
-  { id: "stack", label: "Stack", index: "§3" },
-  { id: "contact", label: "Contact", index: "§4" },
+  { id: "projects", label: "Projects", index: "§2" },
+  { id: "about", label: "About", index: "§3" },
+  { id: "stack", label: "Stack", index: "§4" },
+  { id: "contact", label: "Contact", index: "§5" },
 ];
 
 // Module scope — uses no component state, so it shouldn't be rebuilt per render.

@@ -33,7 +33,7 @@ export default function About() {
         {/* section header */}
         <Reveal className="grid grid-cols-1 md:grid-cols-[160px_1fr] gap-4 md:gap-8 items-baseline mb-12 border-b border-[var(--border)] pb-6">
           <div className="section-index">
-            §2 · <b>about</b>
+            §3 · <b>about</b>
           </div>
           <h2 className="display-h2 text-[var(--fg)] max-w-2xl">Enterprise systems, end to end.</h2>
         </Reveal>

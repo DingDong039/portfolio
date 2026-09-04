@@ -27,7 +27,7 @@ Verify changes with `npm run build` (or `npx tsc --noEmit` for a fast type-check
 
 ### App structure (Next.js App Router)
 - `app/layout.tsx` — root layout, metadata, next/font variables on `<html>`, theme pre-paint script, Vercel Analytics
-- `app/page.tsx` — single static page composing all section components in order: Hero → Work → About → Skills → Contact, plus Navigation, Footer, ScrollProgress, and the `.dossier-grid` atmosphere layer
+- `app/page.tsx` — single static page composing all section components in order: Hero → Work → Projects → About → Skills → Contact, plus Navigation, Footer, ScrollProgress, and the `.dossier-grid` atmosphere layer
 - `app/api/contact/route.ts` — POST endpoint for the contact form (Resend)
 - `app/globals.css` — Tailwind v4 `@import` + design tokens (OKLCH), primitives, reveal animation, theme classes
 
@@ -35,6 +35,7 @@ Verify changes with `npm run build` (or `npx tsc --noEmit` for a fast type-check
 - `Navigation.tsx` — sticky meta rail nav, §-section links, theme toggle, mobile drawer (focus-trapped)
 - `Hero.tsx` — title block + abstract + key-facts `dl` + actions
 - `Work.tsx` — marginalia timeline accordion (2 roles) + capstone panel
+- `Projects.tsx` — marginalia project index (personal builds: INVESTRA AI, GrowFlow)
 - `About.tsx` — narrative + readout panels (education/certs/languages)
 - `Skills.tsx` — catalogued inventory (margin category + inline skill list)
 - `Contact.tsx` — channels list + underlined form + Line QR modal

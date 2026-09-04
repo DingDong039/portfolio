@@ -72,7 +72,7 @@ Display letter-spacing `-0.02em`. Body line-height 1.65. `text-wrap: balance` on
 
 ## Imagery & atmosphere
 
-No WebGL. The page atmosphere is a very faint static **ruled grid** (`.dossier-grid`) — horizontal rules masked at top/bottom — reinforcing the document metaphor without the weight of a GPU scene. The profile photo and Line QR are the only raster assets. No stock photography.
+No WebGL. The page atmosphere is a very faint static **ruled grid** (`.dossier-grid`) — horizontal rules masked at top/bottom — reinforcing the document metaphor without the weight of a GPU scene. Raster assets are the profile photo, the Line QR, and the project capture plates in `public/projects/`. No stock photography.
 
 ## Iconography
 
