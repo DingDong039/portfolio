@@ -107,16 +107,18 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${archivo.variable} ${hanken.variable} ${jetbrains.variable} ${kanit.variable}`}
     >
-      {/* Resolve theme before paint to avoid a wrong-theme flash. Reads the
-          explicit choice from localStorage, otherwise follows the system
-          preference. The `.dark`/`.light` class it sets wins over the CSS
-          media-query fallback in globals.css. */}
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `(function(){try{var t=localStorage.getItem('theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.classList.add(t);}catch(e){}})();`,
-        }}
-      />
       <body className="antialiased">
+        {/* Resolve theme before paint to avoid a wrong-theme flash. Reads the
+            explicit choice from localStorage, otherwise follows the system
+            preference. The `.dark`/`.light` class it sets wins over the CSS
+            media-query fallback in globals.css. Must be the first element in
+            <body>: a direct child of <html> or a React-rendered <head> script
+            raises React errors and never executes on the client. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.classList.add(t);}catch(e){}})();`,
+          }}
+        />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[var(--ink)] focus:text-[var(--paper)] focus:rounded-md focus:border-2 focus:border-[var(--signal)]"
