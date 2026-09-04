@@ -70,7 +70,7 @@ npm start
 
 Type-check without building: `npx tsc --noEmit`.
 
-> **Note:** `npm run lint` currently throws a toolchain error (`Converting circular structure to JSON`) from the eslint/eslintrc config, not from project code. Use `npm run build` or `npx tsc --noEmit` to verify changes.
+Lint: `npm run lint` (oxlint, config in `.oxlintrc.json`).
 
 ## Docker Deployment
 

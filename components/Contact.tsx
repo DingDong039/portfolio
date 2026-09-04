@@ -171,10 +171,10 @@ export default function Contact() {
 
               {/* status — text + icon, not color alone */}
               {status === "success" && (
-                <div role="status" className="flex items-center gap-2.5 mt-4 p-3 border border-[var(--accent)]" style={{ background: "var(--accent-soft)" }}>
+                <output className="flex items-center gap-2.5 mt-4 p-3 border border-[var(--accent)]" style={{ background: "var(--accent-soft)" }}>
                   <CircleCheck className="h-5 w-5 text-[var(--accent)] shrink-0" />
                   <span className="text-[var(--fg)] font-medium text-[0.92rem]">Message sent. I'll get back to you shortly.</span>
-                </div>
+                </output>
               )}
               {status === "error" && (
                 <div role="alert" className="flex items-center gap-2.5 mt-4 p-3 border border-[var(--ember)]" style={{ background: "color-mix(in oklch, var(--ember) 12%, transparent)" }}>

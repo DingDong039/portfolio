@@ -17,11 +17,11 @@ Read `PRODUCT.md` for the product/brand context and `DESIGN.md` for the full des
 npm run dev      # dev server with Turbopack (port 3000)
 npm run build    # production build with Turbopack
 npm run start    # run the production server
-npm run lint     # ESLint (currently broken: toolchain circular-structure error; not a code issue)
-npx tsc --noEmit # type-check (reliable; use this when lint fails)
+npm run lint     # oxlint (config in .oxlintrc.json)
+npx tsc --noEmit # type-check
 ```
 
-Verify changes with `npm run build` (or `npx tsc --noEmit` for a fast type-check). `npm run lint` throws a `Converting circular structure to JSON` error from the eslint/eslintrc config itself — it is a pre-existing toolchain bug, not caused by code changes.
+Verify changes with `npm run build` (or `npx tsc --noEmit` for a fast type-check). Linting uses oxlint, not ESLint; suppressions are per-line with `// oxlint-disable-next-line <rule> -- <reason>` and must state why.
 
 ## Architecture
 

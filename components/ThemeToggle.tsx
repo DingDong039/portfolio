@@ -19,6 +19,7 @@ export default function ThemeToggle() {
 
   useEffect(() => {
     const isDark = document.documentElement.classList.contains("dark");
+    // oxlint-disable-next-line react/set-state-in-effect -- theme comes from the pre-paint DOM class, readable only after mount
     setTheme(isDark ? "dark" : "light");
     setMounted(true);
   }, []);

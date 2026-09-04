@@ -41,6 +41,7 @@ export default function Reveal({
     // don't enable animation if reduced motion is preferred
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce) return;
+    // oxlint-disable-next-line react/set-state-in-effect -- reduced-motion is an external media query, readable only after mount
     setEnabled(true);
 
     const el = ref.current;

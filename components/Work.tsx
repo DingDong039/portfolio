@@ -125,8 +125,8 @@ export default function Work() {
                     <div className="overflow-hidden">
                       <div className="pb-7 md:pl-[152px]">
                         <ul className="space-y-2 mb-5 max-w-2xl">
-                          {role.detail.map((d, k) => (
-                            <li key={k} className="flex gap-3 text-[var(--fg-2)] leading-relaxed">
+                          {role.detail.map((d) => (
+                            <li key={d} className="flex gap-3 text-[var(--fg-2)] leading-relaxed">
                               <span className="text-[var(--fg-4)] shrink-0 select-none">—</span>
                               <span>{d}</span>
                             </li>
