@@ -1,9 +1,10 @@
 "use client";
 
 import { useCallback, useEffect, useId, useRef, useState } from "react";
-import { Mail, Phone, MapPin, Send, LoaderCircle, CircleCheck, CircleAlert } from "lucide-react";
+import { Mail, Phone, MapPin, Send, LoaderCircle, CircleCheck, CircleAlert, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Reveal from "./Reveal";
+import SectionHeader from "./SectionHeader";
 
 type Status = "idle" | "success" | "error";
 
@@ -95,95 +96,114 @@ export default function Contact() {
   return (
     <section id="contact" className="relative px-5 sm:px-7 py-16 sm:py-24 scroll-mt-14">
       <div className="mx-auto max-w-6xl relative z-[var(--z-content)]">
-        {/* section header */}
-        <Reveal className="grid grid-cols-1 md:grid-cols-[160px_1fr] gap-4 md:gap-8 items-baseline mb-12 border-b border-[var(--border)] pb-6">
-          <div className="section-index">
-            §5 · <b>contact</b>
-          </div>
-          <h2 className="display-h2 text-[var(--fg)] max-w-2xl">Correspondence.</h2>
-        </Reveal>
+        <SectionHeader index="§5" label="contact">
+          Correspondence.
+        </SectionHeader>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-          {/* left: channels */}
-          <Reveal as="div">
-            <p className="prose-body mb-6">
-              Hiring, collaborating, or just want to talk shop? Send a message, or reach me directly
-              on any of these.
-            </p>
-            <ul className="border-t border-[var(--border)]">
-              {[
-                { Icon: Mail, label: "Email", value: "watchara.ddev@gmail.com", href: "mailto:watchara.ddev@gmail.com" },
-                { Icon: Phone, label: "Phone", value: "+66 65-701-9971", href: "tel:+66657019971" },
-                { Icon: MapPin, label: "Location", value: "Chatuchak, Bangkok, Thailand" },
-                { Icon: Github, label: "GitHub", value: "/DingDong039", href: "https://github.com/DingDong039" },
-                { Icon: Linkedin, label: "LinkedIn", value: "/in/watchara-t", href: "https://www.linkedin.com/in/watchara-tongyodpun-803866313" },
-              ].map(({ Icon, label, value, href }) => {
-                const inner = (
-                  <li className="flex items-center justify-between gap-4 py-4 border-b border-[var(--border)]">
-                    <span className="flex items-center gap-3 min-w-0">
-                      <Icon className="h-[18px] w-[18px] text-[var(--fg-3)] shrink-0" />
-                      <span className="text-[var(--fg)] font-medium">{label}</span>
-                    </span>
-                    <span className="font-mono text-[0.82rem] text-[var(--fg-3)] truncate">{value}</span>
-                  </li>
-                );
-                return href ? (
-                  <a key={label} href={href} className="block transition-colors hover:text-[var(--accent)] [&_span]:transition-colors hover:[&_span]:text-[var(--accent)]">
-                    {inner}
-                  </a>
-                ) : (
-                  <div key={label}>{inner}</div>
-                );
-              })}
-            </ul>
-
-            <button
-              type="button"
-              onClick={openQR}
-              className="btn-outline mt-5"
-            >
-              <Image src="/LineQR.jpg" alt="" width={20} height={20} className="rounded-sm" />
-              Line QR
-            </button>
+        <div className="marginalia">
+          <Reveal as="div" className="margin-label">
+            Fig. 04
+            <span className="block text-[var(--fg-4)]">channels</span>
           </Reveal>
 
-          {/* right: form — underlined fields, dossier style */}
-          <Reveal as="div" delay={100}>
-            <form onSubmit={handleSubmit} className="panel-rule p-6 sm:p-8" noValidate>
-              <div className="grid sm:grid-cols-2 gap-5">
-                <Field id={nameId} label="Name" name="name" value={formData.name} onChange={handleChange} required />
-                <Field id={emailId} label="Email" name="email" type="email" value={formData.email} onChange={handleChange} required />
-              </div>
-              <Field id={subjectId} label="Subject" name="subject" value={formData.subject} onChange={handleChange} required />
-              <Field id={messageId} label="Message" name="message" value={formData.message} onChange={handleChange} required as="textarea" rows={5} />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 min-w-0">
+            {/* left: channels */}
+            <Reveal as="div">
+              <p className="prose-body mb-6">
+                Hiring, collaborating, or just want to talk shop? Send a message, or reach me directly
+                on any of these.
+              </p>
+              <ul className="border-t border-[var(--border)]">
+                {[
+                  { Icon: Mail, label: "Email", value: "watchara.ddev@gmail.com", href: "mailto:watchara.ddev@gmail.com" },
+                  { Icon: Phone, label: "Phone", value: "+66 65-701-9971", href: "tel:+66657019971" },
+                  { Icon: MapPin, label: "Location", value: "Chatuchak, Bangkok, Thailand" },
+                  { Icon: Github, label: "GitHub", value: "/DingDong039", href: "https://github.com/DingDong039", external: true },
+                  { Icon: Linkedin, label: "LinkedIn", value: "/in/watchara-t", href: "https://www.linkedin.com/in/watchara-tongyodpun-803866313", external: true },
+                ].map(({ Icon, label, value, href, external }) => {
+                  const row = "flex items-center justify-between gap-4 py-4";
+                  const inner = (
+                    <>
+                      <span className="flex items-center gap-3 min-w-0">
+                        <Icon className="h-[18px] w-[18px] text-[var(--fg-3)] shrink-0 transition-colors" />
+                        <span className="text-[var(--fg)] font-medium transition-colors">{label}</span>
+                      </span>
+                      <span className="flex items-center gap-1.5 min-w-0">
+                        <span className="font-mono text-[0.82rem] text-[var(--fg-3)] truncate transition-colors">{value}</span>
+                        {/* fixed slot so values share one right edge whether or not a row is external */}
+                        <span className="h-4 w-4 shrink-0" aria-hidden="true">
+                          {external && <ArrowUpRight className="icon-ext h-4 w-4 text-[var(--accent)]" />}
+                        </span>
+                      </span>
+                    </>
+                  );
+                  return (
+                    <li key={label} className="border-b border-[var(--border)] row-rule">
+                      {href ? (
+                        <a
+                          href={href}
+                          target={external ? "_blank" : undefined}
+                          rel={external ? "noopener noreferrer" : undefined}
+                          className={`${row} link-ext hover:[&_span]:text-[var(--accent)] hover:[&_svg]:text-[var(--accent)]`}
+                        >
+                          {inner}
+                        </a>
+                      ) : (
+                        <div className={row}>{inner}</div>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
 
-              <button type="submit" disabled={isSubmitting} className="btn-solid w-full disabled:opacity-60 disabled:cursor-not-allowed">
-                {isSubmitting ? (
-                  <>
-                    <LoaderCircle className="h-4 w-4 animate-spin" /> Sending…
-                  </>
-                ) : (
-                  <>
-                    <Send className="h-4 w-4" /> Send message
-                  </>
-                )}
+              <button
+                type="button"
+                onClick={openQR}
+                className="btn-outline mt-5"
+              >
+                <Image src="/LineQR.jpg" alt="" width={20} height={20} className="rounded-sm" />
+                Line QR
               </button>
+            </Reveal>
 
-              {/* status — text + icon, not color alone */}
-              {status === "success" && (
-                <output className="flex items-center gap-2.5 mt-4 p-3 border border-[var(--accent)]" style={{ background: "var(--accent-soft)" }}>
-                  <CircleCheck className="h-5 w-5 text-[var(--accent)] shrink-0" />
-                  <span className="text-[var(--fg)] font-medium text-[0.92rem]">Message sent. I'll get back to you shortly.</span>
-                </output>
-              )}
-              {status === "error" && (
-                <div role="alert" className="flex items-center gap-2.5 mt-4 p-3 border border-[var(--ember)]" style={{ background: "color-mix(in oklch, var(--ember) 12%, transparent)" }}>
-                  <CircleAlert className="h-5 w-5 shrink-0" style={{ color: "var(--ember)" }} />
-                  <span className="text-[var(--fg)] font-medium text-[0.92rem]">Something went wrong. Please try again or email me directly.</span>
+            {/* right: form — underlined fields, dossier style */}
+            <Reveal as="div" delay={100}>
+              <form onSubmit={handleSubmit} className="panel-rule p-6 sm:p-8" noValidate>
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <Field id={nameId} label="Name" name="name" value={formData.name} onChange={handleChange} required autoComplete="name" />
+                  <Field id={emailId} label="Email" name="email" type="email" value={formData.email} onChange={handleChange} required autoComplete="email" />
                 </div>
-              )}
-            </form>
-          </Reveal>
+                <Field id={subjectId} label="Subject" name="subject" value={formData.subject} onChange={handleChange} required />
+                <Field id={messageId} label="Message" name="message" value={formData.message} onChange={handleChange} required as="textarea" rows={5} />
+
+                <button type="submit" disabled={isSubmitting} className="btn-solid w-full disabled:opacity-60 disabled:cursor-not-allowed">
+                  {isSubmitting ? (
+                    <>
+                      <LoaderCircle className="h-4 w-4 animate-spin" /> Sending…
+                    </>
+                  ) : (
+                    <>
+                      <Send className="h-4 w-4 icon-send" /> Send message
+                    </>
+                  )}
+                </button>
+
+                {/* status — text + icon, not color alone */}
+                {status === "success" && (
+                  <output className="flex items-center gap-2.5 mt-4 p-3 border border-[var(--accent)] enter" style={{ background: "var(--accent-soft)" }}>
+                    <CircleCheck className="h-5 w-5 text-[var(--accent)] shrink-0" />
+                    <span className="text-[var(--fg)] font-medium text-[0.92rem]">Message sent. I'll get back to you shortly.</span>
+                  </output>
+                )}
+                {status === "error" && (
+                  <div role="alert" className="flex items-center gap-2.5 mt-4 p-3 border border-[var(--ember)] enter" style={{ background: "color-mix(in oklch, var(--ember) 12%, transparent)" }}>
+                    <CircleAlert className="h-5 w-5 shrink-0" style={{ color: "var(--ember)" }} />
+                    <span className="text-[var(--fg)] font-medium text-[0.92rem]">Something went wrong. Please try again or email me directly.</span>
+                  </div>
+                )}
+              </form>
+            </Reveal>
+          </div>
         </div>
       </div>
 
@@ -217,6 +237,7 @@ function Field({
   required = false,
   as = "input",
   rows,
+  autoComplete,
 }: {
   id: string;
   label: string;
@@ -227,9 +248,9 @@ function Field({
   required?: boolean;
   as?: "input" | "textarea";
   rows?: number;
+  autoComplete?: string;
 }) {
-  const base =
-    "w-full px-0 py-2 bg-transparent border-0 border-b border-[var(--border-strong)] text-[var(--fg)] placeholder:text-[var(--fg-4)] focus:border-[var(--accent)] focus:outline-none transition-colors";
+  const base = "field-input";
   return (
     <div className="field">
       <label htmlFor={id} className="margin-label block mb-1.5">
@@ -254,6 +275,7 @@ function Field({
           value={value}
           onChange={onChange}
           required={required}
+          autoComplete={autoComplete}
           className={base}
         />
       )}

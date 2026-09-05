@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Reveal from "./Reveal";
+import SectionHeader from "./SectionHeader";
 
 type Project = {
   index: string;
@@ -57,19 +58,15 @@ export default function Projects() {
   return (
     <section id="projects" className="relative px-5 sm:px-7 py-16 sm:py-24 scroll-mt-14">
       <div className="mx-auto max-w-6xl relative z-[var(--z-content)]">
-        {/* section header */}
-        <Reveal className="grid grid-cols-1 md:grid-cols-[160px_1fr] gap-4 md:gap-8 items-baseline mb-12 border-b border-[var(--border)] pb-6">
-          <div className="section-index">
-            §2 · <b>projects</b>
-          </div>
-          <h2 className="display-h2 text-[var(--fg)] max-w-2xl">Personal systems, built end to end.</h2>
-        </Reveal>
+        <SectionHeader index="§2" label="projects">
+          Personal systems, built end to end.
+        </SectionHeader>
 
         {/* project index — marginalia rows, mirror of the experience timeline */}
-        <div className="border-t border-[var(--border)]">
+        <div>
           {PROJECTS.map((p, i) => (
             <Reveal key={p.name} delay={i * 60}>
-              <article className="grid grid-cols-1 md:grid-cols-[160px_1fr] gap-3 md:gap-8 py-8 border-b border-[var(--border)]">
+              <article className="marginalia py-8 border-b border-[var(--border)]">
                 {/* margin: index + domain */}
                 <div className="margin-label">
                   {p.index}
@@ -103,13 +100,14 @@ export default function Projects() {
                   </div>
 
                   {/* plate — real app capture, ruled frame + mono caption */}
-                  <figure className="mt-6">
-                    <div className="border border-[var(--border)] p-1.5">
+                  <figure className="mt-6 group">
+                    <div className="border border-[var(--border)] p-1.5 bg-[var(--bg-2)] transition-colors duration-300 group-hover:border-[var(--border-strong)]">
                       <Image
                         src={p.fig.src}
                         alt={p.fig.alt}
                         width={1440}
                         height={900}
+                        sizes="(min-width: 1152px) 960px, (min-width: 768px) calc(100vw - 232px), calc(100vw - 40px)"
                         className="h-auto w-full"
                       />
                     </div>

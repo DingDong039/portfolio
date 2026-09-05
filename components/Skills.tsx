@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import SectionHeader from "./SectionHeader";
 
 type Cluster = {
   cat: string;
@@ -38,19 +39,15 @@ export default function Skills() {
   return (
     <section id="stack" className="relative px-5 sm:px-7 py-16 sm:py-24 scroll-mt-14">
       <div className="mx-auto max-w-6xl relative z-[var(--z-content)]">
-        {/* section header */}
-        <Reveal className="grid grid-cols-1 md:grid-cols-[160px_1fr] gap-4 md:gap-8 items-baseline mb-12 border-b border-[var(--border)] pb-6">
-          <div className="section-index">
-            §4 · <b>stack</b>
-          </div>
-          <h2 className="display-h2 text-[var(--fg)] max-w-2xl">What I reach for, by where it lives.</h2>
-        </Reveal>
+        <SectionHeader index="§4" label="stack">
+          What I reach for, by where it lives.
+        </SectionHeader>
 
         {/* catalogued inventory — margin category + inline list, not a card grid */}
-        <div className="border-t border-[var(--border)]">
+        <div>
           {CLUSTERS.map((c, i) => (
             <Reveal key={c.cat} delay={(i % 2) * 60}>
-              <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-3 md:gap-8 py-6 border-b border-[var(--border)]">
+              <div className="marginalia !gap-y-3 py-6 border-b border-[var(--border)] row-rule">
                 <div className="margin-label">
                   <span className="block text-[0.85rem] text-[var(--fg)] font-medium tracking-[0.04em]">
                     {c.cat}

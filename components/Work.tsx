@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import Reveal from "./Reveal";
+import SectionHeader from "./SectionHeader";
 
 type Role = {
   company: string;
@@ -67,31 +68,25 @@ export default function Work() {
   return (
     <section id="work" className="relative px-5 sm:px-7 py-16 sm:py-24 scroll-mt-14">
       <div className="mx-auto max-w-6xl relative z-[var(--z-content)]">
-        {/* section header */}
-        <Reveal className="grid grid-cols-1 md:grid-cols-[160px_1fr] gap-4 md:gap-8 items-baseline mb-12 border-b border-[var(--border)] pb-6">
-          <div className="section-index">
-            §1 · <b>selected work</b>
-          </div>
-          <h2 className="display-h2 text-[var(--fg)] max-w-2xl">
-            Two production roles, one starting point.
-          </h2>
-        </Reveal>
+        <SectionHeader index="§1" label="selected work">
+          Two production roles, one starting point.
+        </SectionHeader>
 
         {/* experience — marginalia timeline entries */}
-        <div className="border-t border-[var(--border)]">
+        <div>
           {ROLES.map((role, i) => {
             const open = openIdx === i;
             return (
               <Reveal key={role.company} delay={i * 60}>
-                <div className="border-b border-[var(--border)]">
+                <div className="border-b border-[var(--border)] row-rule">
                   <button
                     type="button"
                     onClick={() => setOpenIdx(open ? null : i)}
-                    className="w-full text-left grid grid-cols-[120px_1fr_auto] gap-4 md:gap-8 py-6 group cursor-pointer"
+                    className="w-full text-left grid grid-cols-[1fr_auto] md:grid-cols-[var(--margin-col)_1fr_auto] gap-x-4 gap-y-3 md:gap-8 py-6 group cursor-pointer"
                     aria-expanded={open}
                   >
-                    {/* margin: period + span */}
-                    <div className="margin-label">
+                    {/* margin: period + span — full width above the role on mobile */}
+                    <div className="margin-label col-span-2 md:col-span-1">
                       {role.period}
                       <span className="block text-[var(--fg-4)]">{role.span}</span>
                     </div>
@@ -111,7 +106,8 @@ export default function Work() {
 
                     {/* chevron */}
                     <ChevronDown
-                      className={`h-5 w-5 mt-1 shrink-0 text-[var(--fg-3)] group-hover:text-[var(--fg)] transition-transform duration-300 ${
+                      aria-hidden="true"
+                      className={`h-5 w-5 mt-1 shrink-0 text-[var(--fg-3)] group-hover:text-[var(--accent)] transition-[transform,color] duration-300 ease-[var(--ease-out-quint)] ${
                         open ? "rotate-180" : ""
                       }`}
                     />
@@ -119,11 +115,15 @@ export default function Work() {
 
                   {/* expanded detail — indented under the main column */}
                   <div
-                    className="grid transition-[grid-template-rows] duration-300 ease-[var(--ease-out-quint)]"
+                    className="grid transition-[grid-template-rows] duration-400 ease-[var(--ease-out-quint)]"
                     style={{ gridTemplateRows: open ? "1fr" : "0fr" }}
                   >
                     <div className="overflow-hidden">
-                      <div className="pb-7 md:pl-[152px]">
+                      <div
+                        className={`pb-7 md:pl-[calc(var(--margin-col)+2rem)] transition-[opacity,transform] duration-400 ease-[var(--ease-out-quint)] ${
+                          open ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-1"
+                        }`}
+                      >
                         <ul className="space-y-2 mb-5 max-w-2xl">
                           {role.detail.map((d) => (
                             <li key={d} className="flex gap-3 text-[var(--fg-2)] leading-relaxed">
@@ -150,21 +150,27 @@ export default function Work() {
 
         {/* capstone — distinct treatment, ruled panel not a third timeline row */}
         <Reveal delay={100} className="mt-12">
-          <div className="panel-rule p-6 sm:p-8">
-            <div className="flex flex-wrap items-center gap-3 mb-4">
-              <span className="tag-rule" style={{ borderColor: "var(--ember)", color: "var(--ember)" }}>
-                {CAPSTONE.type}
-              </span>
+          <div className="panel-rule p-6 sm:p-8 md:grid md:grid-cols-[calc(var(--margin-col)-2rem)_1fr] md:gap-8">
+            <div className="margin-label mb-4 md:mb-0">
+              Fig. 02
+              <span className="block text-[var(--fg-4)]">capstone</span>
             </div>
-            <h3 className="display-h3 text-[var(--fg)] mb-2">{CAPSTONE.title}</h3>
-            <div className="margin-label mb-4">{CAPSTONE.meta}</div>
-            <p className="prose-body mb-6">{CAPSTONE.blurb}</p>
-            <div className="flex flex-wrap gap-1.5">
-              {CAPSTONE.stack.map((t) => (
-                <span key={t} className="tag-rule">
-                  {t}
+            <div>
+              <div className="flex flex-wrap items-center gap-3 mb-4">
+                <span className="tag-rule" style={{ borderColor: "var(--ember)", color: "var(--ember)" }}>
+                  {CAPSTONE.type}
                 </span>
-              ))}
+              </div>
+              <h3 className="display-h3 text-[var(--fg)] mb-2">{CAPSTONE.title}</h3>
+              <div className="margin-label mb-4">{CAPSTONE.meta}</div>
+              <p className="prose-body mb-6">{CAPSTONE.blurb}</p>
+              <div className="flex flex-wrap gap-1.5">
+                {CAPSTONE.stack.map((t) => (
+                  <span key={t} className="tag-rule">
+                    {t}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </Reveal>
