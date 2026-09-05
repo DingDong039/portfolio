@@ -1,0 +1,428 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-05T04:58:04+00:00",
+  "title": "Design System: Watchara Tongyodpun — Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "neutral",
+        "displayName": "Graphite Ink",
+        "canonical": "oklch(0.22 0.004 90)",
+        "tonalRamp": [
+          "oklch(0.15 0.004 90)",
+          "oklch(0.26 0.004 90)",
+          "oklch(0.37 0.004 90)",
+          "oklch(0.48 0.004 90)",
+          "oklch(0.60 0.004 90)",
+          "oklch(0.72 0.004 90)",
+          "oklch(0.84 0.004 90)",
+          "oklch(0.95 0.004 90)"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Ink 2",
+        "canonical": "oklch(0.40 0.006 90)",
+        "tonalRamp": [
+          "oklch(0.15 0.006 90)",
+          "oklch(0.26 0.006 90)",
+          "oklch(0.37 0.006 90)",
+          "oklch(0.48 0.006 90)",
+          "oklch(0.60 0.006 90)",
+          "oklch(0.72 0.006 90)",
+          "oklch(0.84 0.006 90)",
+          "oklch(0.95 0.006 90)"
+        ]
+      },
+      "ink-3": {
+        "role": "neutral",
+        "displayName": "Ink 3",
+        "canonical": "oklch(0.58 0.008 90)",
+        "tonalRamp": [
+          "oklch(0.15 0.008 90)",
+          "oklch(0.26 0.008 90)",
+          "oklch(0.37 0.008 90)",
+          "oklch(0.48 0.008 90)",
+          "oklch(0.60 0.008 90)",
+          "oklch(0.72 0.008 90)",
+          "oklch(0.84 0.008 90)",
+          "oklch(0.95 0.008 90)"
+        ]
+      },
+      "ink-4": {
+        "role": "neutral",
+        "displayName": "Ink 4",
+        "canonical": "oklch(0.74 0.008 90)",
+        "tonalRamp": [
+          "oklch(0.15 0.008 90)",
+          "oklch(0.26 0.008 90)",
+          "oklch(0.37 0.008 90)",
+          "oklch(0.48 0.008 90)",
+          "oklch(0.60 0.008 90)",
+          "oklch(0.72 0.008 90)",
+          "oklch(0.84 0.008 90)",
+          "oklch(0.95 0.008 90)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "oklch(0.97 0.003 90)",
+        "tonalRamp": [
+          "oklch(0.15 0.003 90)",
+          "oklch(0.26 0.003 90)",
+          "oklch(0.37 0.003 90)",
+          "oklch(0.48 0.003 90)",
+          "oklch(0.60 0.003 90)",
+          "oklch(0.72 0.003 90)",
+          "oklch(0.84 0.003 90)",
+          "oklch(0.95 0.003 90)"
+        ]
+      },
+      "paper-2": {
+        "role": "neutral",
+        "displayName": "Paper 2",
+        "canonical": "oklch(0.94 0.005 90)",
+        "tonalRamp": [
+          "oklch(0.15 0.005 90)",
+          "oklch(0.26 0.005 90)",
+          "oklch(0.37 0.005 90)",
+          "oklch(0.48 0.005 90)",
+          "oklch(0.60 0.005 90)",
+          "oklch(0.72 0.005 90)",
+          "oklch(0.84 0.005 90)",
+          "oklch(0.95 0.005 90)"
+        ]
+      },
+      "paper-3": {
+        "role": "neutral",
+        "displayName": "Paper 3",
+        "canonical": "oklch(0.91 0.006 90)",
+        "tonalRamp": [
+          "oklch(0.15 0.006 90)",
+          "oklch(0.26 0.006 90)",
+          "oklch(0.37 0.006 90)",
+          "oklch(0.48 0.006 90)",
+          "oklch(0.60 0.006 90)",
+          "oklch(0.72 0.006 90)",
+          "oklch(0.84 0.006 90)",
+          "oklch(0.95 0.006 90)"
+        ]
+      },
+      "signal": {
+        "role": "primary",
+        "displayName": "Deep Teal Signal",
+        "canonical": "oklch(0.46 0.08 190)",
+        "tonalRamp": [
+          "oklch(0.15 0.08 190)",
+          "oklch(0.26 0.08 190)",
+          "oklch(0.37 0.08 190)",
+          "oklch(0.48 0.08 190)",
+          "oklch(0.60 0.08 190)",
+          "oklch(0.72 0.08 190)",
+          "oklch(0.84 0.08 190)",
+          "oklch(0.95 0.08 190)"
+        ]
+      },
+      "signal-lifted": {
+        "role": "primary",
+        "displayName": "Lifted Teal (dark)",
+        "canonical": "oklch(0.72 0.10 190)",
+        "tonalRamp": [
+          "oklch(0.15 0.10 190)",
+          "oklch(0.26 0.10 190)",
+          "oklch(0.37 0.10 190)",
+          "oklch(0.48 0.10 190)",
+          "oklch(0.60 0.10 190)",
+          "oklch(0.72 0.10 190)",
+          "oklch(0.84 0.10 190)",
+          "oklch(0.95 0.10 190)"
+        ]
+      },
+      "ember": {
+        "role": "secondary",
+        "displayName": "Burnt Sienna Ember",
+        "canonical": "oklch(0.52 0.10 45)",
+        "tonalRamp": [
+          "oklch(0.15 0.10 45)",
+          "oklch(0.26 0.10 45)",
+          "oklch(0.37 0.10 45)",
+          "oklch(0.48 0.10 45)",
+          "oklch(0.60 0.10 45)",
+          "oklch(0.72 0.10 45)",
+          "oklch(0.84 0.10 45)",
+          "oklch(0.95 0.10 45)"
+        ]
+      },
+      "ink-ground": {
+        "role": "neutral",
+        "displayName": "Ink Ground (dark)",
+        "canonical": "oklch(0.16 0.008 90)",
+        "tonalRamp": [
+          "oklch(0.15 0.008 90)",
+          "oklch(0.26 0.008 90)",
+          "oklch(0.37 0.008 90)",
+          "oklch(0.48 0.008 90)",
+          "oklch(0.60 0.008 90)",
+          "oklch(0.72 0.008 90)",
+          "oklch(0.84 0.008 90)",
+          "oklch(0.95 0.008 90)"
+        ]
+      },
+      "ink-ground-2": {
+        "role": "neutral",
+        "displayName": "Ink Ground 2 (dark)",
+        "canonical": "oklch(0.19 0.009 90)",
+        "tonalRamp": [
+          "oklch(0.15 0.009 90)",
+          "oklch(0.26 0.009 90)",
+          "oklch(0.37 0.009 90)",
+          "oklch(0.48 0.009 90)",
+          "oklch(0.60 0.009 90)",
+          "oklch(0.72 0.009 90)",
+          "oklch(0.84 0.009 90)",
+          "oklch(0.95 0.009 90)"
+        ]
+      },
+      "ink-ground-3": {
+        "role": "neutral",
+        "displayName": "Ink Ground 3 (dark)",
+        "canonical": "oklch(0.23 0.010 90)",
+        "tonalRamp": [
+          "oklch(0.15 0.010 90)",
+          "oklch(0.26 0.010 90)",
+          "oklch(0.37 0.010 90)",
+          "oklch(0.48 0.010 90)",
+          "oklch(0.60 0.010 90)",
+          "oklch(0.72 0.010 90)",
+          "oklch(0.84 0.010 90)",
+          "oklch(0.95 0.010 90)"
+        ]
+      },
+      "paper-text": {
+        "role": "neutral",
+        "displayName": "Paper Text (dark)",
+        "canonical": "oklch(0.94 0.004 90)",
+        "tonalRamp": [
+          "oklch(0.15 0.004 90)",
+          "oklch(0.26 0.004 90)",
+          "oklch(0.37 0.004 90)",
+          "oklch(0.48 0.004 90)",
+          "oklch(0.60 0.004 90)",
+          "oklch(0.72 0.004 90)",
+          "oklch(0.84 0.004 90)",
+          "oklch(0.95 0.004 90)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The name on the hero only. Archivo 800, two lines with the dash-rule motif."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "One per section, a full sentence with a period, beside the section address."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Role, project, and capstone titles, with a medium-weight qualifier on the same line."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Prose in Ink 2, measure 60–62ch, text-wrap: pretty."
+      },
+      "label": {
+        "displayName": "Label (mono)",
+        "purpose": "Margin labels, section titles, captions, fact keys, field labels. Uppercase, tracked, tabular."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Entrances (hero .enter, .rule-draw, reveal)."
+      },
+      {
+        "name": "ease-out-quint",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Interactions: accordion rows, nav rule, icon nudges, drawer."
+      },
+      {
+        "name": "ease-out-quart",
+        "value": "cubic-bezier(0.25, 1, 0.5, 1)",
+        "purpose": "Color and border transitions, theme change."
+      },
+      {
+        "name": "enter",
+        "value": "0.9s ease-out-expo, delay calc(var(--i) * 90ms + 60ms); from opacity 0, translateY(16px), blur(6px)",
+        "purpose": "Hero block entrance, staggered by --i."
+      },
+      {
+        "name": "rule-draw",
+        "value": "1.1s ease-out-expo, delay calc(var(--i) * 90ms + 200ms); scaleX 0 → 1 from the left",
+        "purpose": "Hero horizontal rules drawing in."
+      },
+      {
+        "name": "reveal",
+        "value": "0.7s ease-out-expo; from opacity 0, translateY(14px), blur(4px)",
+        "purpose": "Below-the-fold IntersectionObserver reveal; visible by default."
+      },
+      {
+        "name": "pulse-ring",
+        "value": "2.4s ease-out-quart infinite; scale 1 → 2.6, opacity 0.8 → 0",
+        "purpose": "Availability dot ring."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "all durations and delays → 0; reveals forced visible; pulse ring removed",
+        "purpose": "prefers-reduced-motion: reduce."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "content-max",
+        "value": "72rem"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Solid Button",
+      "kind": "button",
+      "refersTo": "button-solid",
+      "description": "Primary action. Mono uppercase on a full-ink block; flips to the teal signal on hover, presses 1px.",
+      "html": "<button class=\"ds-btn-solid\">View selected work <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 5v14\"/><path d=\"m19 12-7 7-7-7\"/></svg></button>",
+      "css": ".ds-btn-solid { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; font-family: var(--font-mono, 'JetBrains Mono', ui-monospace, monospace); font-weight: 600; font-size: 0.82rem; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.8rem 1.4rem; background: var(--fg, oklch(0.22 0.004 90)); color: var(--bg, oklch(0.97 0.003 90)); border: 1px solid var(--fg, oklch(0.22 0.004 90)); border-radius: 0; cursor: pointer; white-space: nowrap; transition: background-color 0.18s cubic-bezier(0.25,1,0.5,1), border-color 0.18s cubic-bezier(0.25,1,0.5,1), transform 0.18s cubic-bezier(0.25,1,0.5,1); } .ds-btn-solid svg { transition: transform 0.25s cubic-bezier(0.22,1,0.36,1); } .ds-btn-solid:hover { background: var(--accent, oklch(0.46 0.08 190)); border-color: var(--accent, oklch(0.46 0.08 190)); } .ds-btn-solid:hover svg { transform: translateY(2px); } .ds-btn-solid:active { transform: translateY(1px); } .ds-btn-solid:focus-visible { outline: 2px solid var(--accent, oklch(0.46 0.08 190)); outline-offset: 3px; border-radius: 2px; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary action. Same mono label, transparent with a strong rule; adopts the signal on hover.",
+      "html": "<button class=\"ds-btn-outline\">Download CV</button>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; font-family: var(--font-mono, 'JetBrains Mono', ui-monospace, monospace); font-weight: 600; font-size: 0.82rem; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.8rem 1.4rem; background: transparent; color: var(--fg, oklch(0.22 0.004 90)); border: 1px solid color-mix(in oklch, var(--fg, oklch(0.22 0.004 90)) 34%, transparent); border-radius: 0; cursor: pointer; white-space: nowrap; transition: border-color 0.18s cubic-bezier(0.25,1,0.5,1), color 0.18s cubic-bezier(0.25,1,0.5,1), transform 0.18s cubic-bezier(0.25,1,0.5,1); } .ds-btn-outline:hover { border-color: var(--accent, oklch(0.46 0.08 190)); color: var(--accent, oklch(0.46 0.08 190)); } .ds-btn-outline:active { transform: translateY(1px); } .ds-btn-outline:focus-visible { outline: 2px solid var(--accent, oklch(0.46 0.08 190)); outline-offset: 3px; border-radius: 2px; }"
+    },
+    {
+      "name": "Tag (tag-rule)",
+      "kind": "chip",
+      "refersTo": "tag-rule",
+      "description": "Inline mono tag for stacks and tech. Ruled, no fill; text and rule turn teal on hover.",
+      "html": "<span class=\"ds-tag\">ASP.NET Core</span> <span class=\"ds-tag\">Spring Boot</span> <span class=\"ds-tag ds-tag-ember\">University capstone · B.Sc. Computer Science</span>",
+      "css": ".ds-tag { display: inline-flex; align-items: center; font-family: var(--font-mono, 'JetBrains Mono', ui-monospace, monospace); font-size: 0.78rem; letter-spacing: 0.01em; padding: 0.2rem 0.55rem; border: 1px solid color-mix(in oklch, var(--fg, oklch(0.22 0.004 90)) 34%, transparent); color: var(--fg-2, oklch(0.40 0.006 90)); background: var(--bg, oklch(0.97 0.003 90)); border-radius: 0; transition: border-color 0.18s, color 0.18s; } .ds-tag:hover { border-color: var(--accent, oklch(0.46 0.08 190)); color: var(--accent, oklch(0.46 0.08 190)); } .ds-tag-ember { border-color: var(--ember, oklch(0.52 0.10 45)); color: var(--ember, oklch(0.52 0.10 45)); }"
+    },
+    {
+      "name": "Nav Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Meta-rail section link. Mono, quiet by default; the active section turns teal and a 1px rule slides in beneath it.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-link\" href=\"#work\">§1 Work</a><a class=\"ds-nav-link\" href=\"#projects\" aria-current=\"true\">§2 Projects</a><a class=\"ds-nav-link\" href=\"#about\">§3 About</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 0.25rem; padding: 0.5rem 0; border-bottom: 1px solid var(--fg, oklch(0.22 0.004 90)); } .ds-nav-link { position: relative; font-family: var(--font-mono, 'JetBrains Mono', ui-monospace, monospace); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.5rem 0.75rem; color: var(--fg-3, oklch(0.58 0.008 90)); text-decoration: none; transition: color 0.18s; } .ds-nav-link::after { content: ''; position: absolute; left: 0.75rem; right: 0.75rem; bottom: 0.2rem; height: 1px; background: var(--accent, oklch(0.46 0.08 190)); transform: scaleX(0); transform-origin: left; transition: transform 0.3s cubic-bezier(0.22,1,0.36,1); } .ds-nav-link:hover { color: var(--fg, oklch(0.22 0.004 90)); } .ds-nav-link[aria-current='true'] { color: var(--accent, oklch(0.46 0.08 190)); } .ds-nav-link[aria-current='true']::after, .ds-nav-link:hover::after { transform: scaleX(1); } .ds-nav-link:focus-visible { outline: 2px solid var(--accent, oklch(0.46 0.08 190)); outline-offset: 3px; border-radius: 2px; }"
+    },
+    {
+      "name": "Field (underline input)",
+      "kind": "input",
+      "refersTo": "field-input",
+      "description": "Contact form field: margin-label above, underline only, the rule turns teal and doubles on focus.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Email <b aria-hidden=\"true\">*</b></span><input class=\"ds-field-input\" type=\"email\" placeholder=\"you@example.com\"></label>",
+      "css": ".ds-field { display: block; max-width: 20rem; } .ds-field-label { display: block; margin-bottom: 0.375rem; font-family: var(--font-mono, 'JetBrains Mono', ui-monospace, monospace); font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-3, oklch(0.58 0.008 90)); } .ds-field-label b { color: var(--accent, oklch(0.46 0.08 190)); font-weight: 500; margin-left: 0.25rem; } .ds-field-input { width: 100%; padding: 0.5rem 0; background: transparent; border: 0; border-bottom: 1px solid color-mix(in oklch, var(--fg, oklch(0.22 0.004 90)) 34%, transparent); border-radius: 0; color: var(--fg, oklch(0.22 0.004 90)); font: inherit; outline: none; caret-color: var(--accent, oklch(0.46 0.08 190)); transition: border-color 0.2s, box-shadow 0.2s; } .ds-field-input::placeholder { color: var(--fg-4, oklch(0.74 0.008 90)); } .ds-field-input:focus { border-color: var(--accent, oklch(0.46 0.08 190)); box-shadow: 0 1px 0 0 var(--accent, oklch(0.46 0.08 190)); }"
+    },
+    {
+      "name": "Panel (panel-rule)",
+      "kind": "card",
+      "refersTo": "panel-rule",
+      "description": "The only container: a paper tint with a strong rule. Used for the capstone, readouts, the contact form, and the QR card.",
+      "html": "<div class=\"ds-panel\"><div class=\"ds-panel-title\">Education</div><dl class=\"ds-panel-rows\"><div><dt>B.Sc. Computer Science</dt><dd>2018–22</dd></div><div><dt>Nakhon Pathom Rajabhat Univ.</dt><dd>GPA 3.40</dd></div></dl></div>",
+      "css": ".ds-panel { max-width: 26rem; padding: 1.25rem; background: var(--bg-2, oklch(0.94 0.005 90)); border: 1px solid color-mix(in oklch, var(--fg, oklch(0.22 0.004 90)) 34%, transparent); border-radius: 0; color: var(--fg, oklch(0.22 0.004 90)); } .ds-panel-title { margin-bottom: 0.75rem; padding-bottom: 0.625rem; border-bottom: 1px solid color-mix(in oklch, var(--fg, oklch(0.22 0.004 90)) 16%, transparent); font-family: var(--font-mono, 'JetBrains Mono', ui-monospace, monospace); font-size: 0.76rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; color: var(--fg-3, oklch(0.58 0.008 90)); } .ds-panel-rows { display: flex; flex-direction: column; gap: 0.5rem; margin: 0; } .ds-panel-rows div { display: flex; justify-content: space-between; align-items: baseline; gap: 0.75rem; } .ds-panel-rows dt { font-size: 0.95rem; color: var(--fg-2, oklch(0.40 0.006 90)); } .ds-panel-rows dd { margin: 0; font-family: var(--font-mono, 'JetBrains Mono', ui-monospace, monospace); font-size: 0.78rem; font-variant-numeric: tabular-nums; }"
+    },
+    {
+      "name": "Marginalia Row (row-rule)",
+      "kind": "custom",
+      "description": "The signature: a 160px mono margin beside body content on a ruled row. Hover tints the row beyond its column without moving the rules.",
+      "html": "<div class=\"ds-row\"><div class=\"ds-row-margin\">Nov 2024 — Present<span>current</span></div><div class=\"ds-row-body\"><h3 class=\"ds-row-title\">Programmer <span>· Probit Solutions</span></h3><div class=\"ds-row-meta\">Bangkok · Hybrid</div><p class=\"ds-row-summary\">Enterprise applications for the Thairath Group — finance and approval workflows, document security, and production troubleshooting.</p></div></div>",
+      "css": ".ds-row { position: relative; isolation: isolate; display: grid; grid-template-columns: 160px 1fr; gap: 2rem; padding: 1.5rem 0; border-bottom: 1px solid color-mix(in oklch, var(--fg, oklch(0.22 0.004 90)) 16%, transparent); color: var(--fg, oklch(0.22 0.004 90)); cursor: pointer; } .ds-row::before { content: ''; position: absolute; inset: 0 -0.75rem; background: var(--bg-2, oklch(0.94 0.005 90)); opacity: 0; z-index: -1; transition: opacity 0.25s; } .ds-row:hover::before { opacity: 1; } .ds-row-margin { font-family: var(--font-mono, 'JetBrains Mono', ui-monospace, monospace); font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-3, oklch(0.58 0.008 90)); line-height: 1.6; } .ds-row-margin span { display: block; color: var(--fg-4, oklch(0.74 0.008 90)); } .ds-row-title { margin: 0; font-family: var(--font-display, Archivo, system-ui, sans-serif); font-weight: 700; font-size: 1.4rem; line-height: 1.2; letter-spacing: -0.015em; } .ds-row-title span { font-weight: 500; font-size: 0.82em; color: var(--fg-2, oklch(0.40 0.006 90)); } .ds-row-meta { margin-top: 0.375rem; font-family: var(--font-mono, 'JetBrains Mono', ui-monospace, monospace); font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-3, oklch(0.58 0.008 90)); } .ds-row-summary { margin: 0.75rem 0 0; max-width: 42rem; color: var(--fg-2, oklch(0.40 0.006 90)); line-height: 1.65; }"
+    },
+    {
+      "name": "Section Index",
+      "kind": "custom",
+      "description": "Section header: §n in teal over the mono title in the margin, the headline in the body, closed by one soft rule.",
+      "html": "<header class=\"ds-section\"><div class=\"ds-section-index\"><b>§1</b><span>selected work</span></div><h2 class=\"ds-section-h2\">Two production roles, one starting point.</h2></header>",
+      "css": ".ds-section { display: grid; grid-template-columns: 160px 1fr; gap: 2rem; align-items: baseline; padding-bottom: 1.5rem; border-bottom: 1px solid color-mix(in oklch, var(--fg, oklch(0.22 0.004 90)) 16%, transparent); color: var(--fg, oklch(0.22 0.004 90)); } .ds-section-index { display: flex; flex-direction: column; gap: 0.15rem; font-family: var(--font-mono, 'JetBrains Mono', ui-monospace, monospace); font-size: 0.84rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-3, oklch(0.58 0.008 90)); line-height: 1.4; } .ds-section-index b { color: var(--accent, oklch(0.46 0.08 190)); font-weight: 600; } .ds-section-h2 { margin: 0; max-width: 42rem; font-family: var(--font-display, Archivo, system-ui, sans-serif); font-weight: 700; font-size: 2rem; line-height: 1.08; letter-spacing: -0.02em; text-wrap: balance; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Engineering Dossier",
+    "overview": "The portfolio reads like a technical document Watchara might have shipped at work: a ruled page with a margin column for metadata, section addresses (§1–§5), numbered figures, mono chrome, and one deep-teal signal that only appears where it carries meaning. The dossier metaphor is the design. It proves rigor and systems thinking instead of claiming them, and it lets the content (roles, projects, stack) sit as the object of study rather than as marketing.\n\nDensity is deliberate: generous section rhythm, tight groups inside each ruled row, a body measure capped around sixty characters. Hierarchy comes from rules and paper tints, never from shadows or cards. Light is the default (paper ground, graphite ink); dark is an ink ground with paper text and a lifted teal, chosen by the visitor and remembered. Motion is a single authored moment on load (the document draws itself in), then only state feedback.\n\nConfirmed visual rejections: the prior neubrutalist + WebGL-nebula iteration (offset shadows, ink borders, cosmic particle field), gradient text, decorative glass, cream editorial layouts, icon-tile card grids.",
+    "keyCharacteristics": [
+      "Marginalia grid: a fixed 160px margin column of mono metadata beside every body block, holding one vertical rule down the whole page.",
+      "Rules, not cards: 1px soft rules separate rows; 1.5px ink rules close the hero and the footer.",
+      "Mono chrome: JetBrains Mono, uppercase, tracked, for every label, address, caption, and value.",
+      "One signal: deep teal for interactive, active, and available. Burnt sienna once, as a counterpoint.",
+      "Warm-neutral paper and graphite, near-zero chroma, in OKLCH.",
+      "Motion as material: exponential ease-out, blur on entrance, transform-only, fully collapsible."
+    ],
+    "rules": [
+      {
+        "name": "The One Signal Rule",
+        "body": "Teal appears only where it means something: interactive, active, available. It is never a fill, a gradient, or a decorative stripe. If a screen shows teal on more than a few elements at once, something is claiming meaning it does not have.",
+        "section": "colors"
+      },
+      {
+        "name": "The Token Flip Rule",
+        "body": "Components read --fg / --bg, never --ink / --paper directly, so the solid button, selection color, and skip link invert correctly in dark without per-theme overrides.",
+        "section": "colors"
+      },
+      {
+        "name": "The Mono Is Chrome Rule",
+        "body": "Mono is for addresses, labels, values, and captions. It is never body copy and never a costume for \"technical\"; the moment a paragraph is set in mono, the document metaphor breaks.",
+        "section": "typography"
+      },
+      {
+        "name": "The Balanced Heading Rule",
+        "body": "Every heading uses text-wrap: balance; every paragraph uses pretty. Numbers in mono are tabular.",
+        "section": "typography"
+      },
+      {
+        "name": "The Rules Not Shadows Rule",
+        "body": "No box-shadow anywhere. If something needs to look raised, give it a paper tint and a rule.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Functional Glass Rule",
+        "body": "Blur is allowed only on surfaces that sit over moving content (the sticky nav, a modal backdrop). It is never decoration on a card or panel.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do put every new block on the marginalia grid: mono metadata in the 160px margin, content in the body, so the vertical rule holds.",
+      "Do separate rows with a single 1px --border rule and close major blocks with a 1.5px --fg rule.",
+      "Do use --fg / --bg / --accent semantic tokens; light and dark both derive from them.",
+      "Do set labels, captions, and values in JetBrains Mono, uppercase, tracked, tabular.",
+      "Do make hover feedback a tint or a color shift; make press feedback a 1px translate.",
+      "Do keep the hero as the only entrance choreography; everything else reveals quietly or just responds.",
+      "Do collapse every animation under prefers-reduced-motion: reduce, including JS-driven ones."
+    ],
+    "donts": [
+      "Don't add box-shadow, offset shadows, glass panels, or gradients anywhere. That was the discarded iteration.",
+      "Don't use teal as a fill, a background band, or on non-interactive text. It signals; it does not decorate.",
+      "Don't introduce card grids of icon + heading + text, kicker eyebrows above headings, or icon tiles. The section address (§n) is the only label allowed above a heading.",
+      "Don't round corners on buttons, tags, panels, fields, or plates.",
+      "Don't set body copy in mono, or headings in anything but Archivo.",
+      "Don't let a second margin-column width appear; every row reads --margin-col.",
+      "Don't gate content on JavaScript: entrances enhance a visible default, never reveal a hidden one."
+    ]
+  }
+}
