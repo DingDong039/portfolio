@@ -80,7 +80,10 @@ export default function Navigation() {
   return (
     <>
       {/* meta rail — sticky top, mono chrome, ruled bottom */}
-      <header className="sticky top-0 z-[var(--z-nav)] bg-[var(--bg)] border-b border-[var(--ink)] backdrop-blur-[2px]">
+      <header
+        className="sticky top-0 z-[var(--z-nav)] border-b border-[var(--fg)] backdrop-blur-md transition-colors duration-400"
+        style={{ background: "color-mix(in oklch, var(--bg) 86%, transparent)" }}
+      >
         <div className="mx-auto max-w-6xl flex items-center gap-6 px-5 sm:px-7 h-14">
           <button
             type="button"
@@ -100,11 +103,7 @@ export default function Navigation() {
                 type="button"
                 key={s.id}
                 onClick={() => go(s.id)}
-                className={`font-mono text-[0.78rem] tracking-[0.08em] uppercase px-3 py-2 transition-colors cursor-pointer ${
-                  active === s.id
-                    ? "text-[var(--accent)]"
-                    : "text-[var(--fg-3)] hover:text-[var(--fg)]"
-                }`}
+                className="nav-link"
                 aria-current={active === s.id ? "true" : undefined}
               >
                 {s.index} {s.label}
@@ -126,7 +125,7 @@ export default function Navigation() {
               type="button"
               ref={menuBtnRef}
               onClick={openMenu}
-              className="md:hidden grid place-items-center h-10 w-10 border border-[var(--border-strong)] text-[var(--fg)]"
+              className="md:hidden grid place-items-center h-10 w-10 border border-[var(--border-strong)] text-[var(--fg)] hover:text-[var(--accent)] hover:border-[var(--accent)] transition-colors"
               aria-label="Open menu"
               aria-expanded={open}
             >
@@ -144,13 +143,13 @@ export default function Navigation() {
         aria-label="Menu"
         onClose={() => setOpen(false)}
       >
-        <div className="h-full w-[84vw] max-w-sm bg-[var(--bg)] border-l border-[var(--ink)] p-6 flex flex-col min-h-0">
+        <div className="h-full w-[84vw] max-w-sm bg-[var(--bg)] border-l border-[var(--fg)] p-6 flex flex-col min-h-0">
           <div className="flex items-center justify-between mb-10">
             <span className="font-mono-label text-[var(--fg-3)]">Contents</span>
             <button
               type="button"
               onClick={() => closeMenu()}
-              className="grid place-items-center h-10 w-10 border border-[var(--border-strong)] text-[var(--fg)]"
+              className="grid place-items-center h-10 w-10 border border-[var(--border-strong)] text-[var(--fg)] hover:text-[var(--accent)] hover:border-[var(--accent)] transition-colors"
               aria-label="Close menu"
             >
               <X className="h-5 w-5" />
@@ -162,14 +161,17 @@ export default function Navigation() {
                 <button
                   type="button"
                   onClick={() => go(s.id)}
-                  className={`w-full text-left py-4 border-b border-[var(--border)] transition-colors ${
+                  className={`w-full text-left py-4 border-b border-[var(--border)] transition-colors group ${
                     active === s.id ? "text-[var(--accent)]" : "text-[var(--fg)]"
                   }`}
+                  aria-current={active === s.id ? "true" : undefined}
                 >
-                  <span className="font-mono text-[0.78rem] tracking-[0.08em] uppercase text-[var(--fg-3)] mr-3">
+                  <span className={`font-mono text-[0.78rem] tracking-[0.08em] uppercase mr-3 transition-colors ${
+                    active === s.id ? "text-[var(--accent)]" : "text-[var(--fg-3)]"
+                  }`}>
                     {s.index}
                   </span>
-                  <span className="font-display font-bold text-2xl">{s.label}</span>
+                  <span className="font-display font-bold text-2xl inline-block transition-transform duration-300 ease-[var(--ease-out-quint)] group-hover:translate-x-1">{s.label}</span>
                 </button>
               </li>
             ))}
