@@ -16,6 +16,9 @@ type Theme = "light" | "dark";
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<Theme>("light");
   const [mounted, setMounted] = useState(false);
+  // true only after the user toggles, so the icon turns in on a real switch
+  // and not on first paint.
+  const [toggled, setToggled] = useState(false);
 
   useEffect(() => {
     const isDark = document.documentElement.classList.contains("dark");
@@ -35,6 +38,7 @@ export default function ThemeToggle() {
       /* storage may be unavailable (private mode); the class still wins for this session */
     }
     setTheme(next);
+    setToggled(true);
   };
 
   // Render a stable placeholder until mounted so SSR/CSR markup matches and
@@ -47,7 +51,12 @@ export default function ThemeToggle() {
       aria-label={mounted ? (theme === "dark" ? "Switch to light theme" : "Switch to dark theme") : "Toggle theme"}
       title={mounted ? (theme === "dark" ? "Light theme" : "Dark theme") : "Toggle theme"}
     >
-      {mounted && theme === "dark" ? <Sun className="h-[18px] w-[18px]" /> : <Moon className="h-[18px] w-[18px]" />}
+      {/* keyed on theme so the arriving icon re-mounts and turns in */}
+      {mounted && theme === "dark" ? (
+        <Sun key="sun" className={`h-[18px] w-[18px] ${toggled ? "icon-swap" : ""}`} />
+      ) : (
+        <Moon key="moon" className={`h-[18px] w-[18px] ${toggled ? "icon-swap" : ""}`} />
+      )}
     </button>
   );
 }

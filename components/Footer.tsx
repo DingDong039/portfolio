@@ -18,13 +18,21 @@ async function Copyright() {
 
 export default function Footer() {
   return (
-    <footer className="relative z-[var(--z-content)] border-t-[1.5px] border-[var(--ink)] mt-10">
+    <footer className="relative z-[var(--z-content)] border-t-[1.5px] border-[var(--fg)] mt-10">
       <div className="mx-auto max-w-6xl px-5 sm:px-7 py-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
         <div>
           <p className="font-display font-bold text-lg text-[var(--fg)]">Watchara Tongyodpun</p>
           <Copyright />
         </div>
         <BackToTop />
+      </div>
+      {/* colophon — the document's end mark */}
+      <div className="mx-auto max-w-6xl px-5 sm:px-7 pb-6">
+        <p className="margin-label text-[var(--fg-4)] flex items-center gap-3">
+          <span className="rule-h flex-1" aria-hidden="true" />
+          end of document
+          <span className="rule-h flex-1" aria-hidden="true" />
+        </p>
       </div>
     </footer>
   );

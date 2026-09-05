@@ -12,7 +12,7 @@ export default function BackToTop() {
       className="btn-outline !py-2 !px-4"
     >
       Back to top
-      <ArrowUp className="h-4 w-4" />
+      <ArrowUp className="h-4 w-4 icon-up" />
     </button>
   );
 }
