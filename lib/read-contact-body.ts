@@ -11,6 +11,7 @@ export async function readContactBody(request: Request): Promise<unknown> {
   const chunks: Uint8Array[] = []; let size = 0;
   try {
     for (;;) {
+      // oxlint-disable-next-line eslint(no-await-in-loop) -- sequential reads are the size cap: reading ahead in parallel could bypass the 64 KiB limit
       const chunk = await reader.read(); if (chunk.done) break;
       size += chunk.value.byteLength;
       if (size > 65536) { await reader.cancel(); throw new BodyError(413, "REQUEST_TOO_LARGE"); }

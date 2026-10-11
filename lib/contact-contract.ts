@@ -19,6 +19,7 @@ export function validateContactFields(input:unknown): Result<ContactFields> {
     if (!value[key] || value[key].length > CONTACT_LIMITS[key] || (key !== "message" && /[\r\n]/.test(raw)))
       fieldErrors[key] = `Enter between 1 and ${CONTACT_LIMITS[key]} characters.`;
   }
+  // oxlint-disable-next-line no-control-regex -- intentional: rejecting control characters inside a mailbox is the purpose of this expression
   if (!fieldErrors.email && (!/^[^\s@,;<>\x00-\x1f\x7f]+@[^\s@,;<>\x00-\x1f\x7f]+\.[^\s@,;<>\x00-\x1f\x7f]+$/.test(value.email)))
     fieldErrors.email = "Enter one valid email address.";
   return Object.keys(fieldErrors).length ? { ok:false, code:"INVALID_REQUEST", fieldErrors } : { ok:true, value };
