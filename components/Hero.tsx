@@ -31,7 +31,7 @@ export default function Hero() {
             WATCHARA
             <br />
             <span aria-hidden="true">————</span>TONGYODPUN
-            <span className="block font-display font-semibold text-[0.34em] tracking-[0.01em] text-[var(--fg-2)] mt-3">
+            <span lang="th" className="block font-display font-semibold text-[0.34em] tracking-[0.01em] text-[var(--fg-2)] mt-3">
               วัชระ ทองยอดพันธ์
             </span>
           </h1>

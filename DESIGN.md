@@ -4,14 +4,15 @@ description: An Engineering Dossier — ruled structure, marginalia, mono chrome
 colors:
   ink: "oklch(0.22 0.004 90)"
   ink-2: "oklch(0.40 0.006 90)"
-  ink-3: "oklch(0.58 0.008 90)"
-  ink-4: "oklch(0.74 0.008 90)"
+  ink-3: "oklch(0.47 0.008 90)"
+  ink-4: "oklch(0.50 0.008 90)"
   paper: "oklch(0.97 0.003 90)"
   paper-2: "oklch(0.94 0.005 90)"
   paper-3: "oklch(0.91 0.006 90)"
   signal: "oklch(0.46 0.08 190)"
   signal-lifted: "oklch(0.72 0.10 190)"
-  ember: "oklch(0.52 0.10 45)"
+  ember: "oklch(0.47 0.10 45)"
+  ember-lifted: "oklch(0.72 0.10 45)"
   ink-ground: "oklch(0.16 0.008 90)"
   ink-ground-2: "oklch(0.19 0.009 90)"
   ink-ground-3: "oklch(0.23 0.010 90)"
@@ -130,15 +131,15 @@ A warm-neutral graphite-on-paper document, chroma held near zero so it never rea
 - **Signal Soft** (`oklch(0.46 0.08 190 / 0.10)`): the success-state wash behind the form's sent message. Nowhere else.
 
 ### Secondary
-- **Burnt Sienna Ember** (`oklch(0.52 0.10 45)`, `--ember`): one counterpoint. The capstone tag and the form's error state. Never a second accent for interaction.
+- **Burnt Sienna Ember** (`oklch(0.47 0.10 45)`, `--ember`): one counterpoint. The capstone tag and the form's error state. Never a second accent for interaction. In dark theme it lifts to `oklch(0.72 0.10 45)` so the error state holds contrast on ink.
 
 ### Neutral
 - **Graphite Ink** (`oklch(0.22 0.004 90)`, `--ink` / `--fg`): primary text, strong rules, the solid button. Warm-neutral, not black.
-- **Ink 2 / 3 / 4** (`0.40` / `0.58` / `0.74` L): secondary prose, margin labels and section titles, then the quietest metadata (spans, domains, separators).
+- **Ink 2 / 3 / 4** (`0.40` / `0.47` / `0.50` L): secondary prose, margin labels and section titles, then the quietest metadata (spans, domains, separators). The 3/4 steps carry normal-size text in places, so they are held to ≥4.5:1 on every paper ground (measured: fg-3 6.25/5.70/5.21 and fg-4 5.51/5.03/4.59 on bg/bg-2/bg-3); hierarchy comes from size, weight, and placement rather than from fainter ink.
 - **Paper** (`oklch(0.97 0.003 90)`, `--paper` / `--bg`): the page ground. True off-white.
 - **Paper 2 / 3** (`0.94` / `0.91` L): raised paper tints for panels, the hover tint on ruled rows, the scrollbar track, the plate frame behind project captures.
 - **Rules**: `--border` is ink at 16% (soft rows), `--border-strong` is ink at 34% (tags, outline buttons, panels, field underlines), `--rule` is full ink (hero close, footer, nav bottom).
-- **Dark theme**: Ink Ground `oklch(0.16 0.008 90)` with tints at `0.19` / `0.23`, Paper Text `oklch(0.94 0.004 90)` stepping down through `0.78` / `0.62` / `0.46`. Rules derive from the foreground at the same percentages.
+- **Dark theme**: Ink Ground `oklch(0.16 0.008 90)` with tints at `0.19` / `0.23`, Paper Text `oklch(0.94 0.004 90)` stepping down through `0.78` / `0.70` / `0.64` (fg-3 measures 7.25/6.89/6.29 and fg-4 5.78/5.49/5.01 on the three grounds; ember lifts to `0.72` at 7.55/7.17/6.55). Rules derive from the foreground at the same percentages.
 
 ### Named Rules
 **The One Signal Rule.** Teal appears only where it means something: interactive, active, available. It is never a fill, a gradient, or a decorative stripe. If a screen shows teal on more than a few elements at once, something is claiming meaning it does not have.
