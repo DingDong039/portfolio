@@ -8,6 +8,7 @@ import BackToTop from "./BackToTop";
 async function Copyright() {
   "use cache";
   cacheLife("max");
+  // oxlint-disable-next-line react/purity -- intentional: this "use cache" scope renders at build/revalidation time only (see comment above), not per client render
   const year = new Date().getFullYear();
   return (
     <p className="font-mono text-[0.78rem] text-[var(--fg-3)] mt-1 tracking-[0.04em]">
