@@ -1,9 +1,6 @@
-"use client";
-
-import { useState } from "react";
-import { ChevronDown } from "lucide-react";
 import Reveal from "./Reveal";
 import SectionHeader from "./SectionHeader";
+import WorkAccordion from "./WorkAccordion";
 
 type Role = {
   company: string;
@@ -62,8 +59,54 @@ const CAPSTONE = {
   stack: ["ASP.NET Web Forms", "Bootstrap 4.6", "PostgreSQL"],
 };
 
+// Server component — roles and capstone render here; only the accordion's
+// open/close state lives in the small client wrapper.
 export default function Work() {
-  const [openIdx, setOpenIdx] = useState<number | null>(0);
+  const items = ROLES.map((role, index) => ({
+    id: `role-${index + 1}`,
+    label: `${role.position} · ${role.company}`,
+    summary: (
+      <>
+        {/* margin: period + span — full width above the role on mobile */}
+        <div className="margin-label col-span-2 md:col-span-1">
+          {role.period}
+          <span className="block text-[var(--fg-4)]">{role.span}</span>
+        </div>
+
+        {/* main */}
+        <div className="min-w-0">
+          <h3 className="display-h3 text-[var(--fg)]">
+            {role.position}
+            <span className="font-display font-medium text-[var(--fg-2)] text-[0.82em]">
+              {" "}
+              · {role.company}
+            </span>
+          </h3>
+          <div className="margin-label mt-1.5">{role.location}</div>
+          <p className="mt-3 max-w-2xl text-[var(--fg-2)] leading-relaxed">{role.summary}</p>
+        </div>
+      </>
+    ),
+    detail: (
+      <>
+        <ul className="space-y-2 mb-5 max-w-2xl">
+          {role.detail.map((d) => (
+            <li key={d} className="flex gap-3 text-[var(--fg-2)] leading-relaxed">
+              <span className="text-[var(--fg-4)] shrink-0 select-none">—</span>
+              <span>{d}</span>
+            </li>
+          ))}
+        </ul>
+        <div className="flex flex-wrap gap-1.5">
+          {role.tech.map((t) => (
+            <span key={t} className="tag-rule">
+              {t}
+            </span>
+          ))}
+        </div>
+      </>
+    ),
+  }));
 
   return (
     <section id="work" className="relative px-5 sm:px-7 py-16 sm:py-24 scroll-mt-14">
@@ -73,80 +116,7 @@ export default function Work() {
         </SectionHeader>
 
         {/* experience — marginalia timeline entries */}
-        <div>
-          {ROLES.map((role, i) => {
-            const open = openIdx === i;
-            return (
-              <Reveal key={role.company} delay={i * 60}>
-                <div className="border-b border-[var(--border)] row-rule">
-                  <button
-                    type="button"
-                    onClick={() => setOpenIdx(open ? null : i)}
-                    className="w-full text-left grid grid-cols-[1fr_auto] md:grid-cols-[var(--margin-col)_1fr_auto] gap-x-4 gap-y-3 md:gap-8 py-6 group cursor-pointer"
-                    aria-expanded={open}
-                  >
-                    {/* margin: period + span — full width above the role on mobile */}
-                    <div className="margin-label col-span-2 md:col-span-1">
-                      {role.period}
-                      <span className="block text-[var(--fg-4)]">{role.span}</span>
-                    </div>
-
-                    {/* main */}
-                    <div className="min-w-0">
-                      <h3 className="display-h3 text-[var(--fg)]">
-                        {role.position}
-                        <span className="font-display font-medium text-[var(--fg-2)] text-[0.82em]">
-                          {" "}
-                          · {role.company}
-                        </span>
-                      </h3>
-                      <div className="margin-label mt-1.5">{role.location}</div>
-                      <p className="mt-3 max-w-2xl text-[var(--fg-2)] leading-relaxed">{role.summary}</p>
-                    </div>
-
-                    {/* chevron */}
-                    <ChevronDown
-                      aria-hidden="true"
-                      className={`h-5 w-5 mt-1 shrink-0 text-[var(--fg-3)] group-hover:text-[var(--accent)] transition-[transform,color] duration-300 ease-[var(--ease-out-quint)] ${
-                        open ? "rotate-180" : ""
-                      }`}
-                    />
-                  </button>
-
-                  {/* expanded detail — indented under the main column */}
-                  <div
-                    className="grid transition-[grid-template-rows] duration-400 ease-[var(--ease-out-quint)]"
-                    style={{ gridTemplateRows: open ? "1fr" : "0fr" }}
-                  >
-                    <div className="overflow-hidden">
-                      <div
-                        className={`pb-7 md:pl-[calc(var(--margin-col)+2rem)] transition-[opacity,transform] duration-400 ease-[var(--ease-out-quint)] ${
-                          open ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-1"
-                        }`}
-                      >
-                        <ul className="space-y-2 mb-5 max-w-2xl">
-                          {role.detail.map((d) => (
-                            <li key={d} className="flex gap-3 text-[var(--fg-2)] leading-relaxed">
-                              <span className="text-[var(--fg-4)] shrink-0 select-none">—</span>
-                              <span>{d}</span>
-                            </li>
-                          ))}
-                        </ul>
-                        <div className="flex flex-wrap gap-1.5">
-                          {role.tech.map((t) => (
-                            <span key={t} className="tag-rule">
-                              {t}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Reveal>
-            );
-          })}
-        </div>
+        <WorkAccordion items={items} />
 
         {/* capstone — distinct treatment, ruled panel not a third timeline row */}
         <Reveal delay={100} className="mt-12">
