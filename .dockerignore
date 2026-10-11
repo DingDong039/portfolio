@@ -9,3 +9,10 @@ README.md
 .env
 .env.local
 .env*.local
+test-results
+playwright-report
+docs
+.claude
+.zcode
+.vercel
+*.tgz

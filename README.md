@@ -94,11 +94,20 @@ npm run build   # re-register the app icon conventions
 ## Docker Deployment
 
 ```bash
-docker build -t portfolio .
-docker run -p 3000:3000 -e RESEND_API_KEY=your_api_key portfolio
+docker build -t portfolio --build-arg NEXT_PUBLIC_TURNSTILE_SITE_KEY=your_site_key .
+docker run -p 3000:3000 \
+  -e RESEND_API_KEY=your_api_key \
+  -e CONTACT_EMAIL=recipient_email \
+  -e TURNSTILE_SECRET_KEY=your_turnstile_secret \
+  -e TURNSTILE_ALLOWED_HOSTNAMES=your-domain.com \
+  portfolio
 ```
 
-Or with Docker Compose (add `RESEND_API_KEY` to `.env`):
+`NEXT_PUBLIC_TURNSTILE_SITE_KEY` is a **build** argument (Next inlines public
+values at build time); the rest are runtime environment variables. The image
+includes a `HEALTHCHECK` against `GET /api/health` using its own Node runtime.
+
+Or with Docker Compose (add the settings to `.env`):
 
 ```bash
 docker-compose up -d
