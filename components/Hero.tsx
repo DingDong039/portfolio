@@ -1,10 +1,4 @@
-"use client";
-
 import { ArrowDown } from "lucide-react";
-
-// Module scope — uses no component state, so it shouldn't be rebuilt per render.
-const scrollToSection = (id: string) =>
-  document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
 
 const FACTS = [
   { k: "Experience", v: "4+ yrs" },
@@ -80,12 +74,12 @@ export default function Hero() {
           ))}
         </dl>
 
-        {/* actions */}
+        {/* actions — native anchors: hashes, history, and keyboard for free */}
         <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 mt-8 enter" style={step(8)}>
-          <button type="button" onClick={() => scrollToSection("work")} className="btn-solid">
+          <a href="#work" className="btn-solid">
             View selected work
             <ArrowDown className="h-4 w-4 icon-down" />
-          </button>
+          </a>
           <a href="/CV_WATCHARA_TONGYODPUN.pdf" download className="btn-outline">
             Download CV
           </a>

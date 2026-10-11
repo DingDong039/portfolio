@@ -12,14 +12,15 @@ const SECTIONS = [
   { id: "contact", label: "Contact", index: "§5" },
 ];
 
-// Module scope — uses no component state, so it shouldn't be rebuilt per render.
-const goTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
-
 export default function Navigation() {
   const [active, setActive] = useState<string>("");
   const [open, setOpen] = useState(false);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const menuBtnRef = useRef<HTMLButtonElement>(null);
+  // Set while a drawer link chose a destination: the dialog close handler must
+  // NOT restore focus to the menu trigger then — the destination takes it.
+  const destinationRef = useRef<string | null>(null);
+  const frameRef = useRef(0);
 
   useEffect(() => {
     const ids = SECTIONS.map((s) => s.id);
@@ -47,7 +48,7 @@ export default function Navigation() {
     return unsubscribe;
   }, []);
 
-  // Open/close the native <dialog>; showModal() yields focus trap, scroll lock,
+  // Open the native <dialog>; showModal() yields focus trap, scroll lock,
   // and Escape for free. Backdrop-click-to-close is wired imperatively below so
   // the dialog element itself carries no interactive-handler JSX prop.
   const openMenu = () => {
@@ -72,9 +73,27 @@ export default function Navigation() {
     return () => dialog.removeEventListener("click", onBackdropClick);
   }, []);
 
-  const go = (id: string) => {
-    closeMenu();
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+  // Cancel a queued destination-focus frame if the component unmounts first.
+  useEffect(() => () => { if (frameRef.current) cancelAnimationFrame(frameRef.current); }, []);
+
+  // Native anchor navigation handles the scroll/hash; this only arranges focus.
+  // Modified clicks (new tab, window) are left entirely alone.
+  const selectDestination = (event: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    destinationRef.current = id;
+    setOpen(false);
+    dialogRef.current?.close();
+    frameRef.current = requestAnimationFrame(() => {
+      frameRef.current = 0;
+      const section = document.getElementById(id);
+      const target = section?.querySelector<HTMLElement>("h2") ?? section;
+      if (target) { target.tabIndex = -1; target.focus({ preventScroll: true }); }
+      destinationRef.current = null;
+    });
+  };
+  const handleDialogClose = () => {
+    setOpen(false);
+    if (!destinationRef.current) menuBtnRef.current?.focus();
   };
 
   return (
@@ -85,9 +104,8 @@ export default function Navigation() {
         style={{ background: "color-mix(in oklch, var(--bg) 86%, transparent)" }}
       >
         <div className="mx-auto max-w-6xl flex items-center gap-6 px-5 sm:px-7 h-14">
-          <button
-            type="button"
-            onClick={goTop}
+          <a
+            href="#top"
             className="font-mono text-[0.78rem] tracking-[0.1em] uppercase text-[var(--fg)] hover:text-[var(--accent)] transition-colors cursor-pointer"
             aria-label="Back to top"
           >
@@ -95,28 +113,27 @@ export default function Navigation() {
             <span className="text-[var(--fg-3)]"> · </span>
             <span className="hidden sm:inline">dossier · rev. 04</span>
             <span className="sm:hidden">dossier</span>
-          </button>
+          </a>
 
           <nav className="hidden md:flex items-center gap-1" aria-label="Primary">
             {SECTIONS.map((s) => (
-              <button
-                type="button"
+              <a
                 key={s.id}
-                onClick={() => go(s.id)}
+                href={`#${s.id}`}
                 className="nav-link"
-                aria-current={active === s.id ? "true" : undefined}
+                aria-current={active === s.id ? "location" : undefined}
               >
                 {s.index} {s.label}
-              </button>
+              </a>
             ))}
           </nav>
 
           {/* right cluster: pushed to the end, order stable across breakpoints */}
           <div className="flex items-center gap-2 ml-auto md:ml-2">
             <div className="hidden sm:block">
-              <button type="button" onClick={() => go("contact")} className="btn-outline !py-2 !px-4">
+              <a href="#contact" className="btn-outline !py-2 !px-4">
                 Open channel
-              </button>
+              </a>
             </div>
 
             <ThemeToggle />
@@ -141,7 +158,7 @@ export default function Navigation() {
         ref={dialogRef}
         className="modal modal-drawer md:!hidden"
         aria-label="Menu"
-        onClose={() => setOpen(false)}
+        onClose={handleDialogClose}
       >
         <div className="h-full w-[84vw] max-w-sm bg-[var(--bg)] border-l border-[var(--fg)] p-6 flex flex-col min-h-0">
           <div className="flex items-center justify-between mb-10">
@@ -158,13 +175,13 @@ export default function Navigation() {
           <ul className="flex flex-col">
             {SECTIONS.map((s) => (
               <li key={s.id}>
-                <button
-                  type="button"
-                  onClick={() => go(s.id)}
-                  className={`w-full text-left py-4 border-b border-[var(--border)] transition-colors group ${
+                <a
+                  href={`#${s.id}`}
+                  onClick={(e) => selectDestination(e, s.id)}
+                  className={`block w-full text-left py-4 border-b border-[var(--border)] transition-colors group ${
                     active === s.id ? "text-[var(--accent)]" : "text-[var(--fg)]"
                   }`}
-                  aria-current={active === s.id ? "true" : undefined}
+                  aria-current={active === s.id ? "location" : undefined}
                 >
                   <span className={`font-mono text-[0.78rem] tracking-[0.08em] uppercase mr-3 transition-colors ${
                     active === s.id ? "text-[var(--accent)]" : "text-[var(--fg-3)]"
@@ -172,13 +189,13 @@ export default function Navigation() {
                     {s.index}
                   </span>
                   <span className="font-display font-bold text-2xl inline-block transition-transform duration-300 ease-[var(--ease-out-quint)] group-hover:translate-x-1">{s.label}</span>
-                </button>
+                </a>
               </li>
             ))}
           </ul>
-          <button type="button" onClick={() => go("contact")} className="btn-solid mt-auto w-full">
+          <a href="#contact" onClick={(e) => selectDestination(e, "contact")} className="btn-solid mt-auto w-full">
             Open channel
-          </button>
+          </a>
         </div>
       </dialog>
     </>

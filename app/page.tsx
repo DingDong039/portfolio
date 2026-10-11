@@ -16,7 +16,7 @@ export default function Home() {
       <ScrollProgress />
       <Navigation />
 
-      <main id="main" className="relative z-[var(--z-content)]">
+      <main id="main" tabIndex={-1} className="relative z-[var(--z-content)]">
         <Hero />
         <Work />
         <Projects />
