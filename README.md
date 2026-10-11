@@ -26,7 +26,7 @@ Personal portfolio of Watchara Tongyodpun, a full-stack developer. Built with Ne
 
 ### Prerequisites
 
-- Node.js 20+
+- Node.js 24 (`>=24 <25`, matching `engines.node`)
 - npm
 
 ### Installation
@@ -73,9 +73,11 @@ npm run build
 npm start
 ```
 
-Type-check without building: `npx tsc --noEmit`.
+Type-check without building: `npm run typecheck`.
 
 Lint: `npm run lint` (oxlint, config in `.oxlintrc.json`).
+
+Tests: `npm run test:unit` (Vitest; no network or email) and `npm run test:e2e` (Playwright Chromium against a fresh production build on `127.0.0.1:3100`).
 
 ### Regenerating brand assets
 

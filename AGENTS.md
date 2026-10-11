@@ -14,14 +14,16 @@ Read `PRODUCT.md` for the product/brand context and `DESIGN.md` for the full des
 ## Commands
 
 ```bash
-npm run dev      # dev server with Turbopack (port 3000)
-npm run build    # production build with Turbopack
-npm run start    # run the production server
-npm run lint     # oxlint (config in .oxlintrc.json)
-npx tsc --noEmit # type-check
+npm run dev        # dev server (Turbopack is the Next 16 default)
+npm run build      # production build (Turbopack is the default)
+npm run start      # run the production server
+npm run lint       # oxlint (config in .oxlintrc.json)
+npm run typecheck  # tsc --noEmit
+npm run test:unit  # Vitest unit/component tests (no network or email)
+npm run test:e2e   # Playwright Chromium against a fresh production build
 ```
 
-Verify changes with `npm run build` (or `npx tsc --noEmit` for a fast type-check). Linting uses oxlint, not ESLint; suppressions are per-line with `// oxlint-disable-next-line <rule> -- <reason>` and must state why.
+Node.js 24 is the supported development, CI, and Docker runtime (`engines.node: ">=24 <25"`). Verify changes with `npm run build` (or `npm run typecheck` for a fast type-check). Linting uses oxlint, not ESLint; suppressions are per-line with `// oxlint-disable-next-line <rule> -- <reason>` and must state why.
 
 ## Architecture
 
@@ -66,3 +68,13 @@ CONTACT_EMAIL=recipient_email
 ## Deployment
 
 Vercel is the primary target (configured in metadata). Docker is also available via the Dockerfile (standalone output, non-root, port 3000).
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+## This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->
