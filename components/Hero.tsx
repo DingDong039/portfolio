@@ -21,7 +21,9 @@ export default function Hero() {
           className="rule-draw rule-draw-strong grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-6 lg:gap-10 items-end pb-6"
           style={step(0)}
         >
-          <h1 className="display-title text-[var(--fg)] enter" style={step(0)}>
+          {/* The name is never gated by the entrance — LCP text is immediate;
+              secondary blocks below still take their turn. */}
+          <h1 className="display-title text-[var(--fg)]">
             WATCHARA
             <br />
             <span aria-hidden="true">————</span>TONGYODPUN

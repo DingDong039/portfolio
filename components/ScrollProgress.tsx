@@ -1,34 +1,52 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 
 /**
  * ScrollProgress — a thin ruled progress mark pinned to the very top.
- * Uses transform only (no layout writes). Inert under reduced motion.
+ * Writes only `transform` through a ref (no React state on scroll), keeps
+ * passive listeners with rAF coalescing, and — including a reduced-motion
+ * change while the page is open — detaches everything and hides the mark.
  */
 export default function ScrollProgress() {
-  const [progress, setProgress] = useState(0);
+  const barRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    let raf = 0;
+    const media = matchMedia("(prefers-reduced-motion: reduce)");
+    let frame = 0;
+    let active = false;
     const update = () => {
-      raf = 0;
-      const doc = document.documentElement;
-      const max = doc.scrollHeight - window.innerHeight;
-      const p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
-      setProgress(p);
+      frame = 0;
+      if (!active) return;
+      const max = document.documentElement.scrollHeight - innerHeight;
+      const p = max > 0 ? Math.min(1, Math.max(0, scrollY / max)) : 0;
+      if (barRef.current) barRef.current.style.transform = `scaleX(${p})`;
     };
-    const onScroll = () => {
-      if (raf) return;
-      raf = requestAnimationFrame(update);
+    const queue = () => {
+      if (active && !frame) frame = requestAnimationFrame(update);
     };
-    update();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll, { passive: true });
+    const detach = () => {
+      active = false;
+      window.removeEventListener("scroll", queue);
+      window.removeEventListener("resize", queue);
+      if (frame) cancelAnimationFrame(frame);
+      frame = 0;
+    };
+    const sync = () => {
+      detach();
+      if (barRef.current) barRef.current.parentElement!.hidden = media.matches;
+      if (!media.matches) {
+        active = true;
+        window.addEventListener("scroll", queue, { passive: true });
+        window.addEventListener("resize", queue, { passive: true });
+        update();
+      }
+    };
+    sync();
+    media.addEventListener("change", sync);
     return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-      if (raf) cancelAnimationFrame(raf);
+      detach();
+      media.removeEventListener("change", sync);
     };
   }, []);
 
@@ -38,11 +56,10 @@ export default function ScrollProgress() {
       aria-hidden="true"
     >
       <div
+        ref={barRef}
+        data-scroll-progress
         className="h-full origin-left bg-[var(--accent)]"
-        style={{
-          transform: `scaleX(${progress})`,
-          transition: "transform 0.1s linear",
-        }}
+        style={{ transform: "scaleX(0)" }}
       />
     </div>
   );

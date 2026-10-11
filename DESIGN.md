@@ -234,7 +234,7 @@ Square. Corners are 0 on every button, tag, panel, field, plate frame, and dialo
 
 ### Motion (applies across components)
 - **Easing:** `--ease-out-expo` `cubic-bezier(0.16, 1, 0.3, 1)` for entrances; `--ease-out-quint` `cubic-bezier(0.22, 1, 0.36, 1)` for interactions; `--ease-out-quart` for color.
-- **Hero entrance (the one authored moment):** blocks carry `.enter` with an `--i` step (90ms stagger, 900ms, opacity + 16px rise + 6px blur → none) and the hero's three horizontal rules carry `.rule-draw` (scaleX from the left, 1.1s). Pure CSS keyframes; content is never hidden by script.
+- **Hero entrance (the one authored moment):** the name itself is immediate — never gated by animation — while the secondary blocks carry `.enter` with an `--i` step (90ms stagger, 900ms, opacity + 16px rise + 6px blur → none) and the hero's three horizontal rules carry `.rule-draw` (scaleX from the left, 1.1s). Pure CSS keyframes; content is never hidden by script.
 - **Reveal:** below the fold, `IntersectionObserver` adds `reveal-init` then `is-visible` (opacity, 14px, 4px blur, 700ms, `--reveal-delay` stagger). Visible by default if JS never runs.
 - **State feedback:** 180–400ms transitions on color, border, transform, grid rows, and opacity. The availability dot breathes a ring outward every 2.4s. Dialogs enter with a short slide/settle.
 - **Reduced motion:** every animation and transition collapses to ~0ms, delays to 0, reveals forced visible, the pulse ring removed.

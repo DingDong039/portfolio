@@ -5,31 +5,31 @@ import "./globals.css";
 
 // Archivo — display. Wide grotesque with strong weight contrast; not on the
 // reflex-reject list and reads as a technical/specimen display, not "designy".
+// Loaded as variable fonts (no weight list) so one file per subset serves
+// every weight the page uses; Kanit ships only the Thai subset at the one
+// weight the Thai name actually renders at.
 const archivo = Archivo({
   variable: "--font-archivo",
   subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
   display: "swap",
 });
 
 const hanken = Hanken_Grotesk({
   variable: "--font-hanken",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
 const jetbrains = JetBrains_Mono({
   variable: "--font-jetbrains",
   subsets: ["latin"],
-  weight: ["400", "500"],
   display: "swap",
 });
 
 const kanit = Kanit({
   variable: "--font-kanit",
-  subsets: ["latin", "thai"],
-  weight: ["400", "500", "600", "700"],
+  subsets: ["thai"],
+  weight: "600",
   display: "swap",
 });
 
