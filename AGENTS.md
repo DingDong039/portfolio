@@ -63,6 +63,9 @@ Required for the contact form:
 ```
 RESEND_API_KEY=your_resend_api_key
 CONTACT_EMAIL=recipient_email
+NEXT_PUBLIC_TURNSTILE_SITE_KEY=your_turnstile_site_key      # public, inlined at build time
+TURNSTILE_SECRET_KEY=your_turnstile_secret_key              # server-only
+TURNSTILE_ALLOWED_HOSTNAMES=localhost,your-domain.com       # comma-separated, no schemes/ports/wildcards
 ```
 
 ## Deployment

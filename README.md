@@ -116,8 +116,30 @@ docker-compose up -d
 ## Vercel Deployment
 
 1. Push to GitHub, import into Vercel
-2. Add `RESEND_API_KEY` environment variable
+2. Add the environment variables: `RESEND_API_KEY`, `CONTACT_EMAIL`,
+   `NEXT_PUBLIC_TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET_KEY`, and
+   `TURNSTILE_ALLOWED_HOSTNAMES` (your production hostname, e.g.
+   `your-domain.com` — no scheme, port, or wildcard)
 3. Deploy (or use `vercel` CLI)
+
+The public site key is inlined at build time, so add it before the first
+production build. The Resend sandbox sender (`onboarding@resend.dev`) works
+only for sending to the account's own address until a domain is verified —
+operator action, not a code concern.
+
+## Abuse prevention and its limits
+
+Contact spam prevention is Cloudflare Turnstile plus a hidden honeypot. This
+verifies humanity and blocks trivial bots; it is **not** a quantitative or
+distributed rate limiter and cannot guarantee zero abuse or quota exhaustion.
+If you need request-rate limits, configure them at the hosting layer
+(Vercel WAF/firewall rules, Cloudflare rules) — no database, Redis, or
+serverless in-memory counter is part of this repository, and an in-memory IP
+map would be unreliable on serverless anyway.
+
+Local end-to-end checks may use [Cloudflare's official testing keys](https://developers.cloudflare.com/turnstile/troubleshooting/testing/)
+(explicitly configured only — there is no production bypass switch; the
+secret stays server-side in every environment).
 
 ## Customization
 
