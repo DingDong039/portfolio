@@ -15,7 +15,6 @@ afterEach(() => {
   delete (window as { turnstile?: unknown }).turnstile;
   document.documentElement.classList.remove("dark");
 });
-vi.mock("next/script", () => ({ default: () => null }));
 
 function stubTurnstile() {
   const renderWidget = vi.fn().mockReturnValue("widget-1");

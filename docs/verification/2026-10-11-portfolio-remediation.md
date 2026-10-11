@@ -62,3 +62,26 @@ testing site key appears, by design in tests) · Docker re-check not rerun —
 no container-affecting changes since the D2 verification.
 
 No deployment, push, or hosted configuration was performed.
+
+## Review follow-up — 2026-10-11
+
+- Docker context now excludes `.env*` while retaining `.env.example`. The review
+  reproduced the original exposure using a harmless `.env.production` sentinel:
+  Next copied it into `.next/standalone`, which the runner copies into the image.
+  The sentinel was removed. Docker CLI is unavailable in the follow-up environment,
+  so a fresh image/context build remains unverified here.
+- Turnstile now owns its script element instead of relying on `next/script`'s
+  URL cache. A failed load is removed on retry; an already-loaded API is reused.
+  `tests/contact-verification-loading.test.tsx` exercises real script elements
+  and load/error events without mocking the loader: failure → retry → token,
+  repeated failures, and pending-script cleanup on unmount. Cloudflare's API is
+  stubbed, and no provider request or email is sent. The recovery test failed
+  against the old implementation before the fix.
+- The CLS explanation now acknowledges that the snapshot precedes interactions;
+  the cause of the initial-load difference is unverified.
+
+Follow-up checks: 121 unit tests passed, typecheck passed, production build passed,
+lint exited 0 with existing warnings, and all 26 Chromium E2E tests passed with
+runner exit code 0. E2E used the unchanged tests against a separately launched
+fresh production build on port 3101 via a temporary config, avoiding the earlier
+Windows managed-server teardown hang. Temporary config and server were removed.

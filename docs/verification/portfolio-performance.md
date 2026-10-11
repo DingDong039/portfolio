@@ -4,6 +4,9 @@ Local lab comparison captured by `scripts/measure-portfolio.mjs` (C1 harness,
 unchanged conditions). **These are controlled local measurements, not field
 Core Web Vitals or CrUX acceptance.**
 
+These measurements precede the review follow-up that replaced the Turnstile
+script loader. Bundle and timing figures have not been remeasured after that fix.
+
 ## Conditions (identical for both runs)
 
 - Node v24.14.1, Next 16.4.0, Chromium 156.0.8078.4 (same binaries both runs)
@@ -46,8 +49,9 @@ Core Web Vitals or CrUX acceptance.**
   ContactVerification lifecycle component; the Work accordion slot refactor
   was neutral-to-positive for the client bundle.
 - **CLS**: 1280 rose 0.0060 → 0.0074 (absolute +0.0014, both far below the
-  0.1 threshold); inspected and attributed to the accordion's grid-track
-  animation during scripted interaction, not a layout defect. 375 unchanged.
+  0.1 threshold). These values were captured before scripted interactions;
+  they cannot be attributed to the accordion animation. The cause of the
+  initial-load difference has not been established. 375 unchanged.
 - **Local interaction durations** (click/keydown medians, 24 → 32 ms) are lab
   observations under 4x CPU throttle; no field INP claim is made.
 

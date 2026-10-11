@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Script from "next/script";
 import { SITE_EMAIL } from "@/lib/site";
 
 // Local typing for Cloudflare's explicit-render API — deliberately not a
@@ -56,8 +55,28 @@ export default function ContactVerification({ onToken, resetVersion }: { onToken
     return () => observer.disconnect();
   }, []);
 
+  // Own the script element so a failed load can be removed and retried at the
+  // same URL. next/script caches failed URLs even when its React key changes.
+  // Reuse a loaded API; widget retries must not execute the script again.
+  useEffect(() => {
+    if (!activated || !sitekey || window.turnstile) return;
+    const script = document.createElement("script");
+    script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+    script.async = true;
+    const loaded = () => setScriptReady(true);
+    const failed = () => { onTokenRef.current(""); setFailedFor(resetVersion); };
+    script.addEventListener("load", loaded);
+    script.addEventListener("error", failed);
+    document.body.appendChild(script);
+    return () => {
+      script.removeEventListener("load", loaded);
+      script.removeEventListener("error", failed);
+      script.remove();
+    };
+  }, [activated, sitekey, scriptAttempt, resetVersion]);
+
   // Render/remove the widget. An already-loaded window.turnstile satisfies
-  // readiness directly (remounts), otherwise Script's onReady flips scriptReady
+  // readiness directly (remounts), otherwise the load event flips scriptReady
   // and this effect re-runs. A generation counter discards callbacks from an
   // already-removed widget, and every teardown clears the token first so a
   // consumed/expired token can never be resubmitted.
@@ -95,15 +114,6 @@ export default function ContactVerification({ onToken, resetVersion }: { onToken
         className="border border-[var(--border)] transition-colors"
         aria-label="Spam verification"
       />
-      {activated && (
-        <Script
-          key={scriptAttempt}
-          src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
-          strategy="afterInteractive"
-          onReady={() => setScriptReady(true)}
-          onError={() => { onTokenRef.current(""); setFailedFor(resetVersion); }}
-        />
-      )}
       {failed && (
         <div role="alert" className="mt-2 text-sm text-[var(--fg)]">
           <p className="mb-1.5">Verification failed to load.</p>
