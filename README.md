@@ -42,14 +42,19 @@ Personal portfolio of Watchara Tongyodpun, a full-stack developer. Built with Ne
    npm install
    ```
 
-3. Create `.env` file and add your Resend API key:
+3. Create `.env` file and add the correspondence settings:
    ```bash
    cp .env.example .env
    ```
    ```
    RESEND_API_KEY=your_api_key_here
    CONTACT_EMAIL=recipient_email
+   NEXT_PUBLIC_TURNSTILE_SITE_KEY=your_turnstile_site_key
+   TURNSTILE_SECRET_KEY=your_turnstile_secret_key
+   TURNSTILE_ALLOWED_HOSTNAMES=localhost
    ```
+
+   The contact form verifies senders with [Cloudflare Turnstile](https://developers.cloudflare.com/turnstile/) (plus a hidden honeypot). `NEXT_PUBLIC_TURNSTILE_SITE_KEY` is public and inlined into the client bundle at build time; `TURNSTILE_SECRET_KEY` stays server-only. `TURNSTILE_ALLOWED_HOSTNAMES` is a comma-separated allowlist of hostnames that may pass verification (no schemes, ports, or wildcards). Without these settings the API answers `503` and the form shows a direct-email fallback instead of silently failing. Tokens are single-use and expire after 300 seconds — after every attempt the form fetches a fresh one while keeping your draft.
 
 4. Add assets to `/public` (already present): `profile.jpg`, `LineQR.jpg`, `CV_WATCHARA_TONGYODPUN.pdf`.
 

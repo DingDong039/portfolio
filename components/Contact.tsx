@@ -1,10 +1,12 @@
 "use client";
 
-import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { Mail, Phone, MapPin, Send, LoaderCircle, CircleCheck, CircleAlert, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Reveal from "./Reveal";
 import SectionHeader from "./SectionHeader";
+import ContactVerification from "./ContactVerification";
+import { CONTACT_LIMITS, validateContactFields, type ContactFields, type FieldErrors } from "@/lib/contact-contract";
 
 type Status = "idle" | "success" | "error";
 
@@ -26,22 +28,57 @@ function Linkedin({ className }: { className?: string }) {
   );
 }
 
+type Channel = {
+  Icon: (props: { className?: string }) => React.ReactNode;
+  label: string;
+  value: string;
+  href?: string;
+  external?: boolean;
+};
+
+// Module scope — static content, not rebuilt per render (C11).
+const CHANNELS: Channel[] = [
+  { Icon: Mail, label: "Email", value: "watchara.ddev@gmail.com", href: "mailto:watchara.ddev@gmail.com" },
+  { Icon: Phone, label: "Phone", value: "+66 65-701-9971", href: "tel:+66657019971" },
+  { Icon: MapPin, label: "Location", value: "Chatuchak, Bangkok, Thailand" },
+  { Icon: Github, label: "GitHub", value: "/DingDong039", href: "https://github.com/DingDong039", external: true },
+  { Icon: Linkedin, label: "LinkedIn", value: "/in/watchara-t", href: "https://www.linkedin.com/in/watchara-tongyodpun-803866313", external: true },
+];
+
+const EMPTY_FIELDS: ContactFields = { name: "", email: "", subject: "", message: "" };
+
+function focusFirstError(errors: FieldErrors, fieldIds: Record<keyof ContactFields, string>): void {
+  const key = (Object.keys(CONTACT_LIMITS) as (keyof ContactFields)[]).find(k => errors[k]);
+  if (key) document.getElementById(fieldIds[key])?.focus();
+}
+
 export default function Contact() {
-  const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
+  const [formData, setFormData] = useState<ContactFields>(EMPTY_FIELDS);
+  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
   const [status, setStatus] = useState<Status>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [website, setWebsite] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const [resetVersion, setResetVersion] = useState(0);
   const qrDialogRef = useRef<HTMLDialogElement>(null);
-  // dedicated busy flag for the async submit — guards re-entry across the await
-  // and drives the button's disabled state. Derived values are stale within a
-  // render tick, so a real state flag is what closes the double-submit window.
+  // dedicated busy flag for the async submit — a ref closes the re-entry window
+  // synchronously (double-submit test), state drives the disabled UI.
+  const submittingRef = useRef(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  // handle to the status-clear timer. Re-submits replace it (so the previous
+  // handle to the success-clear timer. Re-submits replace it (so the previous
   // run can't cut a fresh status short) and unmount clears it (no setState
   // after the component is gone).
   const statusTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // Server-answered field errors arrive while inputs are still frozen by the
+  // pending send; focusing a disabled input is a no-op, so the focus runs on
+  // the commit that re-enables the fields.
+  const focusAfterEnableRef = useRef<FieldErrors | null>(null);
   const nameId = useId();
   const emailId = useId();
   const subjectId = useId();
   const messageId = useId();
+  const websiteId = useId();
+  const fieldIds = { name: nameId, email: emailId, subject: subjectId, message: messageId };
 
   const openQR = () => qrDialogRef.current?.showModal();
   const closeQR = () => qrDialogRef.current?.close();
@@ -58,31 +95,6 @@ export default function Contact() {
     return () => dialog.removeEventListener("click", onBackdropClick);
   }, []);
 
-  const handleSubmit = useCallback(async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (isSubmitting) return; // leading guard — closes the re-entry window before the await
-    setIsSubmitting(true); // set the busy flag before the first await, reset in finally
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-      if (response.ok) {
-        setStatus("success");
-        setFormData({ name: "", email: "", subject: "", message: "" });
-      } else {
-        setStatus("error");
-      }
-    } catch {
-      setStatus("error");
-    } finally {
-      setIsSubmitting(false);
-    }
-    if (statusTimerRef.current) clearTimeout(statusTimerRef.current);
-    statusTimerRef.current = setTimeout(() => setStatus("idle"), 6000);
-  }, [isSubmitting, formData]);
-
   // Cancel any pending status-clear when the section unmounts.
   useEffect(() => {
     return () => {
@@ -90,8 +102,79 @@ export default function Contact() {
     };
   }, []);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+  useEffect(() => {
+    if (isSubmitting || !focusAfterEnableRef.current) return;
+    const errors = focusAfterEnableRef.current;
+    focusAfterEnableRef.current = null;
+    focusFirstError(errors, { name: nameId, email: emailId, subject: subjectId, message: messageId });
+  }, [isSubmitting, nameId, emailId, subjectId, messageId]);
+
+  function readServerFieldErrors(result: unknown): FieldErrors {
+    if (!result || typeof result !== "object" || !("fieldErrors" in result) || !result.fieldErrors || typeof result.fieldErrors !== "object") return {};
+    const fields = result.fieldErrors as Record<string, unknown>;
+    const errors: FieldErrors = {};
+    for (const key of Object.keys(CONTACT_LIMITS) as (keyof ContactFields)[])
+      if (typeof fields[key] === "string" && fields[key].length <= 200) errors[key] = fields[key];
+    return errors;
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (submittingRef.current) return; // synchronous guard — closes the double-submit window
+    if (statusTimerRef.current) { clearTimeout(statusTimerRef.current); statusTimerRef.current = null; }
+    setStatus("idle");
+    setErrorMessage("");
+    // Client-side gate first (no fetch for invalid input); noValidate keeps the
+    // browser from applying a different rule set than the shared contract.
+    const validated = validateContactFields(formData);
+    if (!validated.ok) { setFieldErrors(validated.fieldErrors); focusFirstError(validated.fieldErrors, fieldIds); return; }
+    if (!turnstileToken) { setErrorMessage("Complete verification before submitting."); setStatus("error"); return; }
+    submittingRef.current = true;
+    setIsSubmitting(true);
+    const submitted = validated.value; // snapshot — inputs freeze while pending
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...submitted, website, turnstileToken }),
+        signal: AbortSignal.timeout(15000),
+      });
+      const result: unknown = await response.json();
+      if (response.ok && result && typeof result === "object" && (result as { ok?: unknown }).ok === true) {
+        setFormData(EMPTY_FIELDS);
+        setFieldErrors({});
+        setStatus("success");
+        statusTimerRef.current = setTimeout(() => setStatus("idle"), 6000);
+      } else {
+        const errors = readServerFieldErrors(result);
+        setFieldErrors(errors);
+        focusAfterEnableRef.current = errors;
+        setStatus("error");
+        setErrorMessage("Could not submit your message. Please retry or email me directly.");
+      }
+    } catch {
+      // Ambiguous outcome (timeout/network/parse): never auto-retry a possibly
+      // delivered send and never discard the draft.
+      setStatus("error");
+      setErrorMessage("Submission could not be confirmed. Please retry or email me directly.");
+    } finally {
+      submittingRef.current = false;
+      setIsSubmitting(false);
+      setTurnstileToken("");
+      setResetVersion((version) => version + 1);
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    if (e.target.name === "website") { setWebsite(e.target.value); return; }
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    // Editing a field clears its own error; the attempt-level banner clears on
+    // the next submit.
+    if (fieldErrors[e.target.name as keyof ContactFields]) {
+      const { [e.target.name as keyof ContactFields]: _drop, ...rest } = fieldErrors;
+      setFieldErrors(rest);
+    }
+  };
 
   return (
     <section id="contact" className="relative px-5 sm:px-7 py-16 sm:py-24 scroll-mt-14">
@@ -114,13 +197,7 @@ export default function Contact() {
                 on any of these.
               </p>
               <ul className="border-t border-[var(--border)]">
-                {[
-                  { Icon: Mail, label: "Email", value: "watchara.ddev@gmail.com", href: "mailto:watchara.ddev@gmail.com" },
-                  { Icon: Phone, label: "Phone", value: "+66 65-701-9971", href: "tel:+66657019971" },
-                  { Icon: MapPin, label: "Location", value: "Chatuchak, Bangkok, Thailand" },
-                  { Icon: Github, label: "GitHub", value: "/DingDong039", href: "https://github.com/DingDong039", external: true },
-                  { Icon: Linkedin, label: "LinkedIn", value: "/in/watchara-t", href: "https://www.linkedin.com/in/watchara-tongyodpun-803866313", external: true },
-                ].map(({ Icon, label, value, href, external }) => {
+                {CHANNELS.map(({ Icon, label, value, href, external }) => {
                   const row = "flex items-center justify-between gap-4 py-4";
                   const inner = (
                     <>
@@ -170,13 +247,28 @@ export default function Contact() {
             <Reveal as="div" delay={100}>
               <form onSubmit={handleSubmit} className="panel-rule p-6 sm:p-8" noValidate>
                 <div className="grid sm:grid-cols-2 gap-5">
-                  <Field id={nameId} label="Name" name="name" value={formData.name} onChange={handleChange} required autoComplete="name" />
-                  <Field id={emailId} label="Email" name="email" type="email" value={formData.email} onChange={handleChange} required autoComplete="email" />
+                  <Field id={nameId} label="Name" name="name" value={formData.name} onChange={handleChange} required autoComplete="name"
+                    error={fieldErrors.name} maxLength={CONTACT_LIMITS.name} disabled={isSubmitting} />
+                  <Field id={emailId} label="Email" name="email" type="email" value={formData.email} onChange={handleChange} required autoComplete="email"
+                    error={fieldErrors.email} maxLength={CONTACT_LIMITS.email} disabled={isSubmitting} />
                 </div>
-                <Field id={subjectId} label="Subject" name="subject" value={formData.subject} onChange={handleChange} required />
-                <Field id={messageId} label="Message" name="message" value={formData.message} onChange={handleChange} required as="textarea" rows={5} />
+                <Field id={subjectId} label="Subject" name="subject" value={formData.subject} onChange={handleChange} required
+                  error={fieldErrors.subject} maxLength={CONTACT_LIMITS.subject} disabled={isSubmitting} />
+                <Field id={messageId} label="Message" name="message" value={formData.message} onChange={handleChange} required as="textarea" rows={5}
+                  error={fieldErrors.message} maxLength={CONTACT_LIMITS.message} disabled={isSubmitting}
+                  help={`Up to ${CONTACT_LIMITS.message.toLocaleString("en-US")} characters.`} />
 
-                <button type="submit" disabled={isSubmitting} className="btn-solid w-full disabled:opacity-60 disabled:cursor-not-allowed">
+                {/* Honeypot — hidden from people, keyboard, and screen readers;
+                    bots that fill it are rejected server-side. */}
+                <div aria-hidden="true" className="hidden">
+                  <label htmlFor={websiteId}>Website</label>
+                  <input id={websiteId} name="website" type="text" tabIndex={-1} autoComplete="off"
+                    value={website} onChange={handleChange} />
+                </div>
+
+                <ContactVerification onToken={setTurnstileToken} resetVersion={resetVersion} />
+
+                <button type="submit" disabled={isSubmitting} className="btn-solid w-full disabled:opacity-60 disabled:cursor-not-allowed mt-5">
                   {isSubmitting ? (
                     <>
                       <LoaderCircle className="h-4 w-4 animate-spin" /> Sending…
@@ -188,17 +280,17 @@ export default function Contact() {
                   )}
                 </button>
 
-                {/* status — text + icon, not color alone */}
+                {/* status — text + icon, not color alone; live regions announce both */}
                 {status === "success" && (
                   <output className="flex items-center gap-2.5 mt-4 p-3 border border-[var(--accent)] enter" style={{ background: "var(--accent-soft)" }}>
                     <CircleCheck className="h-5 w-5 text-[var(--accent)] shrink-0" />
-                    <span className="text-[var(--fg)] font-medium text-[0.92rem]">Message sent. I'll get back to you shortly.</span>
+                    <span className="text-[var(--fg)] font-medium text-[0.92rem]">Message submitted. I&apos;ll get back to you shortly.</span>
                   </output>
                 )}
-                {status === "error" && (
+                {status === "error" && errorMessage && (
                   <div role="alert" className="flex items-center gap-2.5 mt-4 p-3 border border-[var(--ember)] enter" style={{ background: "color-mix(in oklch, var(--ember) 12%, transparent)" }}>
                     <CircleAlert className="h-5 w-5 shrink-0" style={{ color: "var(--ember)" }} />
-                    <span className="text-[var(--fg)] font-medium text-[0.92rem]">Something went wrong. Please try again or email me directly.</span>
+                    <span className="text-[var(--fg)] font-medium text-[0.92rem]">{errorMessage}</span>
                   </div>
                 )}
               </form>
@@ -238,6 +330,10 @@ function Field({
   as = "input",
   rows,
   autoComplete,
+  error,
+  maxLength,
+  disabled,
+  help,
 }: {
   id: string;
   label: string;
@@ -249,7 +345,13 @@ function Field({
   as?: "input" | "textarea";
   rows?: number;
   autoComplete?: string;
+  error?: string;
+  maxLength?: number;
+  disabled?: boolean;
+  help?: string;
 }) {
+  const describedBy = error ? `${id}-error` : help ? `${id}-help` : undefined;
+  const invalid = error ? true : undefined;
   const base = "field-input";
   return (
     <div className="field">
@@ -265,6 +367,10 @@ function Field({
           onChange={onChange}
           required={required}
           rows={rows}
+          maxLength={maxLength}
+          disabled={disabled}
+          aria-invalid={invalid}
+          aria-describedby={describedBy}
           className={`${base} resize-y min-h-[7rem]`}
         />
       ) : (
@@ -276,9 +382,15 @@ function Field({
           onChange={onChange}
           required={required}
           autoComplete={autoComplete}
+          maxLength={maxLength}
+          disabled={disabled}
+          aria-invalid={invalid}
+          aria-describedby={describedBy}
           className={base}
         />
       )}
+      {help && <p id={`${id}-help`} className="mt-1 text-sm text-[var(--fg-3)]">{help}</p>}
+      {error && <p id={`${id}-error`} className="mt-1 text-sm text-[var(--fg)]">{error}</p>}
     </div>
   );
 }
