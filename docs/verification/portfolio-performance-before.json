@@ -1,0 +1,4831 @@
+{
+  "label": "before",
+  "node": "v24.14.1",
+  "next": "16.4.0",
+  "browser": "156.0.8078.4",
+  "conditions": {
+    "freshContext": true,
+    "cacheDisabled": true,
+    "cpuRate": 4,
+    "latencyMs": 150,
+    "downloadBytesPerSec": 200000,
+    "uploadBytesPerSec": 100000,
+    "thirdPartyBlocked": true
+  },
+  "summary": [
+    {
+      "width": 375,
+      "lcpMedianMs": 1516,
+      "clsMedian": 0.00007987901234567902,
+      "jsBytesMedian": 153034,
+      "fontBytesMedian": 171292
+    },
+    {
+      "width": 1280,
+      "lcpMedianMs": 1304,
+      "clsMedian": 0.006023554293314616,
+      "jsBytesMedian": 153034,
+      "fontBytesMedian": 171292
+    }
+  ],
+  "samples": [
+    {
+      "width": 375,
+      "run": 0,
+      "lcp": 1516,
+      "cls": 0.00007987901234567902,
+      "events": [
+        {
+          "name": "pointerover",
+          "duration": 136
+        },
+        {
+          "name": "pointerenter",
+          "duration": 136
+        },
+        {
+          "name": "pointerenter",
+          "duration": 136
+        },
+        {
+          "name": "pointerenter",
+          "duration": 136
+        },
+        {
+          "name": "pointerenter",
+          "duration": 136
+        },
+        {
+          "name": "pointerenter",
+          "duration": 136
+        },
+        {
+          "name": "pointerenter",
+          "duration": 136
+        },
+        {
+          "name": "pointerenter",
+          "duration": 136
+        },
+        {
+          "name": "pointerenter",
+          "duration": 136
+        },
+        {
+          "name": "pointerenter",
+          "duration": 136
+        },
+        {
+          "name": "mouseover",
+          "duration": 136
+        },
+        {
+          "name": "pointerdown",
+          "duration": 136
+        },
+        {
+          "name": "mousedown",
+          "duration": 136
+        },
+        {
+          "name": "pointerup",
+          "duration": 136
+        },
+        {
+          "name": "mouseup",
+          "duration": 136
+        },
+        {
+          "name": "click",
+          "duration": 136
+        },
+        {
+          "name": "pointerout",
+          "duration": 40
+        },
+        {
+          "name": "pointerleave",
+          "duration": 40
+        },
+        {
+          "name": "pointerleave",
+          "duration": 40
+        },
+        {
+          "name": "pointerleave",
+          "duration": 40
+        },
+        {
+          "name": "pointerleave",
+          "duration": 40
+        },
+        {
+          "name": "pointerleave",
+          "duration": 40
+        },
+        {
+          "name": "pointerleave",
+          "duration": 40
+        },
+        {
+          "name": "pointerover",
+          "duration": 40
+        },
+        {
+          "name": "pointerenter",
+          "duration": 40
+        },
+        {
+          "name": "pointerenter",
+          "duration": 40
+        },
+        {
+          "name": "pointerenter",
+          "duration": 40
+        },
+        {
+          "name": "pointerenter",
+          "duration": 40
+        },
+        {
+          "name": "mouseout",
+          "duration": 40
+        },
+        {
+          "name": "mouseover",
+          "duration": 40
+        },
+        {
+          "name": "pointerout",
+          "duration": 80
+        },
+        {
+          "name": "pointerleave",
+          "duration": 80
+        },
+        {
+          "name": "pointerleave",
+          "duration": 80
+        },
+        {
+          "name": "pointerover",
+          "duration": 80
+        },
+        {
+          "name": "pointerenter",
+          "duration": 80
+        },
+        {
+          "name": "pointerenter",
+          "duration": 80
+        },
+        {
+          "name": "pointerenter",
+          "duration": 80
+        },
+        {
+          "name": "mouseout",
+          "duration": 80
+        },
+        {
+          "name": "mouseover",
+          "duration": 80
+        },
+        {
+          "name": "pointerdown",
+          "duration": 80
+        },
+        {
+          "name": "mousedown",
+          "duration": 80
+        },
+        {
+          "name": "pointerup",
+          "duration": 80
+        },
+        {
+          "name": "mouseup",
+          "duration": 80
+        },
+        {
+          "name": "click",
+          "duration": 80
+        },
+        {
+          "name": "pointerout",
+          "duration": 16
+        },
+        {
+          "name": "pointerover",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "mouseout",
+          "duration": 16
+        },
+        {
+          "name": "mouseover",
+          "duration": 16
+        },
+        {
+          "name": "pointerdown",
+          "duration": 16
+        },
+        {
+          "name": "mousedown",
+          "duration": 16
+        },
+        {
+          "name": "pointerup",
+          "duration": 16
+        },
+        {
+          "name": "mouseup",
+          "duration": 16
+        },
+        {
+          "name": "click",
+          "duration": 16
+        },
+        {
+          "name": "keydown",
+          "duration": 24
+        },
+        {
+          "name": "keypress",
+          "duration": 24
+        },
+        {
+          "name": "beforeinput",
+          "duration": 16
+        },
+        {
+          "name": "input",
+          "duration": 16
+        },
+        {
+          "name": "keyup",
+          "duration": 32
+        },
+        {
+          "name": "keydown",
+          "duration": 32
+        },
+        {
+          "name": "keypress",
+          "duration": 32
+        },
+        {
+          "name": "beforeinput",
+          "duration": 32
+        },
+        {
+          "name": "input",
+          "duration": 32
+        },
+        {
+          "name": "keyup",
+          "duration": 32
+        },
+        {
+          "name": "keydown",
+          "duration": 32
+        },
+        {
+          "name": "keypress",
+          "duration": 32
+        },
+        {
+          "name": "beforeinput",
+          "duration": 32
+        },
+        {
+          "name": "input",
+          "duration": 32
+        },
+        {
+          "name": "keyup",
+          "duration": 24
+        },
+        {
+          "name": "keydown",
+          "duration": 24
+        },
+        {
+          "name": "keypress",
+          "duration": 24
+        },
+        {
+          "name": "beforeinput",
+          "duration": 24
+        },
+        {
+          "name": "input",
+          "duration": 16
+        },
+        {
+          "name": "keyup",
+          "duration": 24
+        },
+        {
+          "name": "keydown",
+          "duration": 24
+        },
+        {
+          "name": "keypress",
+          "duration": 24
+        },
+        {
+          "name": "beforeinput",
+          "duration": 24
+        },
+        {
+          "name": "input",
+          "duration": 24
+        },
+        {
+          "name": "keyup",
+          "duration": 32
+        },
+        {
+          "name": "keydown",
+          "duration": 32
+        },
+        {
+          "name": "keypress",
+          "duration": 32
+        },
+        {
+          "name": "beforeinput",
+          "duration": 24
+        },
+        {
+          "name": "input",
+          "duration": 24
+        },
+        {
+          "name": "keyup",
+          "duration": 32
+        }
+      ],
+      "resources": [
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/051742360c26797e-s.p.1bkzbscqrt8rl.woff2",
+          "transferSize": 31640,
+          "encodedBodySize": 31340
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/118b6ed7ac256a99-s.p.3btzg3pbxiu1o.woff2",
+          "transferSize": 11052,
+          "encodedBodySize": 10752
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/1e23e5114abf0db3-s.p.3vomj4ys718n3.woff2",
+          "transferSize": 10988,
+          "encodedBodySize": 10688
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/34da6f6f5d0d57a5-s.p.3j785ygmx2sxp.woff2",
+          "transferSize": 7100,
+          "encodedBodySize": 6800
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/577b8067601e9847-s.p.17uyqh1z65ij2.woff2",
+          "transferSize": 7364,
+          "encodedBodySize": 7064
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/75affa71d1e2f6a7-s.p.17-aodiw50953.woff2",
+          "transferSize": 35240,
+          "encodedBodySize": 34940
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/876b05e81fb36bf6-s.p.3-cnw-vwwbh1_.woff2",
+          "transferSize": 7436,
+          "encodedBodySize": 7136
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/89d4f80f11029d6d-s.p.3y48j16vw3ns0.woff2",
+          "transferSize": 10800,
+          "encodedBodySize": 10500
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/a244653d74e7372f-s.p.3zj8sbbtpwle6.woff2",
+          "transferSize": 7200,
+          "encodedBodySize": 6900
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/c47649aa31f9e140-s.p.3lxpqujs87tck.woff2",
+          "transferSize": 34964,
+          "encodedBodySize": 34664
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/c750adf2ddf22b70-s.p.1j3epi4sx1jkp.woff2",
+          "transferSize": 10808,
+          "encodedBodySize": 10508
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/1nctas23f3atj.css",
+          "transferSize": 10705,
+          "encodedBodySize": 10405
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/1ckvzn7sfprko.js",
+          "transferSize": 2335,
+          "encodedBodySize": 2035
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/0jb0yw7r7g08b.js",
+          "transferSize": 8840,
+          "encodedBodySize": 8540
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/2-aubugw8unjj.js",
+          "transferSize": 72226,
+          "encodedBodySize": 71926
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/2tpeyb18i5sct.js",
+          "transferSize": 45974,
+          "encodedBodySize": 45674
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+          "transferSize": 4240,
+          "encodedBodySize": 3940
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/0wuj0ovm5wvbz.js",
+          "transferSize": 5274,
+          "encodedBodySize": 4974
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/2hv2ro0gmlfok.js",
+          "transferSize": 2029,
+          "encodedBodySize": 1729
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/1hper67x00tnc.js",
+          "transferSize": 14516,
+          "encodedBodySize": 14216
+        },
+        {
+          "name": "http://127.0.0.1:3100/_vercel/insights/script.js",
+          "transferSize": 300,
+          "encodedBodySize": 0
+        }
+      ],
+      "preloads": [
+        "http://127.0.0.1:3100/_next/static/media/051742360c26797e-s.p.1bkzbscqrt8rl.woff2",
+        "http://127.0.0.1:3100/_next/static/media/118b6ed7ac256a99-s.p.3btzg3pbxiu1o.woff2",
+        "http://127.0.0.1:3100/_next/static/media/1e23e5114abf0db3-s.p.3vomj4ys718n3.woff2",
+        "http://127.0.0.1:3100/_next/static/media/34da6f6f5d0d57a5-s.p.3j785ygmx2sxp.woff2",
+        "http://127.0.0.1:3100/_next/static/media/577b8067601e9847-s.p.17uyqh1z65ij2.woff2",
+        "http://127.0.0.1:3100/_next/static/media/75affa71d1e2f6a7-s.p.17-aodiw50953.woff2",
+        "http://127.0.0.1:3100/_next/static/media/876b05e81fb36bf6-s.p.3-cnw-vwwbh1_.woff2",
+        "http://127.0.0.1:3100/_next/static/media/89d4f80f11029d6d-s.p.3y48j16vw3ns0.woff2",
+        "http://127.0.0.1:3100/_next/static/media/a244653d74e7372f-s.p.3zj8sbbtpwle6.woff2",
+        "http://127.0.0.1:3100/_next/static/media/c47649aa31f9e140-s.p.3lxpqujs87tck.woff2",
+        "http://127.0.0.1:3100/_next/static/media/c750adf2ddf22b70-s.p.1j3epi4sx1jkp.woff2"
+      ]
+    },
+    {
+      "width": 375,
+      "run": 1,
+      "lcp": 1504,
+      "cls": 0.00007987901234567902,
+      "events": [
+        {
+          "name": "pointerover",
+          "duration": 104
+        },
+        {
+          "name": "pointerenter",
+          "duration": 104
+        },
+        {
+          "name": "pointerenter",
+          "duration": 104
+        },
+        {
+          "name": "pointerenter",
+          "duration": 104
+        },
+        {
+          "name": "pointerenter",
+          "duration": 104
+        },
+        {
+          "name": "pointerenter",
+          "duration": 104
+        },
+        {
+          "name": "pointerenter",
+          "duration": 104
+        },
+        {
+          "name": "pointerenter",
+          "duration": 104
+        },
+        {
+          "name": "pointerenter",
+          "duration": 104
+        },
+        {
+          "name": "pointerenter",
+          "duration": 104
+        },
+        {
+          "name": "mouseover",
+          "duration": 104
+        },
+        {
+          "name": "pointerdown",
+          "duration": 104
+        },
+        {
+          "name": "mousedown",
+          "duration": 104
+        },
+        {
+          "name": "pointerup",
+          "duration": 104
+        },
+        {
+          "name": "mouseup",
+          "duration": 104
+        },
+        {
+          "name": "click",
+          "duration": 104
+        },
+        {
+          "name": "pointerout",
+          "duration": 32
+        },
+        {
+          "name": "pointerleave",
+          "duration": 32
+        },
+        {
+          "name": "pointerleave",
+          "duration": 32
+        },
+        {
+          "name": "pointerleave",
+          "duration": 32
+        },
+        {
+          "name": "pointerleave",
+          "duration": 32
+        },
+        {
+          "name": "pointerleave",
+          "duration": 32
+        },
+        {
+          "name": "pointerleave",
+          "duration": 32
+        },
+        {
+          "name": "pointerover",
+          "duration": 32
+        },
+        {
+          "name": "pointerenter",
+          "duration": 32
+        },
+        {
+          "name": "pointerenter",
+          "duration": 32
+        },
+        {
+          "name": "pointerenter",
+          "duration": 32
+        },
+        {
+          "name": "pointerenter",
+          "duration": 32
+        },
+        {
+          "name": "mouseout",
+          "duration": 32
+        },
+        {
+          "name": "mouseover",
+          "duration": 32
+        },
+        {
+          "name": "pointerout",
+          "duration": 64
+        },
+        {
+          "name": "pointerleave",
+          "duration": 64
+        },
+        {
+          "name": "pointerleave",
+          "duration": 64
+        },
+        {
+          "name": "pointerover",
+          "duration": 64
+        },
+        {
+          "name": "pointerenter",
+          "duration": 64
+        },
+        {
+          "name": "pointerenter",
+          "duration": 64
+        },
+        {
+          "name": "pointerenter",
+          "duration": 64
+        },
+        {
+          "name": "mouseout",
+          "duration": 64
+        },
+        {
+          "name": "mouseover",
+          "duration": 64
+        },
+        {
+          "name": "pointerdown",
+          "duration": 64
+        },
+        {
+          "name": "mousedown",
+          "duration": 64
+        },
+        {
+          "name": "pointerup",
+          "duration": 64
+        },
+        {
+          "name": "mouseup",
+          "duration": 64
+        },
+        {
+          "name": "click",
+          "duration": 64
+        },
+        {
+          "name": "pointerout",
+          "duration": 16
+        },
+        {
+          "name": "pointerover",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "mouseout",
+          "duration": 16
+        },
+        {
+          "name": "mouseover",
+          "duration": 16
+        },
+        {
+          "name": "pointerdown",
+          "duration": 16
+        },
+        {
+          "name": "mousedown",
+          "duration": 16
+        },
+        {
+          "name": "pointerup",
+          "duration": 16
+        },
+        {
+          "name": "mouseup",
+          "duration": 16
+        },
+        {
+          "name": "click",
+          "duration": 16
+        },
+        {
+          "name": "keydown",
+          "duration": 16
+        },
+        {
+          "name": "keypress",
+          "duration": 16
+        },
+        {
+          "name": "beforeinput",
+          "duration": 16
+        },
+        {
+          "name": "input",
+          "duration": 16
+        },
+        {
+          "name": "keyup",
+          "duration": 24
+        },
+        {
+          "name": "keydown",
+          "duration": 16
+        },
+        {
+          "name": "keypress",
+          "duration": 16
+        },
+        {
+          "name": "beforeinput",
+          "duration": 16
+        },
+        {
+          "name": "input",
+          "duration": 16
+        },
+        {
+          "name": "keyup",
+          "duration": 24
+        },
+        {
+          "name": "keydown",
+          "duration": 24
+        },
+        {
+          "name": "keypress",
+          "duration": 24
+        },
+        {
+          "name": "beforeinput",
+          "duration": 24
+        },
+        {
+          "name": "input",
+          "duration": 16
+        },
+        {
+          "name": "keyup",
+          "duration": 16
+        },
+        {
+          "name": "keyup",
+          "duration": 16
+        },
+        {
+          "name": "keydown",
+          "duration": 16
+        },
+        {
+          "name": "keypress",
+          "duration": 16
+        },
+        {
+          "name": "beforeinput",
+          "duration": 16
+        },
+        {
+          "name": "input",
+          "duration": 16
+        },
+        {
+          "name": "keyup",
+          "duration": 24
+        },
+        {
+          "name": "keydown",
+          "duration": 24
+        },
+        {
+          "name": "keypress",
+          "duration": 24
+        },
+        {
+          "name": "beforeinput",
+          "duration": 16
+        },
+        {
+          "name": "input",
+          "duration": 16
+        },
+        {
+          "name": "keyup",
+          "duration": 16
+        }
+      ],
+      "resources": [
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/051742360c26797e-s.p.1bkzbscqrt8rl.woff2",
+          "transferSize": 31640,
+          "encodedBodySize": 31340
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/118b6ed7ac256a99-s.p.3btzg3pbxiu1o.woff2",
+          "transferSize": 11052,
+          "encodedBodySize": 10752
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/1e23e5114abf0db3-s.p.3vomj4ys718n3.woff2",
+          "transferSize": 10988,
+          "encodedBodySize": 10688
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/34da6f6f5d0d57a5-s.p.3j785ygmx2sxp.woff2",
+          "transferSize": 7100,
+          "encodedBodySize": 6800
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/577b8067601e9847-s.p.17uyqh1z65ij2.woff2",
+          "transferSize": 7364,
+          "encodedBodySize": 7064
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/75affa71d1e2f6a7-s.p.17-aodiw50953.woff2",
+          "transferSize": 35240,
+          "encodedBodySize": 34940
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/876b05e81fb36bf6-s.p.3-cnw-vwwbh1_.woff2",
+          "transferSize": 7436,
+          "encodedBodySize": 7136
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/89d4f80f11029d6d-s.p.3y48j16vw3ns0.woff2",
+          "transferSize": 10800,
+          "encodedBodySize": 10500
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/a244653d74e7372f-s.p.3zj8sbbtpwle6.woff2",
+          "transferSize": 7200,
+          "encodedBodySize": 6900
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/c47649aa31f9e140-s.p.3lxpqujs87tck.woff2",
+          "transferSize": 34964,
+          "encodedBodySize": 34664
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/c750adf2ddf22b70-s.p.1j3epi4sx1jkp.woff2",
+          "transferSize": 10808,
+          "encodedBodySize": 10508
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/1nctas23f3atj.css",
+          "transferSize": 10705,
+          "encodedBodySize": 10405
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/1ckvzn7sfprko.js",
+          "transferSize": 2335,
+          "encodedBodySize": 2035
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/0jb0yw7r7g08b.js",
+          "transferSize": 8840,
+          "encodedBodySize": 8540
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/2-aubugw8unjj.js",
+          "transferSize": 72226,
+          "encodedBodySize": 71926
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/2tpeyb18i5sct.js",
+          "transferSize": 45974,
+          "encodedBodySize": 45674
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+          "transferSize": 4240,
+          "encodedBodySize": 3940
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/0wuj0ovm5wvbz.js",
+          "transferSize": 5274,
+          "encodedBodySize": 4974
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/2hv2ro0gmlfok.js",
+          "transferSize": 2029,
+          "encodedBodySize": 1729
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/1hper67x00tnc.js",
+          "transferSize": 14516,
+          "encodedBodySize": 14216
+        },
+        {
+          "name": "http://127.0.0.1:3100/_vercel/insights/script.js",
+          "transferSize": 300,
+          "encodedBodySize": 0
+        }
+      ],
+      "preloads": [
+        "http://127.0.0.1:3100/_next/static/media/051742360c26797e-s.p.1bkzbscqrt8rl.woff2",
+        "http://127.0.0.1:3100/_next/static/media/118b6ed7ac256a99-s.p.3btzg3pbxiu1o.woff2",
+        "http://127.0.0.1:3100/_next/static/media/1e23e5114abf0db3-s.p.3vomj4ys718n3.woff2",
+        "http://127.0.0.1:3100/_next/static/media/34da6f6f5d0d57a5-s.p.3j785ygmx2sxp.woff2",
+        "http://127.0.0.1:3100/_next/static/media/577b8067601e9847-s.p.17uyqh1z65ij2.woff2",
+        "http://127.0.0.1:3100/_next/static/media/75affa71d1e2f6a7-s.p.17-aodiw50953.woff2",
+        "http://127.0.0.1:3100/_next/static/media/876b05e81fb36bf6-s.p.3-cnw-vwwbh1_.woff2",
+        "http://127.0.0.1:3100/_next/static/media/89d4f80f11029d6d-s.p.3y48j16vw3ns0.woff2",
+        "http://127.0.0.1:3100/_next/static/media/a244653d74e7372f-s.p.3zj8sbbtpwle6.woff2",
+        "http://127.0.0.1:3100/_next/static/media/c47649aa31f9e140-s.p.3lxpqujs87tck.woff2",
+        "http://127.0.0.1:3100/_next/static/media/c750adf2ddf22b70-s.p.1j3epi4sx1jkp.woff2"
+      ]
+    },
+    {
+      "width": 375,
+      "run": 2,
+      "lcp": 1524,
+      "cls": 0.00007987901234567902,
+      "events": [
+        {
+          "name": "pointerover",
+          "duration": 88
+        },
+        {
+          "name": "pointerenter",
+          "duration": 88
+        },
+        {
+          "name": "pointerenter",
+          "duration": 88
+        },
+        {
+          "name": "pointerenter",
+          "duration": 88
+        },
+        {
+          "name": "pointerenter",
+          "duration": 88
+        },
+        {
+          "name": "pointerenter",
+          "duration": 88
+        },
+        {
+          "name": "pointerenter",
+          "duration": 88
+        },
+        {
+          "name": "pointerenter",
+          "duration": 88
+        },
+        {
+          "name": "pointerenter",
+          "duration": 88
+        },
+        {
+          "name": "pointerenter",
+          "duration": 88
+        },
+        {
+          "name": "mouseover",
+          "duration": 88
+        },
+        {
+          "name": "pointerdown",
+          "duration": 88
+        },
+        {
+          "name": "mousedown",
+          "duration": 88
+        },
+        {
+          "name": "pointerup",
+          "duration": 88
+        },
+        {
+          "name": "mouseup",
+          "duration": 88
+        },
+        {
+          "name": "click",
+          "duration": 88
+        },
+        {
+          "name": "pointerout",
+          "duration": 24
+        },
+        {
+          "name": "pointerleave",
+          "duration": 24
+        },
+        {
+          "name": "pointerleave",
+          "duration": 24
+        },
+        {
+          "name": "pointerleave",
+          "duration": 24
+        },
+        {
+          "name": "pointerleave",
+          "duration": 24
+        },
+        {
+          "name": "pointerleave",
+          "duration": 24
+        },
+        {
+          "name": "pointerleave",
+          "duration": 24
+        },
+        {
+          "name": "pointerover",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "mouseout",
+          "duration": 24
+        },
+        {
+          "name": "mouseover",
+          "duration": 24
+        },
+        {
+          "name": "pointerout",
+          "duration": 72
+        },
+        {
+          "name": "pointerleave",
+          "duration": 72
+        },
+        {
+          "name": "pointerleave",
+          "duration": 72
+        },
+        {
+          "name": "pointerover",
+          "duration": 72
+        },
+        {
+          "name": "pointerenter",
+          "duration": 72
+        },
+        {
+          "name": "pointerenter",
+          "duration": 72
+        },
+        {
+          "name": "pointerenter",
+          "duration": 72
+        },
+        {
+          "name": "mouseout",
+          "duration": 72
+        },
+        {
+          "name": "mouseover",
+          "duration": 72
+        },
+        {
+          "name": "pointerdown",
+          "duration": 72
+        },
+        {
+          "name": "mousedown",
+          "duration": 72
+        },
+        {
+          "name": "pointerup",
+          "duration": 72
+        },
+        {
+          "name": "mouseup",
+          "duration": 72
+        },
+        {
+          "name": "click",
+          "duration": 72
+        },
+        {
+          "name": "pointerout",
+          "duration": 16
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16
+        },
+        {
+          "name": "pointerover",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "mouseout",
+          "duration": 16
+        },
+        {
+          "name": "mouseover",
+          "duration": 16
+        },
+        {
+          "name": "pointerout",
+          "duration": 16
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16
+        },
+        {
+          "name": "pointerover",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "mouseout",
+          "duration": 16
+        },
+        {
+          "name": "mouseover",
+          "duration": 16
+        },
+        {
+          "name": "pointerout",
+          "duration": 24
+        },
+        {
+          "name": "pointerover",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "mouseout",
+          "duration": 24
+        },
+        {
+          "name": "mouseover",
+          "duration": 24
+        },
+        {
+          "name": "pointerdown",
+          "duration": 24
+        },
+        {
+          "name": "mousedown",
+          "duration": 24
+        },
+        {
+          "name": "pointerup",
+          "duration": 24
+        },
+        {
+          "name": "mouseup",
+          "duration": 24
+        },
+        {
+          "name": "click",
+          "duration": 24
+        },
+        {
+          "name": "keydown",
+          "duration": 16
+        },
+        {
+          "name": "keypress",
+          "duration": 16
+        },
+        {
+          "name": "beforeinput",
+          "duration": 16
+        },
+        {
+          "name": "input",
+          "duration": 16
+        },
+        {
+          "name": "keyup",
+          "duration": 16
+        },
+        {
+          "name": "keydown",
+          "duration": 16
+        },
+        {
+          "name": "keypress",
+          "duration": 16
+        },
+        {
+          "name": "beforeinput",
+          "duration": 16
+        },
+        {
+          "name": "input",
+          "duration": 16
+        },
+        {
+          "name": "keyup",
+          "duration": 24
+        },
+        {
+          "name": "keydown",
+          "duration": 16
+        },
+        {
+          "name": "keypress",
+          "duration": 16
+        },
+        {
+          "name": "beforeinput",
+          "duration": 16
+        },
+        {
+          "name": "input",
+          "duration": 16
+        },
+        {
+          "name": "keydown",
+          "duration": 24
+        },
+        {
+          "name": "keypress",
+          "duration": 24
+        },
+        {
+          "name": "beforeinput",
+          "duration": 24
+        },
+        {
+          "name": "input",
+          "duration": 16
+        },
+        {
+          "name": "keyup",
+          "duration": 16
+        },
+        {
+          "name": "keyup",
+          "duration": 24
+        },
+        {
+          "name": "keydown",
+          "duration": 24
+        },
+        {
+          "name": "keypress",
+          "duration": 24
+        },
+        {
+          "name": "beforeinput",
+          "duration": 24
+        },
+        {
+          "name": "input",
+          "duration": 16
+        },
+        {
+          "name": "keyup",
+          "duration": 16
+        }
+      ],
+      "resources": [
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/051742360c26797e-s.p.1bkzbscqrt8rl.woff2",
+          "transferSize": 31640,
+          "encodedBodySize": 31340
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/118b6ed7ac256a99-s.p.3btzg3pbxiu1o.woff2",
+          "transferSize": 11052,
+          "encodedBodySize": 10752
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/1e23e5114abf0db3-s.p.3vomj4ys718n3.woff2",
+          "transferSize": 10988,
+          "encodedBodySize": 10688
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/34da6f6f5d0d57a5-s.p.3j785ygmx2sxp.woff2",
+          "transferSize": 7100,
+          "encodedBodySize": 6800
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/577b8067601e9847-s.p.17uyqh1z65ij2.woff2",
+          "transferSize": 7364,
+          "encodedBodySize": 7064
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/75affa71d1e2f6a7-s.p.17-aodiw50953.woff2",
+          "transferSize": 35240,
+          "encodedBodySize": 34940
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/876b05e81fb36bf6-s.p.3-cnw-vwwbh1_.woff2",
+          "transferSize": 7436,
+          "encodedBodySize": 7136
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/89d4f80f11029d6d-s.p.3y48j16vw3ns0.woff2",
+          "transferSize": 10800,
+          "encodedBodySize": 10500
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/a244653d74e7372f-s.p.3zj8sbbtpwle6.woff2",
+          "transferSize": 7200,
+          "encodedBodySize": 6900
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/c47649aa31f9e140-s.p.3lxpqujs87tck.woff2",
+          "transferSize": 34964,
+          "encodedBodySize": 34664
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/c750adf2ddf22b70-s.p.1j3epi4sx1jkp.woff2",
+          "transferSize": 10808,
+          "encodedBodySize": 10508
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/1nctas23f3atj.css",
+          "transferSize": 10705,
+          "encodedBodySize": 10405
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/1ckvzn7sfprko.js",
+          "transferSize": 2335,
+          "encodedBodySize": 2035
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/0jb0yw7r7g08b.js",
+          "transferSize": 8840,
+          "encodedBodySize": 8540
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/2-aubugw8unjj.js",
+          "transferSize": 72226,
+          "encodedBodySize": 71926
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/2tpeyb18i5sct.js",
+          "transferSize": 45974,
+          "encodedBodySize": 45674
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+          "transferSize": 4240,
+          "encodedBodySize": 3940
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/0wuj0ovm5wvbz.js",
+          "transferSize": 5274,
+          "encodedBodySize": 4974
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/2hv2ro0gmlfok.js",
+          "transferSize": 2029,
+          "encodedBodySize": 1729
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/1hper67x00tnc.js",
+          "transferSize": 14516,
+          "encodedBodySize": 14216
+        },
+        {
+          "name": "http://127.0.0.1:3100/_vercel/insights/script.js",
+          "transferSize": 300,
+          "encodedBodySize": 0
+        }
+      ],
+      "preloads": [
+        "http://127.0.0.1:3100/_next/static/media/051742360c26797e-s.p.1bkzbscqrt8rl.woff2",
+        "http://127.0.0.1:3100/_next/static/media/118b6ed7ac256a99-s.p.3btzg3pbxiu1o.woff2",
+        "http://127.0.0.1:3100/_next/static/media/1e23e5114abf0db3-s.p.3vomj4ys718n3.woff2",
+        "http://127.0.0.1:3100/_next/static/media/34da6f6f5d0d57a5-s.p.3j785ygmx2sxp.woff2",
+        "http://127.0.0.1:3100/_next/static/media/577b8067601e9847-s.p.17uyqh1z65ij2.woff2",
+        "http://127.0.0.1:3100/_next/static/media/75affa71d1e2f6a7-s.p.17-aodiw50953.woff2",
+        "http://127.0.0.1:3100/_next/static/media/876b05e81fb36bf6-s.p.3-cnw-vwwbh1_.woff2",
+        "http://127.0.0.1:3100/_next/static/media/89d4f80f11029d6d-s.p.3y48j16vw3ns0.woff2",
+        "http://127.0.0.1:3100/_next/static/media/a244653d74e7372f-s.p.3zj8sbbtpwle6.woff2",
+        "http://127.0.0.1:3100/_next/static/media/c47649aa31f9e140-s.p.3lxpqujs87tck.woff2",
+        "http://127.0.0.1:3100/_next/static/media/c750adf2ddf22b70-s.p.1j3epi4sx1jkp.woff2"
+      ]
+    },
+    {
+      "width": 375,
+      "run": 3,
+      "lcp": 1516,
+      "cls": 0.00007987901234567902,
+      "events": [
+        {
+          "name": "pointerover",
+          "duration": 104
+        },
+        {
+          "name": "pointerenter",
+          "duration": 104
+        },
+        {
+          "name": "pointerenter",
+          "duration": 104
+        },
+        {
+          "name": "pointerenter",
+          "duration": 104
+        },
+        {
+          "name": "pointerenter",
+          "duration": 104
+        },
+        {
+          "name": "pointerenter",
+          "duration": 104
+        },
+        {
+          "name": "pointerenter",
+          "duration": 104
+        },
+        {
+          "name": "pointerenter",
+          "duration": 104
+        },
+        {
+          "name": "pointerenter",
+          "duration": 104
+        },
+        {
+          "name": "pointerenter",
+          "duration": 104
+        },
+        {
+          "name": "mouseover",
+          "duration": 104
+        },
+        {
+          "name": "pointerdown",
+          "duration": 104
+        },
+        {
+          "name": "mousedown",
+          "duration": 104
+        },
+        {
+          "name": "pointerup",
+          "duration": 104
+        },
+        {
+          "name": "mouseup",
+          "duration": 104
+        },
+        {
+          "name": "click",
+          "duration": 104
+        },
+        {
+          "name": "pointerout",
+          "duration": 32
+        },
+        {
+          "name": "pointerleave",
+          "duration": 32
+        },
+        {
+          "name": "pointerleave",
+          "duration": 32
+        },
+        {
+          "name": "pointerleave",
+          "duration": 32
+        },
+        {
+          "name": "pointerleave",
+          "duration": 32
+        },
+        {
+          "name": "pointerleave",
+          "duration": 32
+        },
+        {
+          "name": "pointerleave",
+          "duration": 32
+        },
+        {
+          "name": "pointerover",
+          "duration": 32
+        },
+        {
+          "name": "pointerenter",
+          "duration": 32
+        },
+        {
+          "name": "pointerenter",
+          "duration": 32
+        },
+        {
+          "name": "pointerenter",
+          "duration": 32
+        },
+        {
+          "name": "pointerenter",
+          "duration": 32
+        },
+        {
+          "name": "mouseout",
+          "duration": 32
+        },
+        {
+          "name": "mouseover",
+          "duration": 32
+        },
+        {
+          "name": "pointerout",
+          "duration": 72
+        },
+        {
+          "name": "pointerleave",
+          "duration": 72
+        },
+        {
+          "name": "pointerleave",
+          "duration": 72
+        },
+        {
+          "name": "pointerover",
+          "duration": 72
+        },
+        {
+          "name": "pointerenter",
+          "duration": 72
+        },
+        {
+          "name": "pointerenter",
+          "duration": 72
+        },
+        {
+          "name": "pointerenter",
+          "duration": 72
+        },
+        {
+          "name": "mouseout",
+          "duration": 72
+        },
+        {
+          "name": "mouseover",
+          "duration": 72
+        },
+        {
+          "name": "pointerdown",
+          "duration": 72
+        },
+        {
+          "name": "mousedown",
+          "duration": 72
+        },
+        {
+          "name": "pointerup",
+          "duration": 72
+        },
+        {
+          "name": "mouseup",
+          "duration": 72
+        },
+        {
+          "name": "click",
+          "duration": 72
+        },
+        {
+          "name": "pointerout",
+          "duration": 16
+        },
+        {
+          "name": "pointerover",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "mouseout",
+          "duration": 16
+        },
+        {
+          "name": "mouseover",
+          "duration": 16
+        },
+        {
+          "name": "pointerdown",
+          "duration": 16
+        },
+        {
+          "name": "mousedown",
+          "duration": 16
+        },
+        {
+          "name": "pointerup",
+          "duration": 16
+        },
+        {
+          "name": "mouseup",
+          "duration": 16
+        },
+        {
+          "name": "click",
+          "duration": 16
+        },
+        {
+          "name": "keydown",
+          "duration": 16
+        },
+        {
+          "name": "keypress",
+          "duration": 16
+        },
+        {
+          "name": "beforeinput",
+          "duration": 16
+        },
+        {
+          "name": "input",
+          "duration": 16
+        },
+        {
+          "name": "keyup",
+          "duration": 24
+        },
+        {
+          "name": "keydown",
+          "duration": 24
+        },
+        {
+          "name": "keypress",
+          "duration": 24
+        },
+        {
+          "name": "beforeinput",
+          "duration": 24
+        },
+        {
+          "name": "input",
+          "duration": 16
+        },
+        {
+          "name": "keyup",
+          "duration": 16
+        },
+        {
+          "name": "keydown",
+          "duration": 16
+        },
+        {
+          "name": "keypress",
+          "duration": 16
+        },
+        {
+          "name": "beforeinput",
+          "duration": 16
+        },
+        {
+          "name": "keyup",
+          "duration": 16
+        },
+        {
+          "name": "keydown",
+          "duration": 16
+        },
+        {
+          "name": "keypress",
+          "duration": 16
+        },
+        {
+          "name": "beforeinput",
+          "duration": 16
+        },
+        {
+          "name": "keyup",
+          "duration": 24
+        },
+        {
+          "name": "keydown",
+          "duration": 16
+        },
+        {
+          "name": "keypress",
+          "duration": 16
+        },
+        {
+          "name": "beforeinput",
+          "duration": 16
+        },
+        {
+          "name": "input",
+          "duration": 16
+        },
+        {
+          "name": "keyup",
+          "duration": 24
+        }
+      ],
+      "resources": [
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/051742360c26797e-s.p.1bkzbscqrt8rl.woff2",
+          "transferSize": 31640,
+          "encodedBodySize": 31340
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/118b6ed7ac256a99-s.p.3btzg3pbxiu1o.woff2",
+          "transferSize": 11052,
+          "encodedBodySize": 10752
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/1e23e5114abf0db3-s.p.3vomj4ys718n3.woff2",
+          "transferSize": 10988,
+          "encodedBodySize": 10688
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/34da6f6f5d0d57a5-s.p.3j785ygmx2sxp.woff2",
+          "transferSize": 7100,
+          "encodedBodySize": 6800
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/577b8067601e9847-s.p.17uyqh1z65ij2.woff2",
+          "transferSize": 7364,
+          "encodedBodySize": 7064
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/75affa71d1e2f6a7-s.p.17-aodiw50953.woff2",
+          "transferSize": 35240,
+          "encodedBodySize": 34940
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/876b05e81fb36bf6-s.p.3-cnw-vwwbh1_.woff2",
+          "transferSize": 7436,
+          "encodedBodySize": 7136
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/89d4f80f11029d6d-s.p.3y48j16vw3ns0.woff2",
+          "transferSize": 10800,
+          "encodedBodySize": 10500
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/a244653d74e7372f-s.p.3zj8sbbtpwle6.woff2",
+          "transferSize": 7200,
+          "encodedBodySize": 6900
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/c47649aa31f9e140-s.p.3lxpqujs87tck.woff2",
+          "transferSize": 34964,
+          "encodedBodySize": 34664
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/c750adf2ddf22b70-s.p.1j3epi4sx1jkp.woff2",
+          "transferSize": 10808,
+          "encodedBodySize": 10508
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/1nctas23f3atj.css",
+          "transferSize": 10705,
+          "encodedBodySize": 10405
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/1ckvzn7sfprko.js",
+          "transferSize": 2335,
+          "encodedBodySize": 2035
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/0jb0yw7r7g08b.js",
+          "transferSize": 8840,
+          "encodedBodySize": 8540
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/2-aubugw8unjj.js",
+          "transferSize": 72226,
+          "encodedBodySize": 71926
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/2tpeyb18i5sct.js",
+          "transferSize": 45974,
+          "encodedBodySize": 45674
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+          "transferSize": 4240,
+          "encodedBodySize": 3940
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/0wuj0ovm5wvbz.js",
+          "transferSize": 5274,
+          "encodedBodySize": 4974
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/2hv2ro0gmlfok.js",
+          "transferSize": 2029,
+          "encodedBodySize": 1729
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/1hper67x00tnc.js",
+          "transferSize": 14516,
+          "encodedBodySize": 14216
+        },
+        {
+          "name": "http://127.0.0.1:3100/_vercel/insights/script.js",
+          "transferSize": 300,
+          "encodedBodySize": 0
+        }
+      ],
+      "preloads": [
+        "http://127.0.0.1:3100/_next/static/media/051742360c26797e-s.p.1bkzbscqrt8rl.woff2",
+        "http://127.0.0.1:3100/_next/static/media/118b6ed7ac256a99-s.p.3btzg3pbxiu1o.woff2",
+        "http://127.0.0.1:3100/_next/static/media/1e23e5114abf0db3-s.p.3vomj4ys718n3.woff2",
+        "http://127.0.0.1:3100/_next/static/media/34da6f6f5d0d57a5-s.p.3j785ygmx2sxp.woff2",
+        "http://127.0.0.1:3100/_next/static/media/577b8067601e9847-s.p.17uyqh1z65ij2.woff2",
+        "http://127.0.0.1:3100/_next/static/media/75affa71d1e2f6a7-s.p.17-aodiw50953.woff2",
+        "http://127.0.0.1:3100/_next/static/media/876b05e81fb36bf6-s.p.3-cnw-vwwbh1_.woff2",
+        "http://127.0.0.1:3100/_next/static/media/89d4f80f11029d6d-s.p.3y48j16vw3ns0.woff2",
+        "http://127.0.0.1:3100/_next/static/media/a244653d74e7372f-s.p.3zj8sbbtpwle6.woff2",
+        "http://127.0.0.1:3100/_next/static/media/c47649aa31f9e140-s.p.3lxpqujs87tck.woff2",
+        "http://127.0.0.1:3100/_next/static/media/c750adf2ddf22b70-s.p.1j3epi4sx1jkp.woff2"
+      ]
+    },
+    {
+      "width": 375,
+      "run": 4,
+      "lcp": 1528,
+      "cls": 0.00007987901234567902,
+      "events": [
+        {
+          "name": "pointerover",
+          "duration": 104
+        },
+        {
+          "name": "pointerenter",
+          "duration": 104
+        },
+        {
+          "name": "pointerenter",
+          "duration": 104
+        },
+        {
+          "name": "pointerenter",
+          "duration": 104
+        },
+        {
+          "name": "pointerenter",
+          "duration": 104
+        },
+        {
+          "name": "pointerenter",
+          "duration": 104
+        },
+        {
+          "name": "pointerenter",
+          "duration": 104
+        },
+        {
+          "name": "pointerenter",
+          "duration": 104
+        },
+        {
+          "name": "pointerenter",
+          "duration": 104
+        },
+        {
+          "name": "pointerenter",
+          "duration": 104
+        },
+        {
+          "name": "mouseover",
+          "duration": 104
+        },
+        {
+          "name": "pointerdown",
+          "duration": 104
+        },
+        {
+          "name": "mousedown",
+          "duration": 104
+        },
+        {
+          "name": "pointerup",
+          "duration": 104
+        },
+        {
+          "name": "mouseup",
+          "duration": 104
+        },
+        {
+          "name": "click",
+          "duration": 104
+        },
+        {
+          "name": "pointerout",
+          "duration": 32
+        },
+        {
+          "name": "pointerleave",
+          "duration": 32
+        },
+        {
+          "name": "pointerleave",
+          "duration": 32
+        },
+        {
+          "name": "pointerleave",
+          "duration": 32
+        },
+        {
+          "name": "pointerleave",
+          "duration": 32
+        },
+        {
+          "name": "pointerleave",
+          "duration": 32
+        },
+        {
+          "name": "pointerleave",
+          "duration": 32
+        },
+        {
+          "name": "pointerover",
+          "duration": 32
+        },
+        {
+          "name": "pointerenter",
+          "duration": 32
+        },
+        {
+          "name": "pointerenter",
+          "duration": 32
+        },
+        {
+          "name": "pointerenter",
+          "duration": 32
+        },
+        {
+          "name": "pointerenter",
+          "duration": 32
+        },
+        {
+          "name": "mouseout",
+          "duration": 32
+        },
+        {
+          "name": "mouseover",
+          "duration": 32
+        },
+        {
+          "name": "pointerout",
+          "duration": 72
+        },
+        {
+          "name": "pointerleave",
+          "duration": 72
+        },
+        {
+          "name": "pointerleave",
+          "duration": 72
+        },
+        {
+          "name": "pointerover",
+          "duration": 72
+        },
+        {
+          "name": "pointerenter",
+          "duration": 72
+        },
+        {
+          "name": "pointerenter",
+          "duration": 72
+        },
+        {
+          "name": "pointerenter",
+          "duration": 72
+        },
+        {
+          "name": "mouseout",
+          "duration": 72
+        },
+        {
+          "name": "mouseover",
+          "duration": 72
+        },
+        {
+          "name": "pointerdown",
+          "duration": 72
+        },
+        {
+          "name": "mousedown",
+          "duration": 72
+        },
+        {
+          "name": "pointerup",
+          "duration": 72
+        },
+        {
+          "name": "mouseup",
+          "duration": 72
+        },
+        {
+          "name": "click",
+          "duration": 72
+        },
+        {
+          "name": "pointerout",
+          "duration": 16
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16
+        },
+        {
+          "name": "pointerover",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "mouseout",
+          "duration": 16
+        },
+        {
+          "name": "mouseover",
+          "duration": 16
+        },
+        {
+          "name": "pointerout",
+          "duration": 16
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16
+        },
+        {
+          "name": "pointerover",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "mouseout",
+          "duration": 16
+        },
+        {
+          "name": "mouseover",
+          "duration": 16
+        },
+        {
+          "name": "pointerout",
+          "duration": 24
+        },
+        {
+          "name": "pointerover",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "mouseout",
+          "duration": 24
+        },
+        {
+          "name": "mouseover",
+          "duration": 24
+        },
+        {
+          "name": "pointerdown",
+          "duration": 24
+        },
+        {
+          "name": "mousedown",
+          "duration": 24
+        },
+        {
+          "name": "pointerup",
+          "duration": 24
+        },
+        {
+          "name": "mouseup",
+          "duration": 24
+        },
+        {
+          "name": "click",
+          "duration": 24
+        },
+        {
+          "name": "keydown",
+          "duration": 16
+        },
+        {
+          "name": "keypress",
+          "duration": 16
+        },
+        {
+          "name": "beforeinput",
+          "duration": 16
+        },
+        {
+          "name": "input",
+          "duration": 16
+        },
+        {
+          "name": "keyup",
+          "duration": 16
+        },
+        {
+          "name": "keydown",
+          "duration": 16
+        },
+        {
+          "name": "keypress",
+          "duration": 16
+        },
+        {
+          "name": "beforeinput",
+          "duration": 16
+        },
+        {
+          "name": "input",
+          "duration": 16
+        },
+        {
+          "name": "keyup",
+          "duration": 24
+        },
+        {
+          "name": "keydown",
+          "duration": 16
+        },
+        {
+          "name": "keypress",
+          "duration": 16
+        },
+        {
+          "name": "beforeinput",
+          "duration": 16
+        },
+        {
+          "name": "input",
+          "duration": 16
+        },
+        {
+          "name": "keyup",
+          "duration": 24
+        },
+        {
+          "name": "keydown",
+          "duration": 24
+        },
+        {
+          "name": "keypress",
+          "duration": 24
+        },
+        {
+          "name": "beforeinput",
+          "duration": 24
+        },
+        {
+          "name": "input",
+          "duration": 24
+        },
+        {
+          "name": "keyup",
+          "duration": 16
+        },
+        {
+          "name": "keyup",
+          "duration": 24
+        },
+        {
+          "name": "keydown",
+          "duration": 24
+        },
+        {
+          "name": "keypress",
+          "duration": 24
+        },
+        {
+          "name": "beforeinput",
+          "duration": 24
+        },
+        {
+          "name": "input",
+          "duration": 16
+        },
+        {
+          "name": "keyup",
+          "duration": 16
+        }
+      ],
+      "resources": [
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/051742360c26797e-s.p.1bkzbscqrt8rl.woff2",
+          "transferSize": 31640,
+          "encodedBodySize": 31340
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/118b6ed7ac256a99-s.p.3btzg3pbxiu1o.woff2",
+          "transferSize": 11052,
+          "encodedBodySize": 10752
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/1e23e5114abf0db3-s.p.3vomj4ys718n3.woff2",
+          "transferSize": 10988,
+          "encodedBodySize": 10688
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/34da6f6f5d0d57a5-s.p.3j785ygmx2sxp.woff2",
+          "transferSize": 7100,
+          "encodedBodySize": 6800
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/577b8067601e9847-s.p.17uyqh1z65ij2.woff2",
+          "transferSize": 7364,
+          "encodedBodySize": 7064
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/75affa71d1e2f6a7-s.p.17-aodiw50953.woff2",
+          "transferSize": 35240,
+          "encodedBodySize": 34940
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/876b05e81fb36bf6-s.p.3-cnw-vwwbh1_.woff2",
+          "transferSize": 7436,
+          "encodedBodySize": 7136
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/89d4f80f11029d6d-s.p.3y48j16vw3ns0.woff2",
+          "transferSize": 10800,
+          "encodedBodySize": 10500
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/a244653d74e7372f-s.p.3zj8sbbtpwle6.woff2",
+          "transferSize": 7200,
+          "encodedBodySize": 6900
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/c47649aa31f9e140-s.p.3lxpqujs87tck.woff2",
+          "transferSize": 34964,
+          "encodedBodySize": 34664
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/c750adf2ddf22b70-s.p.1j3epi4sx1jkp.woff2",
+          "transferSize": 10808,
+          "encodedBodySize": 10508
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/1nctas23f3atj.css",
+          "transferSize": 10705,
+          "encodedBodySize": 10405
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/1ckvzn7sfprko.js",
+          "transferSize": 2335,
+          "encodedBodySize": 2035
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/0jb0yw7r7g08b.js",
+          "transferSize": 8840,
+          "encodedBodySize": 8540
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/2-aubugw8unjj.js",
+          "transferSize": 72226,
+          "encodedBodySize": 71926
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/2tpeyb18i5sct.js",
+          "transferSize": 45974,
+          "encodedBodySize": 45674
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+          "transferSize": 4240,
+          "encodedBodySize": 3940
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/0wuj0ovm5wvbz.js",
+          "transferSize": 5274,
+          "encodedBodySize": 4974
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/2hv2ro0gmlfok.js",
+          "transferSize": 2029,
+          "encodedBodySize": 1729
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/1hper67x00tnc.js",
+          "transferSize": 14516,
+          "encodedBodySize": 14216
+        },
+        {
+          "name": "http://127.0.0.1:3100/_vercel/insights/script.js",
+          "transferSize": 300,
+          "encodedBodySize": 0
+        }
+      ],
+      "preloads": [
+        "http://127.0.0.1:3100/_next/static/media/051742360c26797e-s.p.1bkzbscqrt8rl.woff2",
+        "http://127.0.0.1:3100/_next/static/media/118b6ed7ac256a99-s.p.3btzg3pbxiu1o.woff2",
+        "http://127.0.0.1:3100/_next/static/media/1e23e5114abf0db3-s.p.3vomj4ys718n3.woff2",
+        "http://127.0.0.1:3100/_next/static/media/34da6f6f5d0d57a5-s.p.3j785ygmx2sxp.woff2",
+        "http://127.0.0.1:3100/_next/static/media/577b8067601e9847-s.p.17uyqh1z65ij2.woff2",
+        "http://127.0.0.1:3100/_next/static/media/75affa71d1e2f6a7-s.p.17-aodiw50953.woff2",
+        "http://127.0.0.1:3100/_next/static/media/876b05e81fb36bf6-s.p.3-cnw-vwwbh1_.woff2",
+        "http://127.0.0.1:3100/_next/static/media/89d4f80f11029d6d-s.p.3y48j16vw3ns0.woff2",
+        "http://127.0.0.1:3100/_next/static/media/a244653d74e7372f-s.p.3zj8sbbtpwle6.woff2",
+        "http://127.0.0.1:3100/_next/static/media/c47649aa31f9e140-s.p.3lxpqujs87tck.woff2",
+        "http://127.0.0.1:3100/_next/static/media/c750adf2ddf22b70-s.p.1j3epi4sx1jkp.woff2"
+      ]
+    },
+    {
+      "width": 1280,
+      "run": 0,
+      "lcp": 1180,
+      "cls": 0.006023554293314616,
+      "events": [
+        {
+          "name": "pointerover",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "mouseover",
+          "duration": 16
+        },
+        {
+          "name": "pointerdown",
+          "duration": 16
+        },
+        {
+          "name": "mousedown",
+          "duration": 16
+        },
+        {
+          "name": "pointerup",
+          "duration": 16
+        },
+        {
+          "name": "mouseup",
+          "duration": 16
+        },
+        {
+          "name": "click",
+          "duration": 16
+        },
+        {
+          "name": "pointerout",
+          "duration": 24
+        },
+        {
+          "name": "pointerleave",
+          "duration": 24
+        },
+        {
+          "name": "pointerleave",
+          "duration": 24
+        },
+        {
+          "name": "pointerleave",
+          "duration": 24
+        },
+        {
+          "name": "pointerleave",
+          "duration": 24
+        },
+        {
+          "name": "pointerover",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "mouseout",
+          "duration": 24
+        },
+        {
+          "name": "mouseover",
+          "duration": 24
+        },
+        {
+          "name": "pointerdown",
+          "duration": 24
+        },
+        {
+          "name": "mousedown",
+          "duration": 24
+        },
+        {
+          "name": "pointerup",
+          "duration": 24
+        },
+        {
+          "name": "mouseup",
+          "duration": 24
+        },
+        {
+          "name": "click",
+          "duration": 24
+        },
+        {
+          "name": "keydown",
+          "duration": 24
+        },
+        {
+          "name": "keypress",
+          "duration": 24
+        },
+        {
+          "name": "beforeinput",
+          "duration": 24
+        },
+        {
+          "name": "input",
+          "duration": 16
+        },
+        {
+          "name": "pointerout",
+          "duration": 16
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16
+        },
+        {
+          "name": "pointerover",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "mouseout",
+          "duration": 16
+        },
+        {
+          "name": "mouseover",
+          "duration": 16
+        },
+        {
+          "name": "keyup",
+          "duration": 32
+        },
+        {
+          "name": "keydown",
+          "duration": 32
+        },
+        {
+          "name": "keypress",
+          "duration": 32
+        },
+        {
+          "name": "beforeinput",
+          "duration": 32
+        },
+        {
+          "name": "input",
+          "duration": 32
+        },
+        {
+          "name": "keyup",
+          "duration": 40
+        },
+        {
+          "name": "keydown",
+          "duration": 40
+        },
+        {
+          "name": "keypress",
+          "duration": 40
+        },
+        {
+          "name": "beforeinput",
+          "duration": 32
+        },
+        {
+          "name": "input",
+          "duration": 32
+        },
+        {
+          "name": "keyup",
+          "duration": 32
+        },
+        {
+          "name": "keydown",
+          "duration": 40
+        },
+        {
+          "name": "keypress",
+          "duration": 40
+        },
+        {
+          "name": "beforeinput",
+          "duration": 40
+        },
+        {
+          "name": "input",
+          "duration": 32
+        },
+        {
+          "name": "keyup",
+          "duration": 32
+        },
+        {
+          "name": "keydown",
+          "duration": 32
+        },
+        {
+          "name": "keypress",
+          "duration": 32
+        },
+        {
+          "name": "beforeinput",
+          "duration": 32
+        },
+        {
+          "name": "input",
+          "duration": 32
+        },
+        {
+          "name": "keyup",
+          "duration": 32
+        },
+        {
+          "name": "keydown",
+          "duration": 32
+        },
+        {
+          "name": "keypress",
+          "duration": 32
+        },
+        {
+          "name": "beforeinput",
+          "duration": 32
+        },
+        {
+          "name": "input",
+          "duration": 32
+        },
+        {
+          "name": "keyup",
+          "duration": 32
+        }
+      ],
+      "resources": [
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/051742360c26797e-s.p.1bkzbscqrt8rl.woff2",
+          "transferSize": 31640,
+          "encodedBodySize": 31340
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/118b6ed7ac256a99-s.p.3btzg3pbxiu1o.woff2",
+          "transferSize": 11052,
+          "encodedBodySize": 10752
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/1e23e5114abf0db3-s.p.3vomj4ys718n3.woff2",
+          "transferSize": 10988,
+          "encodedBodySize": 10688
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/34da6f6f5d0d57a5-s.p.3j785ygmx2sxp.woff2",
+          "transferSize": 7100,
+          "encodedBodySize": 6800
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/577b8067601e9847-s.p.17uyqh1z65ij2.woff2",
+          "transferSize": 7364,
+          "encodedBodySize": 7064
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/75affa71d1e2f6a7-s.p.17-aodiw50953.woff2",
+          "transferSize": 35240,
+          "encodedBodySize": 34940
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/876b05e81fb36bf6-s.p.3-cnw-vwwbh1_.woff2",
+          "transferSize": 7436,
+          "encodedBodySize": 7136
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/89d4f80f11029d6d-s.p.3y48j16vw3ns0.woff2",
+          "transferSize": 10800,
+          "encodedBodySize": 10500
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/a244653d74e7372f-s.p.3zj8sbbtpwle6.woff2",
+          "transferSize": 7200,
+          "encodedBodySize": 6900
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/c47649aa31f9e140-s.p.3lxpqujs87tck.woff2",
+          "transferSize": 34964,
+          "encodedBodySize": 34664
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/c750adf2ddf22b70-s.p.1j3epi4sx1jkp.woff2",
+          "transferSize": 10808,
+          "encodedBodySize": 10508
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/1nctas23f3atj.css",
+          "transferSize": 10705,
+          "encodedBodySize": 10405
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/1ckvzn7sfprko.js",
+          "transferSize": 2335,
+          "encodedBodySize": 2035
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/0jb0yw7r7g08b.js",
+          "transferSize": 8840,
+          "encodedBodySize": 8540
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/2-aubugw8unjj.js",
+          "transferSize": 72226,
+          "encodedBodySize": 71926
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/2tpeyb18i5sct.js",
+          "transferSize": 45974,
+          "encodedBodySize": 45674
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+          "transferSize": 4240,
+          "encodedBodySize": 3940
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/0wuj0ovm5wvbz.js",
+          "transferSize": 5274,
+          "encodedBodySize": 4974
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/2hv2ro0gmlfok.js",
+          "transferSize": 2029,
+          "encodedBodySize": 1729
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/1hper67x00tnc.js",
+          "transferSize": 14516,
+          "encodedBodySize": 14216
+        },
+        {
+          "name": "http://127.0.0.1:3100/_vercel/insights/script.js",
+          "transferSize": 300,
+          "encodedBodySize": 0
+        }
+      ],
+      "preloads": [
+        "http://127.0.0.1:3100/_next/static/media/051742360c26797e-s.p.1bkzbscqrt8rl.woff2",
+        "http://127.0.0.1:3100/_next/static/media/118b6ed7ac256a99-s.p.3btzg3pbxiu1o.woff2",
+        "http://127.0.0.1:3100/_next/static/media/1e23e5114abf0db3-s.p.3vomj4ys718n3.woff2",
+        "http://127.0.0.1:3100/_next/static/media/34da6f6f5d0d57a5-s.p.3j785ygmx2sxp.woff2",
+        "http://127.0.0.1:3100/_next/static/media/577b8067601e9847-s.p.17uyqh1z65ij2.woff2",
+        "http://127.0.0.1:3100/_next/static/media/75affa71d1e2f6a7-s.p.17-aodiw50953.woff2",
+        "http://127.0.0.1:3100/_next/static/media/876b05e81fb36bf6-s.p.3-cnw-vwwbh1_.woff2",
+        "http://127.0.0.1:3100/_next/static/media/89d4f80f11029d6d-s.p.3y48j16vw3ns0.woff2",
+        "http://127.0.0.1:3100/_next/static/media/a244653d74e7372f-s.p.3zj8sbbtpwle6.woff2",
+        "http://127.0.0.1:3100/_next/static/media/c47649aa31f9e140-s.p.3lxpqujs87tck.woff2",
+        "http://127.0.0.1:3100/_next/static/media/c750adf2ddf22b70-s.p.1j3epi4sx1jkp.woff2"
+      ]
+    },
+    {
+      "width": 1280,
+      "run": 1,
+      "lcp": 1304,
+      "cls": 0.006023554293314616,
+      "events": [
+        {
+          "name": "pointerover",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "mouseover",
+          "duration": 16
+        },
+        {
+          "name": "pointerdown",
+          "duration": 16
+        },
+        {
+          "name": "mousedown",
+          "duration": 16
+        },
+        {
+          "name": "pointerup",
+          "duration": 16
+        },
+        {
+          "name": "mouseup",
+          "duration": 16
+        },
+        {
+          "name": "click",
+          "duration": 16
+        },
+        {
+          "name": "pointerout",
+          "duration": 24
+        },
+        {
+          "name": "pointerleave",
+          "duration": 24
+        },
+        {
+          "name": "pointerleave",
+          "duration": 24
+        },
+        {
+          "name": "pointerleave",
+          "duration": 24
+        },
+        {
+          "name": "pointerleave",
+          "duration": 24
+        },
+        {
+          "name": "pointerover",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "mouseout",
+          "duration": 24
+        },
+        {
+          "name": "mouseover",
+          "duration": 24
+        },
+        {
+          "name": "pointerdown",
+          "duration": 24
+        },
+        {
+          "name": "mousedown",
+          "duration": 24
+        },
+        {
+          "name": "pointerup",
+          "duration": 24
+        },
+        {
+          "name": "mouseup",
+          "duration": 24
+        },
+        {
+          "name": "click",
+          "duration": 24
+        },
+        {
+          "name": "keydown",
+          "duration": 24
+        },
+        {
+          "name": "keypress",
+          "duration": 24
+        },
+        {
+          "name": "beforeinput",
+          "duration": 24
+        },
+        {
+          "name": "input",
+          "duration": 16
+        },
+        {
+          "name": "pointerout",
+          "duration": 16
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16
+        },
+        {
+          "name": "pointerover",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "mouseout",
+          "duration": 16
+        },
+        {
+          "name": "mouseover",
+          "duration": 16
+        },
+        {
+          "name": "keyup",
+          "duration": 32
+        },
+        {
+          "name": "keydown",
+          "duration": 32
+        },
+        {
+          "name": "keypress",
+          "duration": 32
+        },
+        {
+          "name": "beforeinput",
+          "duration": 32
+        },
+        {
+          "name": "input",
+          "duration": 32
+        },
+        {
+          "name": "keyup",
+          "duration": 32
+        },
+        {
+          "name": "keydown",
+          "duration": 32
+        },
+        {
+          "name": "keypress",
+          "duration": 32
+        },
+        {
+          "name": "beforeinput",
+          "duration": 32
+        },
+        {
+          "name": "input",
+          "duration": 32
+        },
+        {
+          "name": "keyup",
+          "duration": 40
+        },
+        {
+          "name": "keydown",
+          "duration": 40
+        },
+        {
+          "name": "keypress",
+          "duration": 40
+        },
+        {
+          "name": "beforeinput",
+          "duration": 40
+        },
+        {
+          "name": "input",
+          "duration": 40
+        },
+        {
+          "name": "keyup",
+          "duration": 32
+        },
+        {
+          "name": "keydown",
+          "duration": 40
+        },
+        {
+          "name": "keypress",
+          "duration": 40
+        },
+        {
+          "name": "beforeinput",
+          "duration": 40
+        },
+        {
+          "name": "input",
+          "duration": 40
+        },
+        {
+          "name": "keyup",
+          "duration": 32
+        },
+        {
+          "name": "keydown",
+          "duration": 32
+        },
+        {
+          "name": "keypress",
+          "duration": 32
+        },
+        {
+          "name": "beforeinput",
+          "duration": 24
+        },
+        {
+          "name": "input",
+          "duration": 24
+        },
+        {
+          "name": "keyup",
+          "duration": 32
+        }
+      ],
+      "resources": [
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/051742360c26797e-s.p.1bkzbscqrt8rl.woff2",
+          "transferSize": 31640,
+          "encodedBodySize": 31340
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/118b6ed7ac256a99-s.p.3btzg3pbxiu1o.woff2",
+          "transferSize": 11052,
+          "encodedBodySize": 10752
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/1e23e5114abf0db3-s.p.3vomj4ys718n3.woff2",
+          "transferSize": 10988,
+          "encodedBodySize": 10688
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/34da6f6f5d0d57a5-s.p.3j785ygmx2sxp.woff2",
+          "transferSize": 7100,
+          "encodedBodySize": 6800
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/577b8067601e9847-s.p.17uyqh1z65ij2.woff2",
+          "transferSize": 7364,
+          "encodedBodySize": 7064
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/75affa71d1e2f6a7-s.p.17-aodiw50953.woff2",
+          "transferSize": 35240,
+          "encodedBodySize": 34940
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/876b05e81fb36bf6-s.p.3-cnw-vwwbh1_.woff2",
+          "transferSize": 7436,
+          "encodedBodySize": 7136
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/89d4f80f11029d6d-s.p.3y48j16vw3ns0.woff2",
+          "transferSize": 10800,
+          "encodedBodySize": 10500
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/a244653d74e7372f-s.p.3zj8sbbtpwle6.woff2",
+          "transferSize": 7200,
+          "encodedBodySize": 6900
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/c47649aa31f9e140-s.p.3lxpqujs87tck.woff2",
+          "transferSize": 34964,
+          "encodedBodySize": 34664
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/c750adf2ddf22b70-s.p.1j3epi4sx1jkp.woff2",
+          "transferSize": 10808,
+          "encodedBodySize": 10508
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/1nctas23f3atj.css",
+          "transferSize": 10705,
+          "encodedBodySize": 10405
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/1ckvzn7sfprko.js",
+          "transferSize": 2335,
+          "encodedBodySize": 2035
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/0jb0yw7r7g08b.js",
+          "transferSize": 8840,
+          "encodedBodySize": 8540
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/2-aubugw8unjj.js",
+          "transferSize": 72226,
+          "encodedBodySize": 71926
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/2tpeyb18i5sct.js",
+          "transferSize": 45974,
+          "encodedBodySize": 45674
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+          "transferSize": 4240,
+          "encodedBodySize": 3940
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/0wuj0ovm5wvbz.js",
+          "transferSize": 5274,
+          "encodedBodySize": 4974
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/2hv2ro0gmlfok.js",
+          "transferSize": 2029,
+          "encodedBodySize": 1729
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/1hper67x00tnc.js",
+          "transferSize": 14516,
+          "encodedBodySize": 14216
+        },
+        {
+          "name": "http://127.0.0.1:3100/_vercel/insights/script.js",
+          "transferSize": 300,
+          "encodedBodySize": 0
+        }
+      ],
+      "preloads": [
+        "http://127.0.0.1:3100/_next/static/media/051742360c26797e-s.p.1bkzbscqrt8rl.woff2",
+        "http://127.0.0.1:3100/_next/static/media/118b6ed7ac256a99-s.p.3btzg3pbxiu1o.woff2",
+        "http://127.0.0.1:3100/_next/static/media/1e23e5114abf0db3-s.p.3vomj4ys718n3.woff2",
+        "http://127.0.0.1:3100/_next/static/media/34da6f6f5d0d57a5-s.p.3j785ygmx2sxp.woff2",
+        "http://127.0.0.1:3100/_next/static/media/577b8067601e9847-s.p.17uyqh1z65ij2.woff2",
+        "http://127.0.0.1:3100/_next/static/media/75affa71d1e2f6a7-s.p.17-aodiw50953.woff2",
+        "http://127.0.0.1:3100/_next/static/media/876b05e81fb36bf6-s.p.3-cnw-vwwbh1_.woff2",
+        "http://127.0.0.1:3100/_next/static/media/89d4f80f11029d6d-s.p.3y48j16vw3ns0.woff2",
+        "http://127.0.0.1:3100/_next/static/media/a244653d74e7372f-s.p.3zj8sbbtpwle6.woff2",
+        "http://127.0.0.1:3100/_next/static/media/c47649aa31f9e140-s.p.3lxpqujs87tck.woff2",
+        "http://127.0.0.1:3100/_next/static/media/c750adf2ddf22b70-s.p.1j3epi4sx1jkp.woff2"
+      ]
+    },
+    {
+      "width": 1280,
+      "run": 2,
+      "lcp": 1180,
+      "cls": 0.006023554293314616,
+      "events": [
+        {
+          "name": "pointerover",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "mouseover",
+          "duration": 16
+        },
+        {
+          "name": "pointerdown",
+          "duration": 16
+        },
+        {
+          "name": "mousedown",
+          "duration": 16
+        },
+        {
+          "name": "pointerup",
+          "duration": 16
+        },
+        {
+          "name": "mouseup",
+          "duration": 16
+        },
+        {
+          "name": "click",
+          "duration": 16
+        },
+        {
+          "name": "pointerout",
+          "duration": 24
+        },
+        {
+          "name": "pointerleave",
+          "duration": 24
+        },
+        {
+          "name": "pointerleave",
+          "duration": 24
+        },
+        {
+          "name": "pointerleave",
+          "duration": 24
+        },
+        {
+          "name": "pointerleave",
+          "duration": 24
+        },
+        {
+          "name": "pointerover",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "mouseout",
+          "duration": 24
+        },
+        {
+          "name": "mouseover",
+          "duration": 24
+        },
+        {
+          "name": "pointerdown",
+          "duration": 24
+        },
+        {
+          "name": "mousedown",
+          "duration": 24
+        },
+        {
+          "name": "pointerup",
+          "duration": 24
+        },
+        {
+          "name": "mouseup",
+          "duration": 24
+        },
+        {
+          "name": "click",
+          "duration": 24
+        },
+        {
+          "name": "keydown",
+          "duration": 24
+        },
+        {
+          "name": "keypress",
+          "duration": 24
+        },
+        {
+          "name": "beforeinput",
+          "duration": 16
+        },
+        {
+          "name": "input",
+          "duration": 16
+        },
+        {
+          "name": "keyup",
+          "duration": 24
+        },
+        {
+          "name": "keydown",
+          "duration": 40
+        },
+        {
+          "name": "keypress",
+          "duration": 40
+        },
+        {
+          "name": "beforeinput",
+          "duration": 40
+        },
+        {
+          "name": "input",
+          "duration": 40
+        },
+        {
+          "name": "keyup",
+          "duration": 32
+        },
+        {
+          "name": "keydown",
+          "duration": 32
+        },
+        {
+          "name": "keypress",
+          "duration": 32
+        },
+        {
+          "name": "beforeinput",
+          "duration": 32
+        },
+        {
+          "name": "input",
+          "duration": 24
+        },
+        {
+          "name": "keyup",
+          "duration": 40
+        },
+        {
+          "name": "keydown",
+          "duration": 32
+        },
+        {
+          "name": "keypress",
+          "duration": 32
+        },
+        {
+          "name": "beforeinput",
+          "duration": 32
+        },
+        {
+          "name": "input",
+          "duration": 32
+        },
+        {
+          "name": "keyup",
+          "duration": 40
+        },
+        {
+          "name": "keydown",
+          "duration": 40
+        },
+        {
+          "name": "keypress",
+          "duration": 40
+        },
+        {
+          "name": "beforeinput",
+          "duration": 40
+        },
+        {
+          "name": "input",
+          "duration": 40
+        },
+        {
+          "name": "keyup",
+          "duration": 40
+        },
+        {
+          "name": "keydown",
+          "duration": 40
+        },
+        {
+          "name": "keypress",
+          "duration": 40
+        },
+        {
+          "name": "beforeinput",
+          "duration": 40
+        },
+        {
+          "name": "input",
+          "duration": 32
+        },
+        {
+          "name": "keyup",
+          "duration": 24
+        }
+      ],
+      "resources": [
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/051742360c26797e-s.p.1bkzbscqrt8rl.woff2",
+          "transferSize": 31640,
+          "encodedBodySize": 31340
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/118b6ed7ac256a99-s.p.3btzg3pbxiu1o.woff2",
+          "transferSize": 11052,
+          "encodedBodySize": 10752
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/1e23e5114abf0db3-s.p.3vomj4ys718n3.woff2",
+          "transferSize": 10988,
+          "encodedBodySize": 10688
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/34da6f6f5d0d57a5-s.p.3j785ygmx2sxp.woff2",
+          "transferSize": 7100,
+          "encodedBodySize": 6800
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/577b8067601e9847-s.p.17uyqh1z65ij2.woff2",
+          "transferSize": 7364,
+          "encodedBodySize": 7064
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/75affa71d1e2f6a7-s.p.17-aodiw50953.woff2",
+          "transferSize": 35240,
+          "encodedBodySize": 34940
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/876b05e81fb36bf6-s.p.3-cnw-vwwbh1_.woff2",
+          "transferSize": 7436,
+          "encodedBodySize": 7136
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/89d4f80f11029d6d-s.p.3y48j16vw3ns0.woff2",
+          "transferSize": 10800,
+          "encodedBodySize": 10500
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/a244653d74e7372f-s.p.3zj8sbbtpwle6.woff2",
+          "transferSize": 7200,
+          "encodedBodySize": 6900
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/c47649aa31f9e140-s.p.3lxpqujs87tck.woff2",
+          "transferSize": 34964,
+          "encodedBodySize": 34664
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/c750adf2ddf22b70-s.p.1j3epi4sx1jkp.woff2",
+          "transferSize": 10808,
+          "encodedBodySize": 10508
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/1nctas23f3atj.css",
+          "transferSize": 10705,
+          "encodedBodySize": 10405
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/1ckvzn7sfprko.js",
+          "transferSize": 2335,
+          "encodedBodySize": 2035
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/0jb0yw7r7g08b.js",
+          "transferSize": 8840,
+          "encodedBodySize": 8540
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/2-aubugw8unjj.js",
+          "transferSize": 72226,
+          "encodedBodySize": 71926
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/2tpeyb18i5sct.js",
+          "transferSize": 45974,
+          "encodedBodySize": 45674
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+          "transferSize": 4240,
+          "encodedBodySize": 3940
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/0wuj0ovm5wvbz.js",
+          "transferSize": 5274,
+          "encodedBodySize": 4974
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/2hv2ro0gmlfok.js",
+          "transferSize": 2029,
+          "encodedBodySize": 1729
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/1hper67x00tnc.js",
+          "transferSize": 14516,
+          "encodedBodySize": 14216
+        },
+        {
+          "name": "http://127.0.0.1:3100/_vercel/insights/script.js",
+          "transferSize": 300,
+          "encodedBodySize": 0
+        }
+      ],
+      "preloads": [
+        "http://127.0.0.1:3100/_next/static/media/051742360c26797e-s.p.1bkzbscqrt8rl.woff2",
+        "http://127.0.0.1:3100/_next/static/media/118b6ed7ac256a99-s.p.3btzg3pbxiu1o.woff2",
+        "http://127.0.0.1:3100/_next/static/media/1e23e5114abf0db3-s.p.3vomj4ys718n3.woff2",
+        "http://127.0.0.1:3100/_next/static/media/34da6f6f5d0d57a5-s.p.3j785ygmx2sxp.woff2",
+        "http://127.0.0.1:3100/_next/static/media/577b8067601e9847-s.p.17uyqh1z65ij2.woff2",
+        "http://127.0.0.1:3100/_next/static/media/75affa71d1e2f6a7-s.p.17-aodiw50953.woff2",
+        "http://127.0.0.1:3100/_next/static/media/876b05e81fb36bf6-s.p.3-cnw-vwwbh1_.woff2",
+        "http://127.0.0.1:3100/_next/static/media/89d4f80f11029d6d-s.p.3y48j16vw3ns0.woff2",
+        "http://127.0.0.1:3100/_next/static/media/a244653d74e7372f-s.p.3zj8sbbtpwle6.woff2",
+        "http://127.0.0.1:3100/_next/static/media/c47649aa31f9e140-s.p.3lxpqujs87tck.woff2",
+        "http://127.0.0.1:3100/_next/static/media/c750adf2ddf22b70-s.p.1j3epi4sx1jkp.woff2"
+      ]
+    },
+    {
+      "width": 1280,
+      "run": 3,
+      "lcp": 1324,
+      "cls": 0.006023554293314616,
+      "events": [
+        {
+          "name": "pointerover",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "mouseover",
+          "duration": 16
+        },
+        {
+          "name": "pointerdown",
+          "duration": 16
+        },
+        {
+          "name": "mousedown",
+          "duration": 16
+        },
+        {
+          "name": "pointerup",
+          "duration": 16
+        },
+        {
+          "name": "mouseup",
+          "duration": 16
+        },
+        {
+          "name": "click",
+          "duration": 16
+        },
+        {
+          "name": "pointerout",
+          "duration": 24
+        },
+        {
+          "name": "pointerleave",
+          "duration": 24
+        },
+        {
+          "name": "pointerleave",
+          "duration": 24
+        },
+        {
+          "name": "pointerleave",
+          "duration": 24
+        },
+        {
+          "name": "pointerleave",
+          "duration": 24
+        },
+        {
+          "name": "pointerover",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "mouseout",
+          "duration": 24
+        },
+        {
+          "name": "mouseover",
+          "duration": 24
+        },
+        {
+          "name": "pointerdown",
+          "duration": 24
+        },
+        {
+          "name": "mousedown",
+          "duration": 24
+        },
+        {
+          "name": "pointerup",
+          "duration": 24
+        },
+        {
+          "name": "mouseup",
+          "duration": 24
+        },
+        {
+          "name": "click",
+          "duration": 24
+        },
+        {
+          "name": "keydown",
+          "duration": 24
+        },
+        {
+          "name": "keypress",
+          "duration": 24
+        },
+        {
+          "name": "beforeinput",
+          "duration": 16
+        },
+        {
+          "name": "input",
+          "duration": 16
+        },
+        {
+          "name": "pointerout",
+          "duration": 16
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16
+        },
+        {
+          "name": "pointerleave",
+          "duration": 16
+        },
+        {
+          "name": "pointerover",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "mouseout",
+          "duration": 16
+        },
+        {
+          "name": "mouseover",
+          "duration": 16
+        },
+        {
+          "name": "keyup",
+          "duration": 24
+        },
+        {
+          "name": "keydown",
+          "duration": 40
+        },
+        {
+          "name": "keypress",
+          "duration": 40
+        },
+        {
+          "name": "beforeinput",
+          "duration": 40
+        },
+        {
+          "name": "input",
+          "duration": 40
+        },
+        {
+          "name": "keyup",
+          "duration": 40
+        },
+        {
+          "name": "keydown",
+          "duration": 32
+        },
+        {
+          "name": "keypress",
+          "duration": 32
+        },
+        {
+          "name": "beforeinput",
+          "duration": 32
+        },
+        {
+          "name": "input",
+          "duration": 32
+        },
+        {
+          "name": "keyup",
+          "duration": 40
+        },
+        {
+          "name": "keydown",
+          "duration": 40
+        },
+        {
+          "name": "keypress",
+          "duration": 40
+        },
+        {
+          "name": "beforeinput",
+          "duration": 40
+        },
+        {
+          "name": "input",
+          "duration": 32
+        },
+        {
+          "name": "keyup",
+          "duration": 48
+        },
+        {
+          "name": "keydown",
+          "duration": 40
+        },
+        {
+          "name": "keypress",
+          "duration": 40
+        },
+        {
+          "name": "beforeinput",
+          "duration": 40
+        },
+        {
+          "name": "input",
+          "duration": 40
+        },
+        {
+          "name": "keyup",
+          "duration": 24
+        },
+        {
+          "name": "keydown",
+          "duration": 40
+        },
+        {
+          "name": "keypress",
+          "duration": 40
+        },
+        {
+          "name": "beforeinput",
+          "duration": 32
+        },
+        {
+          "name": "input",
+          "duration": 32
+        },
+        {
+          "name": "keyup",
+          "duration": 24
+        }
+      ],
+      "resources": [
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/051742360c26797e-s.p.1bkzbscqrt8rl.woff2",
+          "transferSize": 31640,
+          "encodedBodySize": 31340
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/118b6ed7ac256a99-s.p.3btzg3pbxiu1o.woff2",
+          "transferSize": 11052,
+          "encodedBodySize": 10752
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/1e23e5114abf0db3-s.p.3vomj4ys718n3.woff2",
+          "transferSize": 10988,
+          "encodedBodySize": 10688
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/34da6f6f5d0d57a5-s.p.3j785ygmx2sxp.woff2",
+          "transferSize": 7100,
+          "encodedBodySize": 6800
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/577b8067601e9847-s.p.17uyqh1z65ij2.woff2",
+          "transferSize": 7364,
+          "encodedBodySize": 7064
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/75affa71d1e2f6a7-s.p.17-aodiw50953.woff2",
+          "transferSize": 35240,
+          "encodedBodySize": 34940
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/876b05e81fb36bf6-s.p.3-cnw-vwwbh1_.woff2",
+          "transferSize": 7436,
+          "encodedBodySize": 7136
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/89d4f80f11029d6d-s.p.3y48j16vw3ns0.woff2",
+          "transferSize": 10800,
+          "encodedBodySize": 10500
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/a244653d74e7372f-s.p.3zj8sbbtpwle6.woff2",
+          "transferSize": 7200,
+          "encodedBodySize": 6900
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/c47649aa31f9e140-s.p.3lxpqujs87tck.woff2",
+          "transferSize": 34964,
+          "encodedBodySize": 34664
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/c750adf2ddf22b70-s.p.1j3epi4sx1jkp.woff2",
+          "transferSize": 10808,
+          "encodedBodySize": 10508
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/1nctas23f3atj.css",
+          "transferSize": 10705,
+          "encodedBodySize": 10405
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/1ckvzn7sfprko.js",
+          "transferSize": 2335,
+          "encodedBodySize": 2035
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/0jb0yw7r7g08b.js",
+          "transferSize": 8840,
+          "encodedBodySize": 8540
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/2-aubugw8unjj.js",
+          "transferSize": 72226,
+          "encodedBodySize": 71926
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/2tpeyb18i5sct.js",
+          "transferSize": 45974,
+          "encodedBodySize": 45674
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+          "transferSize": 4240,
+          "encodedBodySize": 3940
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/0wuj0ovm5wvbz.js",
+          "transferSize": 5274,
+          "encodedBodySize": 4974
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/2hv2ro0gmlfok.js",
+          "transferSize": 2029,
+          "encodedBodySize": 1729
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/1hper67x00tnc.js",
+          "transferSize": 14516,
+          "encodedBodySize": 14216
+        },
+        {
+          "name": "http://127.0.0.1:3100/_vercel/insights/script.js",
+          "transferSize": 300,
+          "encodedBodySize": 0
+        }
+      ],
+      "preloads": [
+        "http://127.0.0.1:3100/_next/static/media/051742360c26797e-s.p.1bkzbscqrt8rl.woff2",
+        "http://127.0.0.1:3100/_next/static/media/118b6ed7ac256a99-s.p.3btzg3pbxiu1o.woff2",
+        "http://127.0.0.1:3100/_next/static/media/1e23e5114abf0db3-s.p.3vomj4ys718n3.woff2",
+        "http://127.0.0.1:3100/_next/static/media/34da6f6f5d0d57a5-s.p.3j785ygmx2sxp.woff2",
+        "http://127.0.0.1:3100/_next/static/media/577b8067601e9847-s.p.17uyqh1z65ij2.woff2",
+        "http://127.0.0.1:3100/_next/static/media/75affa71d1e2f6a7-s.p.17-aodiw50953.woff2",
+        "http://127.0.0.1:3100/_next/static/media/876b05e81fb36bf6-s.p.3-cnw-vwwbh1_.woff2",
+        "http://127.0.0.1:3100/_next/static/media/89d4f80f11029d6d-s.p.3y48j16vw3ns0.woff2",
+        "http://127.0.0.1:3100/_next/static/media/a244653d74e7372f-s.p.3zj8sbbtpwle6.woff2",
+        "http://127.0.0.1:3100/_next/static/media/c47649aa31f9e140-s.p.3lxpqujs87tck.woff2",
+        "http://127.0.0.1:3100/_next/static/media/c750adf2ddf22b70-s.p.1j3epi4sx1jkp.woff2"
+      ]
+    },
+    {
+      "width": 1280,
+      "run": 4,
+      "lcp": 1312,
+      "cls": 0.006023554293314616,
+      "events": [
+        {
+          "name": "pointerover",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "pointerenter",
+          "duration": 16
+        },
+        {
+          "name": "mouseover",
+          "duration": 16
+        },
+        {
+          "name": "pointerdown",
+          "duration": 16
+        },
+        {
+          "name": "mousedown",
+          "duration": 16
+        },
+        {
+          "name": "pointerup",
+          "duration": 16
+        },
+        {
+          "name": "mouseup",
+          "duration": 16
+        },
+        {
+          "name": "click",
+          "duration": 16
+        },
+        {
+          "name": "pointerout",
+          "duration": 24
+        },
+        {
+          "name": "pointerleave",
+          "duration": 24
+        },
+        {
+          "name": "pointerleave",
+          "duration": 24
+        },
+        {
+          "name": "pointerleave",
+          "duration": 24
+        },
+        {
+          "name": "pointerleave",
+          "duration": 24
+        },
+        {
+          "name": "pointerover",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "pointerenter",
+          "duration": 24
+        },
+        {
+          "name": "mouseout",
+          "duration": 24
+        },
+        {
+          "name": "mouseover",
+          "duration": 24
+        },
+        {
+          "name": "pointerdown",
+          "duration": 24
+        },
+        {
+          "name": "mousedown",
+          "duration": 24
+        },
+        {
+          "name": "pointerup",
+          "duration": 24
+        },
+        {
+          "name": "mouseup",
+          "duration": 24
+        },
+        {
+          "name": "click",
+          "duration": 24
+        },
+        {
+          "name": "keydown",
+          "duration": 16
+        },
+        {
+          "name": "keypress",
+          "duration": 16
+        },
+        {
+          "name": "beforeinput",
+          "duration": 16
+        },
+        {
+          "name": "input",
+          "duration": 16
+        },
+        {
+          "name": "keyup",
+          "duration": 16
+        },
+        {
+          "name": "keydown",
+          "duration": 16
+        },
+        {
+          "name": "keypress",
+          "duration": 16
+        },
+        {
+          "name": "beforeinput",
+          "duration": 16
+        },
+        {
+          "name": "input",
+          "duration": 16
+        },
+        {
+          "name": "keyup",
+          "duration": 24
+        },
+        {
+          "name": "keydown",
+          "duration": 24
+        },
+        {
+          "name": "keypress",
+          "duration": 24
+        },
+        {
+          "name": "beforeinput",
+          "duration": 24
+        },
+        {
+          "name": "input",
+          "duration": 24
+        },
+        {
+          "name": "keyup",
+          "duration": 32
+        },
+        {
+          "name": "keydown",
+          "duration": 24
+        },
+        {
+          "name": "keypress",
+          "duration": 24
+        },
+        {
+          "name": "beforeinput",
+          "duration": 24
+        },
+        {
+          "name": "input",
+          "duration": 24
+        },
+        {
+          "name": "keyup",
+          "duration": 16
+        },
+        {
+          "name": "keydown",
+          "duration": 32
+        },
+        {
+          "name": "keypress",
+          "duration": 32
+        },
+        {
+          "name": "beforeinput",
+          "duration": 24
+        },
+        {
+          "name": "input",
+          "duration": 24
+        },
+        {
+          "name": "keyup",
+          "duration": 16
+        },
+        {
+          "name": "keydown",
+          "duration": 16
+        },
+        {
+          "name": "keypress",
+          "duration": 16
+        },
+        {
+          "name": "beforeinput",
+          "duration": 16
+        },
+        {
+          "name": "input",
+          "duration": 16
+        },
+        {
+          "name": "keyup",
+          "duration": 16
+        }
+      ],
+      "resources": [
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/051742360c26797e-s.p.1bkzbscqrt8rl.woff2",
+          "transferSize": 31640,
+          "encodedBodySize": 31340
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/118b6ed7ac256a99-s.p.3btzg3pbxiu1o.woff2",
+          "transferSize": 11052,
+          "encodedBodySize": 10752
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/1e23e5114abf0db3-s.p.3vomj4ys718n3.woff2",
+          "transferSize": 10988,
+          "encodedBodySize": 10688
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/34da6f6f5d0d57a5-s.p.3j785ygmx2sxp.woff2",
+          "transferSize": 7100,
+          "encodedBodySize": 6800
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/577b8067601e9847-s.p.17uyqh1z65ij2.woff2",
+          "transferSize": 7364,
+          "encodedBodySize": 7064
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/75affa71d1e2f6a7-s.p.17-aodiw50953.woff2",
+          "transferSize": 35240,
+          "encodedBodySize": 34940
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/876b05e81fb36bf6-s.p.3-cnw-vwwbh1_.woff2",
+          "transferSize": 7436,
+          "encodedBodySize": 7136
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/89d4f80f11029d6d-s.p.3y48j16vw3ns0.woff2",
+          "transferSize": 10800,
+          "encodedBodySize": 10500
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/a244653d74e7372f-s.p.3zj8sbbtpwle6.woff2",
+          "transferSize": 7200,
+          "encodedBodySize": 6900
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/c47649aa31f9e140-s.p.3lxpqujs87tck.woff2",
+          "transferSize": 34964,
+          "encodedBodySize": 34664
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/media/c750adf2ddf22b70-s.p.1j3epi4sx1jkp.woff2",
+          "transferSize": 10808,
+          "encodedBodySize": 10508
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/1nctas23f3atj.css",
+          "transferSize": 10705,
+          "encodedBodySize": 10405
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/1ckvzn7sfprko.js",
+          "transferSize": 2335,
+          "encodedBodySize": 2035
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/0jb0yw7r7g08b.js",
+          "transferSize": 8840,
+          "encodedBodySize": 8540
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/2-aubugw8unjj.js",
+          "transferSize": 72226,
+          "encodedBodySize": 71926
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/2tpeyb18i5sct.js",
+          "transferSize": 45974,
+          "encodedBodySize": 45674
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+          "transferSize": 4240,
+          "encodedBodySize": 3940
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/0wuj0ovm5wvbz.js",
+          "transferSize": 5274,
+          "encodedBodySize": 4974
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/2hv2ro0gmlfok.js",
+          "transferSize": 2029,
+          "encodedBodySize": 1729
+        },
+        {
+          "name": "http://127.0.0.1:3100/_next/static/chunks/1hper67x00tnc.js",
+          "transferSize": 14516,
+          "encodedBodySize": 14216
+        },
+        {
+          "name": "http://127.0.0.1:3100/_vercel/insights/script.js",
+          "transferSize": 300,
+          "encodedBodySize": 0
+        }
+      ],
+      "preloads": [
+        "http://127.0.0.1:3100/_next/static/media/051742360c26797e-s.p.1bkzbscqrt8rl.woff2",
+        "http://127.0.0.1:3100/_next/static/media/118b6ed7ac256a99-s.p.3btzg3pbxiu1o.woff2",
+        "http://127.0.0.1:3100/_next/static/media/1e23e5114abf0db3-s.p.3vomj4ys718n3.woff2",
+        "http://127.0.0.1:3100/_next/static/media/34da6f6f5d0d57a5-s.p.3j785ygmx2sxp.woff2",
+        "http://127.0.0.1:3100/_next/static/media/577b8067601e9847-s.p.17uyqh1z65ij2.woff2",
+        "http://127.0.0.1:3100/_next/static/media/75affa71d1e2f6a7-s.p.17-aodiw50953.woff2",
+        "http://127.0.0.1:3100/_next/static/media/876b05e81fb36bf6-s.p.3-cnw-vwwbh1_.woff2",
+        "http://127.0.0.1:3100/_next/static/media/89d4f80f11029d6d-s.p.3y48j16vw3ns0.woff2",
+        "http://127.0.0.1:3100/_next/static/media/a244653d74e7372f-s.p.3zj8sbbtpwle6.woff2",
+        "http://127.0.0.1:3100/_next/static/media/c47649aa31f9e140-s.p.3lxpqujs87tck.woff2",
+        "http://127.0.0.1:3100/_next/static/media/c750adf2ddf22b70-s.p.1j3epi4sx1jkp.woff2"
+      ]
+    }
+  ],
+  "generated": [
+    {
+      "path": ".next\\static\\chunks\\0cz1d0mv5g_q7.js",
+      "bytes": 112594
+    },
+    {
+      "path": ".next\\static\\chunks\\0jb0yw7r7g08b.js",
+      "bytes": 32066
+    },
+    {
+      "path": ".next\\static\\chunks\\0wuj0ovm5wvbz.js",
+      "bytes": 17730
+    },
+    {
+      "path": ".next\\static\\chunks\\1ckvzn7sfprko.js",
+      "bytes": 5584
+    },
+    {
+      "path": ".next\\static\\chunks\\1hper67x00tnc.js",
+      "bytes": 42098
+    },
+    {
+      "path": ".next\\static\\chunks\\1tq6ppe__m8m-.js",
+      "bytes": 14090
+    },
+    {
+      "path": ".next\\static\\chunks\\2-aubugw8unjj.js",
+      "bytes": 229627
+    },
+    {
+      "path": ".next\\static\\chunks\\2hv2ro0gmlfok.js",
+      "bytes": 3544
+    },
+    {
+      "path": ".next\\static\\chunks\\2tpeyb18i5sct.js",
+      "bytes": 166052
+    },
+    {
+      "path": ".next\\static\\chunks\\turbopack-3-ry682tkyiqk.js",
+      "bytes": 10030
+    },
+    {
+      "path": ".next\\static\\gwHBSWENVTjR8ndHaibto\\_buildManifest.js",
+      "bytes": 219
+    },
+    {
+      "path": ".next\\static\\gwHBSWENVTjR8ndHaibto\\_clientMiddlewareManifest.js",
+      "bytes": 96
+    },
+    {
+      "path": ".next\\static\\gwHBSWENVTjR8ndHaibto\\_ssgManifest.js",
+      "bytes": 80
+    },
+    {
+      "path": ".next\\static\\media\\04c5164763c40239-s.1kd-r_s9smv5m.woff2",
+      "bytes": 1664
+    },
+    {
+      "path": ".next\\static\\media\\051742360c26797e-s.p.1bkzbscqrt8rl.woff2",
+      "bytes": 31340
+    },
+    {
+      "path": ".next\\static\\media\\07bc3d3e69c8b6e8-s.0h71b1gd0-8_7.woff2",
+      "bytes": 9868
+    },
+    {
+      "path": ".next\\static\\media\\118b6ed7ac256a99-s.p.3btzg3pbxiu1o.woff2",
+      "bytes": 10752
+    },
+    {
+      "path": ".next\\static\\media\\1e23e5114abf0db3-s.p.3vomj4ys718n3.woff2",
+      "bytes": 10688
+    },
+    {
+      "path": ".next\\static\\media\\26f284dcc38c84c0-s.3hlisc-pwq13z.woff2",
+      "bytes": 8892
+    },
+    {
+      "path": ".next\\static\\media\\34da6f6f5d0d57a5-s.p.3j785ygmx2sxp.woff2",
+      "bytes": 6800
+    },
+    {
+      "path": ".next\\static\\media\\5128e7653d6f3744-s.1858_xfzcanvy.woff2",
+      "bytes": 3944
+    },
+    {
+      "path": ".next\\static\\media\\577b8067601e9847-s.p.17uyqh1z65ij2.woff2",
+      "bytes": 7064
+    },
+    {
+      "path": ".next\\static\\media\\5d1ea58cfb9c551d-s.1q140kewwut-u.woff2",
+      "bytes": 3928
+    },
+    {
+      "path": ".next\\static\\media\\5e9c5fb40545fcd2-s.3zvdh294vpi9c.woff2",
+      "bytes": 9736
+    },
+    {
+      "path": ".next\\static\\media\\651aaf1801011892-s.357dd_6abeqge.woff2",
+      "bytes": 32672
+    },
+    {
+      "path": ".next\\static\\media\\6a5386fd6038edbe-s.3_z45zcoc-xoz.woff2",
+      "bytes": 11596
+    },
+    {
+      "path": ".next\\static\\media\\75affa71d1e2f6a7-s.p.17-aodiw50953.woff2",
+      "bytes": 34940
+    },
+    {
+      "path": ".next\\static\\media\\7e7f32a39836f228-s.0-oo9_1x_xmvg.woff2",
+      "bytes": 6800
+    },
+    {
+      "path": ".next\\static\\media\\7ff43f20b4a94066-s.2oiv5hw7w39w8.woff2",
+      "bytes": 3972
+    },
+    {
+      "path": ".next\\static\\media\\876b05e81fb36bf6-s.p.3-cnw-vwwbh1_.woff2",
+      "bytes": 7136
+    },
+    {
+      "path": ".next\\static\\media\\89d4f80f11029d6d-s.p.3y48j16vw3ns0.woff2",
+      "bytes": 10500
+    },
+    {
+      "path": ".next\\static\\media\\8b4ed0a90d903ab5-s.44dak0sams9f0.woff2",
+      "bytes": 19572
+    },
+    {
+      "path": ".next\\static\\media\\91bd2e40df15814e-s.19s5evoqhirey.woff2",
+      "bytes": 1644
+    },
+    {
+      "path": ".next\\static\\media\\a244653d74e7372f-s.p.3zj8sbbtpwle6.woff2",
+      "bytes": 6900
+    },
+    {
+      "path": ".next\\static\\media\\a2947afc6a06879b-s.1gyfqm5yhhzs7.woff2",
+      "bytes": 13216
+    },
+    {
+      "path": ".next\\static\\media\\a63431c4ac64ea8b-s.386o_ri1vb0yv.woff2",
+      "bytes": 9364
+    },
+    {
+      "path": ".next\\static\\media\\c47649aa31f9e140-s.p.3lxpqujs87tck.woff2",
+      "bytes": 34664
+    },
+    {
+      "path": ".next\\static\\media\\c5ef4f45c466146b-s.2ziap8r8vixmb.woff2",
+      "bytes": 3924
+    },
+    {
+      "path": ".next\\static\\media\\c750adf2ddf22b70-s.p.1j3epi4sx1jkp.woff2",
+      "bytes": 10508
+    },
+    {
+      "path": ".next\\static\\media\\d1bdedfd2fe13894-s.0m229dhbrkwlu.woff2",
+      "bytes": 9908
+    },
+    {
+      "path": ".next\\static\\media\\d5ac005905e340fc-s.24ikpou2wpz2l.woff2",
+      "bytes": 9668
+    },
+    {
+      "path": ".next\\static\\media\\fa39153a3fc630ba-s.36fqqi66-3tjb.woff2",
+      "bytes": 5872
+    }
+  ]
+}
