@@ -77,6 +77,18 @@ Type-check without building: `npx tsc --noEmit`.
 
 Lint: `npm run lint` (oxlint, config in `.oxlintrc.json`).
 
+### Regenerating brand assets
+
+`public/og-image.png`, `app/icon.png`, and `app/apple-icon.png` are rendered
+deterministically from the live page's design tokens and loaded fonts:
+
+```bash
+npm run build
+npm run start -- --hostname 127.0.0.1 --port 3100   # in another terminal
+node scripts/generate-brand-assets.mjs
+npm run build   # re-register the app icon conventions
+```
+
 ## Docker Deployment
 
 ```bash

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Archivo, Hanken_Grotesk, JetBrains_Mono, Kanit } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { PERSON_SCHEMA, SITE_URL, serializeJsonLd } from "@/lib/site";
 import "./globals.css";
 
 // Archivo — display. Wide grotesque with strong weight contrast; not on the
@@ -33,11 +34,11 @@ const kanit = Kanit({
   display: "swap",
 });
 
-const SITE_URL = "https://portfolio-sigma-ashy-51.vercel.app/";
+const SITE_TITLE = "Watchara Tongyodpun — Full-Stack Developer";
 
 export const metadata: Metadata = {
   title: {
-    default: "Watchara Tongyodpun — Full-Stack Developer",
+    default: SITE_TITLE,
     template: "%s — Watchara Tongyodpun",
   },
   description:
@@ -65,17 +66,17 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: SITE_URL,
-    title: "Watchara Tongyodpun — Full-Stack Developer",
+    title: SITE_TITLE,
     description:
       "Full-stack developer building systems across Angular, Vue, .NET, and Java Spring Boot. Selected work and skills.",
     siteName: "Watchara Tongyodpun",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Watchara Tongyodpun — Developer Portfolio" }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630, type: "image/png", alt: "Watchara Tongyodpun — Developer Portfolio" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Watchara Tongyodpun — Full-Stack Developer",
+    title: SITE_TITLE,
     description: "Full-stack developer. Selected work, skills, and contact.",
-    images: ["/og-image.jpg"],
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Watchara Tongyodpun — Developer Portfolio" }],
   },
   robots: {
     index: true,
@@ -126,6 +127,10 @@ export default function RootLayout({
           Skip to content
         </a>
         {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(PERSON_SCHEMA) }}
+        />
         <Analytics />
       </body>
     </html>
