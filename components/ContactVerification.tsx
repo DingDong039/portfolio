@@ -26,7 +26,7 @@ export default function ContactVerification({ onToken, resetVersion }: { onToken
   const [failedFor, setFailedFor] = useState(-1);
   const [scriptAttempt, setScriptAttempt] = useState(0);
   const [theme, setTheme] = useState<"light" | "dark">(() =>
-    document.documentElement.classList.contains("dark") ? "dark" : "light");
+    typeof document === "undefined" ? "light" : document.documentElement.classList.contains("dark") ? "dark" : "light");
   const sitekey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY?.trim();
   const failed = failedFor === resetVersion;
 
