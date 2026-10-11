@@ -9,6 +9,7 @@ import { useEffect, useRef } from "react";
  * change while the page is open — detaches everything and hides the mark.
  */
 export default function ScrollProgress() {
+  const railRef = useRef<HTMLDivElement>(null);
   const barRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -34,7 +35,7 @@ export default function ScrollProgress() {
     };
     const sync = () => {
       detach();
-      if (barRef.current) barRef.current.parentElement!.hidden = media.matches;
+      if (railRef.current) railRef.current.hidden = media.matches;
       if (!media.matches) {
         active = true;
         window.addEventListener("scroll", queue, { passive: true });
@@ -52,6 +53,8 @@ export default function ScrollProgress() {
 
   return (
     <div
+      ref={railRef}
+      data-scroll-rail
       className="fixed top-0 left-0 right-0 z-[var(--z-nav)] h-[2px] bg-transparent pointer-events-none"
       aria-hidden="true"
     >

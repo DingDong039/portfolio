@@ -48,18 +48,16 @@ export default function Navigation() {
     return unsubscribe;
   }, []);
 
-  // Open the native <dialog>; showModal() yields focus trap, scroll lock,
-  // and Escape for free. Backdrop-click-to-close is wired imperatively below so
-  // the dialog element itself carries no interactive-handler JSX prop.
+  // Open/close the native <dialog>; showModal() yields focus trap, scroll lock,
+  // and Escape for free. Every close funnels through the dialog's own `close`
+  // event into handleDialogClose (state sync + focus policy in one place).
+  // Backdrop-click-to-close is wired imperatively below so the dialog element
+  // itself carries no interactive-handler JSX prop.
   const openMenu = () => {
     setOpen(true);
     dialogRef.current?.showModal();
   };
-  const closeMenu = (returnFocus = true) => {
-    setOpen(false);
-    dialogRef.current?.close();
-    if (returnFocus) menuBtnRef.current?.focus();
-  };
+  const closeMenu = () => dialogRef.current?.close();
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -81,7 +79,6 @@ export default function Navigation() {
   const selectDestination = (event: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     destinationRef.current = id;
-    setOpen(false);
     dialogRef.current?.close();
     frameRef.current = requestAnimationFrame(() => {
       frameRef.current = 0;

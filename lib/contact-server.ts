@@ -1,4 +1,4 @@
-import { validateContactFields } from "./contact-contract";
+import { isValidEmail } from "./contact-contract";
 export type ContactConfig = { resendApiKey: string; recipient: string; turnstileSecret: string; allowedHostnames: string[] };
 export function getContactConfig(): ContactConfig | null {
   const resendApiKey = process.env.RESEND_API_KEY?.trim();
@@ -6,7 +6,7 @@ export function getContactConfig(): ContactConfig | null {
   const turnstileSecret = process.env.TURNSTILE_SECRET_KEY?.trim();
   const raw = process.env.TURNSTILE_ALLOWED_HOSTNAMES;
   if (!resendApiKey || !recipient || !turnstileSecret || !raw) return null;
-  if (!validateContactFields({ name: "config", email: recipient, subject: "config", message: "config" }).ok) return null;
+  if (!isValidEmail(recipient)) return null;
   const allowedHostnames = raw.split(",").map(x => x.trim().toLowerCase());
   const hostPattern = /^(?:localhost|[a-z0-9](?:[a-z0-9.-]*[a-z0-9])?)$/;
   if (allowedHostnames.some(x => !hostPattern.test(x) || x.includes("..") || x.split(".").some(label => !label || label.startsWith("-") || label.endsWith("-")))) return null;

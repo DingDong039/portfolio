@@ -7,6 +7,7 @@ import Reveal from "./Reveal";
 import SectionHeader from "./SectionHeader";
 import ContactVerification from "./ContactVerification";
 import { CONTACT_LIMITS, validateContactFields, type ContactFields, type FieldErrors } from "@/lib/contact-contract";
+import { SITE_EMAIL, SITE_GITHUB_URL, SITE_LINKEDIN_URL } from "@/lib/site";
 
 type Status = "idle" | "success" | "error";
 
@@ -36,13 +37,14 @@ type Channel = {
   external?: boolean;
 };
 
-// Module scope — static content, not rebuilt per render (C11).
+// Module scope — static content, not rebuilt per render (C11). Identity
+// values come from lib/site.ts so they never drift from the schema/metadata.
 const CHANNELS: Channel[] = [
-  { Icon: Mail, label: "Email", value: "watchara.ddev@gmail.com", href: "mailto:watchara.ddev@gmail.com" },
+  { Icon: Mail, label: "Email", value: SITE_EMAIL, href: `mailto:${SITE_EMAIL}` },
   { Icon: Phone, label: "Phone", value: "+66 65-701-9971", href: "tel:+66657019971" },
   { Icon: MapPin, label: "Location", value: "Chatuchak, Bangkok, Thailand" },
-  { Icon: Github, label: "GitHub", value: "/DingDong039", href: "https://github.com/DingDong039", external: true },
-  { Icon: Linkedin, label: "LinkedIn", value: "/in/watchara-t", href: "https://www.linkedin.com/in/watchara-tongyodpun-803866313", external: true },
+  { Icon: Github, label: "GitHub", value: "/DingDong039", href: SITE_GITHUB_URL, external: true },
+  { Icon: Linkedin, label: "LinkedIn", value: "/in/watchara-t", href: SITE_LINKEDIN_URL, external: true },
 ];
 
 const EMPTY_FIELDS: ContactFields = { name: "", email: "", subject: "", message: "" };
@@ -52,15 +54,26 @@ function focusFirstError(errors: FieldErrors, fieldIds: Record<keyof ContactFiel
   if (key) document.getElementById(fieldIds[key])?.focus();
 }
 
+function readServerFieldErrors(result: unknown): FieldErrors {
+  if (!result || typeof result !== "object" || !("fieldErrors" in result) || !result.fieldErrors || typeof result.fieldErrors !== "object") return {};
+  const fields = result.fieldErrors as Record<string, unknown>;
+  const errors: FieldErrors = {};
+  for (const key of Object.keys(CONTACT_LIMITS) as (keyof ContactFields)[])
+    if (typeof fields[key] === "string" && fields[key].length <= 200) errors[key] = fields[key];
+  return errors;
+}
+
 export default function Contact() {
   const [formData, setFormData] = useState<ContactFields>(EMPTY_FIELDS);
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState("");
-  const [website, setWebsite] = useState("");
   const [turnstileToken, setTurnstileToken] = useState("");
   const [resetVersion, setResetVersion] = useState(0);
   const qrDialogRef = useRef<HTMLDialogElement>(null);
+  // Honeypot stays uncontrolled — only bots ever type into it; its value is
+  // read once at submit.
+  const honeypotRef = useRef<HTMLInputElement>(null);
   // dedicated busy flag for the async submit — a ref closes the re-entry window
   // synchronously (double-submit test), state drives the disabled UI.
   const submittingRef = useRef(false);
@@ -109,15 +122,6 @@ export default function Contact() {
     focusFirstError(errors, { name: nameId, email: emailId, subject: subjectId, message: messageId });
   }, [isSubmitting, nameId, emailId, subjectId, messageId]);
 
-  function readServerFieldErrors(result: unknown): FieldErrors {
-    if (!result || typeof result !== "object" || !("fieldErrors" in result) || !result.fieldErrors || typeof result.fieldErrors !== "object") return {};
-    const fields = result.fieldErrors as Record<string, unknown>;
-    const errors: FieldErrors = {};
-    for (const key of Object.keys(CONTACT_LIMITS) as (keyof ContactFields)[])
-      if (typeof fields[key] === "string" && fields[key].length <= 200) errors[key] = fields[key];
-    return errors;
-  }
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (submittingRef.current) return; // synchronous guard — closes the double-submit window
@@ -136,7 +140,7 @@ export default function Contact() {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...submitted, website, turnstileToken }),
+        body: JSON.stringify({ ...submitted, website: honeypotRef.current?.value ?? "", turnstileToken }),
         signal: AbortSignal.timeout(15000),
       });
       const result: unknown = await response.json();
@@ -166,7 +170,6 @@ export default function Contact() {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    if (e.target.name === "website") { setWebsite(e.target.value); return; }
     setFormData({ ...formData, [e.target.name]: e.target.value });
     // Editing a field clears its own error; the attempt-level banner clears on
     // the next submit.
@@ -262,8 +265,7 @@ export default function Contact() {
                     bots that fill it are rejected server-side. */}
                 <div aria-hidden="true" className="hidden">
                   <label htmlFor={websiteId}>Website</label>
-                  <input id={websiteId} name="website" type="text" tabIndex={-1} autoComplete="off"
-                    value={website} onChange={handleChange} />
+                  <input id={websiteId} name="website" type="text" tabIndex={-1} autoComplete="off" ref={honeypotRef} />
                 </div>
 
                 <ContactVerification onToken={setTurnstileToken} resetVersion={resetVersion} />

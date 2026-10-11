@@ -37,7 +37,7 @@ it("does not render React again for scroll updates", () => {
 it("hides the rail when reduced motion changes after mount", () => {
   render(<ScrollProgress />);
   act(() => changeReducedMotion(true));
-  expect(document.querySelector<HTMLElement>("[data-scroll-progress]")!.parentElement!.hidden).toBe(true);
+  expect(document.querySelector<HTMLElement>("[data-scroll-rail]")!.hidden).toBe(true);
   expect(frames.size).toBe(0);
 });
 
@@ -69,7 +69,7 @@ it("updates on resize", () => {
 it("stays hidden with no listeners when mounted under reduced motion", () => {
   reduced = true;
   render(<ScrollProgress />);
-  expect(document.querySelector<HTMLElement>("[data-scroll-progress]")!.parentElement!.hidden).toBe(true);
+  expect(document.querySelector<HTMLElement>("[data-scroll-rail]")!.hidden).toBe(true);
   Object.defineProperty(window, "scrollY", { configurable: true, value: 1000 });
   act(() => { window.dispatchEvent(new Event("scroll")); flushAnimationFrames(); });
   expect(frames.size).toBe(0);

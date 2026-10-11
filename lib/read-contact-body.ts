@@ -1,11 +1,14 @@
 import type { ContactCode } from "./contact-contract";
+// One streamed-body cap, used by both the header pre-check and the
+// chunk-counting loop below — the two gates must always agree.
+const MAX_BODY_BYTES = 65536;
 export class BodyError extends Error {
   constructor(public status: number, public code: ContactCode) { super(code); }
 }
 export async function readContactBody(request: Request): Promise<unknown> {
   if (request.headers.get("content-type")?.split(";")[0].trim().toLowerCase() !== "application/json")
     throw new BodyError(415, "UNSUPPORTED_MEDIA_TYPE");
-  if (Number(request.headers.get("content-length")) > 65536) throw new BodyError(413, "REQUEST_TOO_LARGE");
+  if (Number(request.headers.get("content-length")) > MAX_BODY_BYTES) throw new BodyError(413, "REQUEST_TOO_LARGE");
   const reader = request.body?.getReader();
   if (!reader) throw new BodyError(400, "INVALID_REQUEST");
   const chunks: Uint8Array[] = []; let size = 0;
@@ -14,7 +17,7 @@ export async function readContactBody(request: Request): Promise<unknown> {
       // oxlint-disable-next-line eslint(no-await-in-loop) -- sequential reads are the size cap: reading ahead in parallel could bypass the 64 KiB limit
       const chunk = await reader.read(); if (chunk.done) break;
       size += chunk.value.byteLength;
-      if (size > 65536) { await reader.cancel(); throw new BodyError(413, "REQUEST_TOO_LARGE"); }
+      if (size > MAX_BODY_BYTES) { await reader.cancel(); throw new BodyError(413, "REQUEST_TOO_LARGE"); }
       chunks.push(chunk.value);
     }
   } finally { reader.releaseLock(); }

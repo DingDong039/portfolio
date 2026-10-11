@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Script from "next/script";
+import { SITE_EMAIL } from "@/lib/site";
 
 // Local typing for Cloudflare's explicit-render API — deliberately not a
 // third-party React wrapper, and not attached to any shared ambient file.
@@ -9,7 +10,7 @@ type WidgetOptions = { sitekey: string; action: "contact"; theme: "light" | "dar
   callback: (token: string) => void; "expired-callback": () => void; "error-callback": () => void };
 declare global { interface Window { turnstile?: { render: (container: HTMLElement, options: WidgetOptions) => string; remove: (id: string) => void } } }
 
-const DIRECT_EMAIL = "mailto:watchara.ddev@gmail.com";
+const DIRECT_EMAIL = `mailto:${SITE_EMAIL}`;
 
 export default function ContactVerification({ onToken, resetVersion }: { onToken: (token: string) => void; resetVersion: number }) {
   const containerRef = useRef<HTMLDivElement>(null);

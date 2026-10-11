@@ -34,8 +34,7 @@ for (const theme of ["light", "dark"] as const) {
     await page.goto("/");
     const ratios = await page.evaluate(probeScript);
     for (const [pair, value] of Object.entries(ratios)) {
-      const threshold = pair.startsWith("--ember/") || pair.startsWith("--accent/") || pair === "placeholder/bg" ? 4.5 : 4.5;
-      expect(Number(value.ratio), `${theme} ${pair} = ${value.ratio} (${value.color} on ${value.background})`).toBeGreaterThanOrEqual(threshold);
+      expect(Number(value.ratio), `${theme} ${pair} = ${value.ratio} (${value.color} on ${value.background})`).toBeGreaterThanOrEqual(4.5);
     }
     await expect(page.locator("h1 [lang=th]")).toHaveText("วัชระ ทองยอดพันธ์");
   });
