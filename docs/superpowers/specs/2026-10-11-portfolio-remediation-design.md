@@ -1,7 +1,7 @@
 # Portfolio remediation design
 
 Date: 2026-10-11 (Asia/Bangkok)
-Status: Draft for written-spec review. Implementation and implementation-plan execution are not approved by this document.
+Status: Written spec approved by the user on 2026-10-11. Implementation plans are being prepared; execution awaits plan review and execution-method selection.
 Baseline: `e4a5f26` in `F:\Dev\WorkShop\portfolio`.
 
 ## Intent and approved scope
@@ -38,6 +38,8 @@ Every review item receives one disposition: implement a correction, implement an
 - No project CI workflow, robots route, sitemap route, health route, manifest, or Person JSON-LD was found. A favicon and robots meta tags already exist.
 - Package manifest and lockfile root declarations match, but installed Next.js is 16.3.5 and Resend is 6.28.1, older than manifest minimums 16.3.8 and 6.32.0. Earlier passing lint/type-check results are checkout checks, not verification of a clean lockfile install.
 - CRLF exploitation, production abuse, Safari focus behavior, Docker runtime failure, and field Core Web Vitals have not been demonstrated.
+
+Planning-time context update: concurrent workspace edits subsequently updated Next to `^16.4.0`, Resend to `^6.32.1`, other dependency declarations/lockfile, Footer's purity suppression, and `next.config.ts` to partial prefetching plus unconditional standalone output. The facts above describe the reviewed baseline, not proof about these newer edits. Preserve those edits, use the actual clean-installed starting state for measurements, and evaluate the current Vercel adapter/standalone behavior before proposing a correction; do not restore the historical workaround automatically.
 
 ## Workstream A: contact correctness and abuse prevention
 
@@ -159,7 +161,7 @@ Validate against `npm ci` from the tracked lockfile rather than the stale instal
 
 Use a small necessary test toolchain: Vitest for shared validation/API/provider-mocked/component behaviors, React Testing Library with a DOM environment for form/widget interactions, and Playwright for built-page keyboard, metadata, and responsive checks. Pin reproducible dev dependencies and update the lockfile together. Tests must call the real route handler and actual form components; do not repeat the earlier source-string mock harness as the durable regression test.
 
-Add `.github/workflows/ci.yml` on pull requests and pushes with read-only repository permissions, Node 24, `npm ci`, oxlint, type-check, unit/component tests, build, and Chromium smoke tests against the production server. Use dummy local configuration in tests, no real secrets or email sends. Preserve the existing Vercel/standalone conditional until separate evidence proves it safe to remove.
+Add `.github/workflows/ci.yml` on pull requests and pushes with read-only repository permissions, Node 24, `npm ci`, oxlint, type-check, unit/component tests, build, and Chromium smoke tests against the production server. Use dummy local configuration in tests, no real secrets or email sends. Preserve the current Vercel/standalone configuration described in the planning-time context update; propose further changes only from evidence for the installed version.
 
 Remove the five unused template SVGs only after a repository-wide reference check: `file.svg`, `globe.svg`, `next.svg`, `vercel.svg`, `window.svg`. Preserve `profile.jpg` even though the current page does not use it, as PRODUCT.md calls its return undecided. For `global.d.ts`, test removing its CSS ambient declaration against the clean-installed compiler and build; retain it if needed. Closure may be a documented retention, not deletion.
 
